@@ -1,0 +1,30 @@
+package com.hongliang.demo.otherActivity;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+
+import com.hongliang.demo.R;
+import com.hongliang.demo.util.MyDialog;
+
+
+/**
+ * Created by whl on 2017/3/19.
+ */
+public class DialogActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_popw);
+
+        findViewById(R.id.bt_popw).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyDialog dialog = new MyDialog(DialogActivity.this);
+                dialog.show();
+
+            }
+        });
+
+    }
+}

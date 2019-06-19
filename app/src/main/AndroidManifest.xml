@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hongliang.demo">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".otherActivity.ItemViewGroupActivity"></activity>
+        <activity android:name=".otherActivity.MViewGroupActivity"></activity>
+        <activity android:name=".otherActivity.MyView"></activity>
+        <activity android:name=".otherActivity.MyViewPageActivity"></activity>
+        <activity android:name=".otherActivity.PopwActivity"></activity>
+        <activity android:name=".otherActivity.QQHealthActivity"></activity>
+        <activity android:name=".otherActivity.SolidViewActivity"></activity>
+        <activity android:name=".otherActivity.Circular2Activity"></activity>
+        <activity android:name=".otherActivity.CurveActivity"></activity>
+        <activity android:name=".otherActivity.DialogActivity"></activity>
+        <activity android:name=".otherActivity.HandlerActivity"></activity>
+        <activity android:name=".otherActivity.CircularActivity"></activity>
+        <activity android:name=".otherActivity.DrawableActivity"></activity>
+        <activity android:name=".otherActivity.ImageViewGroupActivity"></activity>
+
+        <activity android:name=".viewActivity.ViewPagerActivity"></activity>
+        <activity android:name=".viewActivity.TransverseScrollView"></activity>
+        <activity android:name=".viewActivity.TimeViewGroupActivity"></activity>
+        <activity android:name=".viewActivity.ScrollActivity"></activity>
+        <activity android:name=".viewActivity.MenuActivity"></activity>
+        <activity android:name=".viewActivity.LayoutInflateActivity"></activity>
+        <activity android:name=".viewActivity.DrawCircleActivity"></activity>
+        <activity android:name=".viewActivity.DeleteView"></activity>
+        <activity android:name=".viewActivity.ColumnActivity"></activity>
+        <activity android:name=".viewActivity.ClockActivity"></activity>
+        <activity android:name=".viewActivity.BrokenLineActivity"></activity>
+        <activity android:name=".viewActivity.AnimationActivity"></activity>
+
+        <activity android:name=".touchevent.TouchEventActivity"></activity>
+
+        <activity android:name=".viewActivity.SlideActivity"></activity>
+        <activity android:name=".viewActivity.SpeedActivity"></activity>
+
+    </application>
+
+</manifest>
