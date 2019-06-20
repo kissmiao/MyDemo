@@ -42,18 +42,6 @@ public class AidlActivity extends Activity implements View.OnClickListener {
 
     }
 
-    class ServiceConnectionImpl implements ServiceConnection {
-
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            student = StudentAidl.Stub.asInterface(service);
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            student = null;
-        }
-    }
 
 
     public void initView() {
@@ -92,6 +80,20 @@ public class AidlActivity extends Activity implements View.OnClickListener {
         sci = new ServiceConnectionImpl();
         bindService(intent, sci, Service.BIND_AUTO_CREATE);
 
+    }
+
+    class ServiceConnectionImpl implements ServiceConnection {
+
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            //将其转换为service实现类的对象
+            student = StudentAidl.Stub.asInterface(service);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            student = null;
+        }
     }
 
 
