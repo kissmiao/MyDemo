@@ -5,23 +5,36 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 public class StudentService extends Service {
 
     private String[] studentNo = {"张三", "李四", "王五"};
     private IBinder binder;
 
+
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.e("LOG", "-------StudentService---onCreate--");
         binder = new StudentQueryBinder();
     }
+
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
+        Log.e("LOG", "-------StudentService---onBind--");
         return binder;
     }
+
+
+    @Override
+    public void onRebind(Intent intent) {
+        Log.e("LOG", "-------StudentService---onRebind--");
+        super.onRebind(intent);
+    }
+
 
     class StudentQueryBinder extends StudentAidl.Stub {
 
@@ -43,4 +56,17 @@ public class StudentService extends Service {
         }
     }
 
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.e("LOG", "-------StudentService---onStartCommand--");
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+
+    @Override
+    public void onDestroy() {
+        Log.e("LOG", "-------StudentService---onDestroy--");
+        super.onDestroy();
+    }
 }

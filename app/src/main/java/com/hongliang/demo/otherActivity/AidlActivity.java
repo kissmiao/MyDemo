@@ -23,6 +23,14 @@ public class AidlActivity extends Activity implements View.OnClickListener {
      * 发起通信
      */
     private Button mBtStart;
+    /**
+     * 绑定Server
+     */
+    private Button mBtBind;
+    /**
+     * 解除Server绑定
+     */
+    private Button mBtUnBind;
 
 
     @Override
@@ -31,10 +39,6 @@ public class AidlActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_aidl);
         initView();
 
-        Intent intent = new Intent("com.hongliang.demo.StudentService");
-        intent.setPackage("com.hongliang.demo");
-        sci = new ServiceConnectionImpl();
-        bindService(intent, sci, Service.BIND_AUTO_CREATE);
 
     }
 
@@ -47,6 +51,7 @@ public class AidlActivity extends Activity implements View.OnClickListener {
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
+            student = null;
         }
     }
 
@@ -54,6 +59,10 @@ public class AidlActivity extends Activity implements View.OnClickListener {
     public void initView() {
         mBtStart = (Button) findViewById(R.id.bt_start);
         mBtStart.setOnClickListener(this);
+        mBtBind = (Button) findViewById(R.id.bt_bind);
+        mBtBind.setOnClickListener(this);
+        mBtUnBind = (Button) findViewById(R.id.bt_unBind);
+        mBtUnBind.setOnClickListener(this);
     }
 
 
@@ -63,6 +72,35 @@ public class AidlActivity extends Activity implements View.OnClickListener {
             case R.id.bt_start:
                 queryOnClick();
                 break;
+            case R.id.bt_bind:
+                onBind();
+                break;
+            case R.id.bt_unBind:
+                unbindService();
+                break;
+        }
+    }
+
+
+    /**
+     * onBind() 后执行onCreate  onBind
+     * 后再绑定不在再执行
+     */
+    private void onBind() {
+        Intent intent = new Intent("com.hongliang.demo.StudentService");
+        intent.setPackage("com.hongliang.demo");
+        sci = new ServiceConnectionImpl();
+        bindService(intent, sci, Service.BIND_AUTO_CREATE);
+    }
+
+
+    /**
+     * unbindService() 后执行onDestroy
+     */
+    private void unbindService() {
+        if (sci != null) {
+            unbindService(sci);
+            sci = null;
         }
     }
 
@@ -71,6 +109,9 @@ public class AidlActivity extends Activity implements View.OnClickListener {
 
         String name;
         try {
+            if (student == null) {
+                return;
+            }
             name = student.getStudent(1);
             Toast.makeText(this, "sname" + name, Toast.LENGTH_SHORT).show();
         } catch (NumberFormatException e) {
@@ -85,9 +126,7 @@ public class AidlActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (sci != null) {
-            unbindService(sci);
-        }
+        unbindService();
     }
 
 }

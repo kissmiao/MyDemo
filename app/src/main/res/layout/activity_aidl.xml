@@ -5,9 +5,24 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/bt_bind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="绑定Server" />
+
+
+    <Button
         android:id="@+id/bt_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="发起通信" />
+
+
+    <Button
+        android:id="@+id/bt_unBind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="解除Server绑定" />
+
 
 </com.hongliang.demo.view.MViewGroup>
