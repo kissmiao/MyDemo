@@ -53,6 +53,7 @@
         <activity android:name=".otherActivity.AidlActivity"></activity>
 
 
+        <activity android:name=".otherActivity.RefreshViewActivity"></activity>
         <service
             android:name=".StudentService"
             android:process="com.aidl.student.service">

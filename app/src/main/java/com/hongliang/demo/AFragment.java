@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.hongliang.demo.otherActivity.AidlActivity;
+import com.hongliang.demo.otherActivity.RefreshViewActivity;
 import com.hongliang.demo.touchevent.TouchEventActivity;
 import com.hongliang.demo.viewActivity.BrokenLineActivity;
 import com.hongliang.demo.viewActivity.ClockActivity;
@@ -115,6 +116,10 @@ public class AFragment extends Fragment implements View.OnClickListener {
      * 进度
      */
     private Button mBtSpeed;
+    /**
+     * 刷新View
+     */
+    private Button mBtRefresh;
 
     @Nullable
     @Override
@@ -170,6 +175,8 @@ public class AFragment extends Fragment implements View.OnClickListener {
         mBtSlide.setOnClickListener(this);
         mBtSpeed = (Button) view.findViewById(R.id.bt_speed);
         mBtSpeed.setOnClickListener(this);
+        mBtRefresh = (Button) view.findViewById(R.id.bt_refresh);
+        mBtRefresh.setOnClickListener(this);
     }
 
     @Override
@@ -246,6 +253,10 @@ public class AFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.bt_speed:
                 intent = new Intent(getActivity(), SpeedActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.bt_refresh:
+                intent = new Intent(getActivity(), RefreshViewActivity.class);
                 startActivity(intent);
                 break;
         }
