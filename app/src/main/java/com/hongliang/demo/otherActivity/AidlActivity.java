@@ -87,15 +87,16 @@ public class AidlActivity extends Activity implements View.OnClickListener {
      * 后再绑定不在再执行
      */
     private void onBind() {
-        Intent intent = new Intent("com.hongliang.demo.StudentService");
-        intent.setPackage("com.hongliang.demo");
+        Intent intent = new Intent("com.hongliang.demo.StudentService");//Service所设置的action
+        intent.setPackage("com.hongliang.demo");////Service所在的package名称
         sci = new ServiceConnectionImpl();
         bindService(intent, sci, Service.BIND_AUTO_CREATE);
+
     }
 
 
     /**
-     * unbindService() 后执行onDestroy
+     * unbindService() 后执行onUnbind onDestroy
      */
     private void unbindService() {
         if (sci != null) {

@@ -2,6 +2,7 @@ package com.hongliang.demo;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
@@ -21,12 +22,20 @@ public class StudentService extends Service {
     }
 
 
+    @Override
+    public void unbindService(ServiceConnection conn) {
+        Log.e("LOG", "-------StudentService---unbindService--");
+        super.unbindService(conn);
+    }
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         Log.e("LOG", "-------StudentService---onBind--");
         return binder;
     }
+
+
 
 
     @Override
@@ -63,6 +72,18 @@ public class StudentService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        Log.e("LOG", "-------StudentService---onUnbind--");
+        return super.onUnbind(intent);
+    }
+
+    @Override
+    public boolean stopService(Intent name) {
+        Log.e("LOG", "-------StudentService---stopService--");
+        return super.stopService(name);
+    }
 
     @Override
     public void onDestroy() {
