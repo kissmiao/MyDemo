@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.hongliang.demo.otherActivity.AidlActivity;
 import com.hongliang.demo.touchevent.TouchEventActivity;
 import com.hongliang.demo.viewActivity.BrokenLineActivity;
 import com.hongliang.demo.viewActivity.ClockActivity;
@@ -24,190 +25,229 @@ import com.hongliang.demo.viewActivity.TimeViewGroupActivity;
 import com.hongliang.demo.viewActivity.TransverseScrollView;
 import com.hongliang.demo.viewActivity.ViewPagerActivity;
 
-import org.greenrobot.eventbus.EventBus;
-
 
 /**
  * Created by Administrator on 2016/6/28.
  */
-public class AFragment extends Fragment {
+public class AFragment extends Fragment implements View.OnClickListener {
+    private View view;
+    /**
+     * One
+     */
+    private Button mBtnOne;
+    /**
+     * two
+     */
+    private Button mBtnTwo;
+    /**
+     * 点赞
+     */
+    private Button mBtnLoadeLoade;
+    /**
+     * viewPage
+     */
+    private Button mViewPage;
+    /**
+     * 横向滑动
+     */
+    private Button mHomeViewpage;
+    /**
+     * clock
+     */
+    private Button mClock;
+    /**
+     * menu
+     */
+    private Button mMenu;
+    /**
+     * moveview
+     */
+    private Button mMoveview;
+    /**
+     * 删除Veiw
+     */
+    private Button mLoaderimage;
+    /**
+     * touch
+     */
+    private Button mTouch;
+    /**
+     * removeSideslipActivity
+     */
+    private Button mRemoveSideslip;
+    /**
+     * scroll
+     */
+    private Button mScroll;
+    /**
+     * 折线
+     */
+    private Button mBrokenLine;
+    /**
+     * 柱状图
+     */
+    private Button mColumn;
+    /**
+     * 时间选择器
+     */
+    private Button mTime;
+    /**
+     * LayoutInflate
+     */
+    private Button mBtLayoutInflate;
+    /**
+     * recycle
+     */
+    private Button mBtRecycle;
+    /**
+     * eventBus
+     */
+    private Button mEventBus;
+    /**
+     * 时间
+     */
+    private Button mBtTime;
+    /**
+     * 刻度滑动
+     */
+    private Button mBtSlide;
+    /**
+     * 进度
+     */
+    private Button mBtSpeed;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_as, null);
+
         initView(view);
         return view;
     }
 
+
     private void initView(View view) {
-        view.findViewById(R.id.btn_one).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               /* Intent intent = new Intent(getActivity(), OneActivity.class);
-                startActivity(intent);*/
-            }
-        });
-
-
-        view.findViewById(R.id.btn_two).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              /*  Intent intent = new Intent(getActivity(), TwoActivity.class);
-                startActivity(intent);*/
-            }
-        });
-
-        view.findViewById(R.id.btn_loadeLoade).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), DrawCircleActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        view.findViewById(R.id.view_page).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ViewPagerActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        view.findViewById(R.id.home_viewpage).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TransverseScrollView.class);
-                startActivity(intent);
-            }
-        });
-        view.findViewById(R.id.clock).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ClockActivity.class);
-                startActivity(intent);
-            }
-        });
-        view.findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MenuActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        view.findViewById(R.id.moveview).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               /* Intent intent = new Intent(getActivity(), MoveView.class);
-                startActivity(intent);*/
-            }
-        });
-
-        view.findViewById(R.id.loaderimage).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), DeleteView.class);
-                startActivity(intent);
-            }
-        });
-
-        view.findViewById(R.id.touch).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TouchEventActivity.class);
-                startActivity(intent);
-            }
-        });
-        view.findViewById(R.id.remove_sideslip).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              /*  Intent intent = new Intent(getActivity(), RemoveSideslipActivity.class);
-                startActivity(intent);*/
-            }
-        });
-
-        view.findViewById(R.id.scroll).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ScrollActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        view.findViewById(R.id.broken_line).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), BrokenLineActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        view.findViewById(R.id.column).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ColumnActivity.class);
-                startActivity(intent);
-            }
-        });
-        view.findViewById(R.id.time).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               /* Intent intent = new Intent(getActivity(), DataActivity.class);
-                startActivity(intent);*/
-            }
-        });
-
-        view.findViewById(R.id.bt_LayoutInflate).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), LayoutInflateActivity.class);
-                startActivity(intent);
-            }
-        });
-        view.findViewById(R.id.bt_recycle).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-             /*   Intent intent = new Intent(getActivity(), RecycleViewListActivity.class);
-                startActivity(intent);*/
-            }
-        });
-
-        view.findViewById(R.id.event_bus).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               /* Intent intent = new Intent(getActivity(), EventBusActivity.class);
-                startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.slide_in_bottom,0);*/
-            }
-        });
-
-        view.findViewById(R.id.bt_time).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TimeViewGroupActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
-        view.findViewById(R.id.bt_slide).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SlideActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        view.findViewById(R.id.bt_speed).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SpeedActivity.class);
-                startActivity(intent);
-            }
-        });
-
+        mBtnOne = (Button) view.findViewById(R.id.btn_one);
+        mBtnOne.setOnClickListener(this);
+        mBtnTwo = (Button) view.findViewById(R.id.btn_two);
+        mBtnTwo.setOnClickListener(this);
+        mBtnLoadeLoade = (Button) view.findViewById(R.id.btn_loadeLoade);
+        mBtnLoadeLoade.setOnClickListener(this);
+        mViewPage = (Button) view.findViewById(R.id.view_page);
+        mViewPage.setOnClickListener(this);
+        mHomeViewpage = (Button) view.findViewById(R.id.home_viewpage);
+        mHomeViewpage.setOnClickListener(this);
+        mClock = (Button) view.findViewById(R.id.clock);
+        mClock.setOnClickListener(this);
+        mMenu = (Button) view.findViewById(R.id.menu);
+        mMenu.setOnClickListener(this);
+        mMoveview = (Button) view.findViewById(R.id.moveview);
+        mMoveview.setOnClickListener(this);
+        mLoaderimage = (Button) view.findViewById(R.id.loaderimage);
+        mLoaderimage.setOnClickListener(this);
+        mTouch = (Button) view.findViewById(R.id.touch);
+        mTouch.setOnClickListener(this);
+        mRemoveSideslip = (Button) view.findViewById(R.id.remove_sideslip);
+        mRemoveSideslip.setOnClickListener(this);
+        mScroll = (Button) view.findViewById(R.id.scroll);
+        mScroll.setOnClickListener(this);
+        mBrokenLine = (Button) view.findViewById(R.id.broken_line);
+        mBrokenLine.setOnClickListener(this);
+        mColumn = (Button) view.findViewById(R.id.column);
+        mColumn.setOnClickListener(this);
+        mTime = (Button) view.findViewById(R.id.time);
+        mTime.setOnClickListener(this);
+        mBtLayoutInflate = (Button) view.findViewById(R.id.bt_LayoutInflate);
+        mBtLayoutInflate.setOnClickListener(this);
+        mBtRecycle = (Button) view.findViewById(R.id.bt_recycle);
+        mBtRecycle.setOnClickListener(this);
+        mEventBus = (Button) view.findViewById(R.id.event_bus);
+        mEventBus.setOnClickListener(this);
+        mBtTime = (Button) view.findViewById(R.id.bt_time);
+        mBtTime.setOnClickListener(this);
+        mBtSlide = (Button) view.findViewById(R.id.bt_slide);
+        mBtSlide.setOnClickListener(this);
+        mBtSpeed = (Button) view.findViewById(R.id.bt_speed);
+        mBtSpeed.setOnClickListener(this);
     }
 
-
+    @Override
+    public void onClick(View v) {
+        Intent intent = null;
+        switch (v.getId()) {
+            case R.id.btn_one:
+                intent = new Intent(getActivity(), AidlActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_two:
+                break;
+            case R.id.btn_loadeLoade:
+                intent = new Intent(getActivity(), DrawCircleActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.view_page:
+                intent = new Intent(getActivity(), ViewPagerActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.home_viewpage:
+                intent = new Intent(getActivity(), TransverseScrollView.class);
+                startActivity(intent);
+                break;
+            case R.id.clock:
+                intent = new Intent(getActivity(), ClockActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.menu:
+                intent = new Intent(getActivity(), MenuActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.moveview:
+                break;
+            case R.id.loaderimage:
+                intent = new Intent(getActivity(), DeleteView.class);
+                startActivity(intent);
+                break;
+            case R.id.touch:
+                intent = new Intent(getActivity(), TouchEventActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.remove_sideslip:
+                break;
+            case R.id.scroll:
+                intent = new Intent(getActivity(), ScrollActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.broken_line:
+                intent = new Intent(getActivity(), BrokenLineActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.column:
+                intent = new Intent(getActivity(), ColumnActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.time:
+                break;
+            case R.id.bt_LayoutInflate:
+                intent = new Intent(getActivity(), LayoutInflateActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.bt_recycle:
+                break;
+            case R.id.event_bus:
+                break;
+            case R.id.bt_time:
+                intent = new Intent(getActivity(), TimeViewGroupActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.bt_slide:
+                intent = new Intent(getActivity(), SlideActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.bt_speed:
+                intent = new Intent(getActivity(), SpeedActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
 }

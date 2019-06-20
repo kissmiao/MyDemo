@@ -8,7 +8,7 @@
         android:id="@+id/btn_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="One"/>
+        android:text="AIDL"/>
 
     <Button
         android:id="@+id/btn_two"

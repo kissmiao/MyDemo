@@ -50,6 +50,19 @@
         <activity android:name=".viewActivity.SlideActivity"></activity>
         <activity android:name=".viewActivity.SpeedActivity"></activity>
 
+        <activity android:name=".otherActivity.AidlActivity"></activity>
+
+
+        <service
+            android:name=".StudentService"
+            android:process="com.aidl.student.service">
+            <intent-filter>
+                <action android:name="com.hongliang.demo.StudentService" />
+                <category android:name="android.intent.category.DEFAULT"></category>
+
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>
