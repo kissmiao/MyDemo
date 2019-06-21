@@ -1,38 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.hongliang.demo.view.MViewGroup
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<com.hongliang.demo.view.MViewGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
         android:id="@+id/bt_handler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Handler"
-        />
+        android:text="Handler" />
 
     <Button
         android:id="@+id/bt_postView"
         android:layout_width="wrap_content"
-        android:text="postView"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="postView" />
 
-    <Button
-        android:id="@+id/bt_asyncTask"
-        android:text="AsyncTask"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/bt_runOnUiThread"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="runOnUiThread"/>
+        android:text="runOnUiThread" />
 
+
+    <Button
+        android:id="@+id/bt_asyncTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AsyncTask" />
+
+    <Button
+        android:id="@+id/bt_asyncTask_clean"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="取消AsyncTask" />
 
     <EditText
         android:id="@+id/et_data"
-        android:hint="更新UI"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="更新UI" />
+
+    <ProgressBar
+        android:layout_below="@+id/b_progressBar"
+        android:id="@+id/progress_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:progress="0"
+        android:max="100"
+        style="?android:attr/progressBarStyleHorizontal"/>
+
 
 </com.hongliang.demo.view.MViewGroup>
