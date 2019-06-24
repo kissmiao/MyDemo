@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.hongliang.demo.otherActivity.AidlActivity;
+import com.hongliang.demo.otherActivity.HandlerThreadActivity;
 import com.hongliang.demo.otherActivity.RefreshViewActivity;
 import com.hongliang.demo.touchevent.TouchEventActivity;
 import com.hongliang.demo.viewActivity.BrokenLineActivity;
@@ -121,6 +122,12 @@ public class AFragment extends Fragment implements View.OnClickListener {
      */
     private Button mBtRefresh;
 
+    /**
+     * handlerThread
+     */
+    private Button mBtHandlerThread;
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -177,6 +184,9 @@ public class AFragment extends Fragment implements View.OnClickListener {
         mBtSpeed.setOnClickListener(this);
         mBtRefresh = (Button) view.findViewById(R.id.bt_refresh);
         mBtRefresh.setOnClickListener(this);
+
+        mBtHandlerThread = (Button) view.findViewById(R.id.bt_handler_thread);
+        mBtHandlerThread.setOnClickListener(this);
     }
 
     @Override
@@ -257,6 +267,10 @@ public class AFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.bt_refresh:
                 intent = new Intent(getActivity(), RefreshViewActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.bt_handler_thread:
+                intent = new Intent(getActivity(), HandlerThreadActivity.class);
                 startActivity(intent);
                 break;
         }

@@ -142,4 +142,10 @@
         android:text="刷新View"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/bt_handler_thread"
+        android:text="HandlerThread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </com.hongliang.demo.view.MViewGroup>
