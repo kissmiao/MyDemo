@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/pop_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:background="@color/red"
-                android:layout_gravity="bottom"
-    >
+    android:id="@+id/pop_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_gravity="bottom"
+    android:background="@color/text_gray">
 
 
     <RelativeLayout
@@ -25,8 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="本月已有 "
-                android:textSize="16sp"
-                />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/people_num"
@@ -34,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/benyue"
                 android:layout_toRightOf="@+id/benyue"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/register_"
@@ -43,16 +41,14 @@
                 android:layout_alignBaseline="@+id/people_num"
                 android:layout_toRightOf="@+id/people_num"
                 android:text=" 人报名成功"
-                android:textSize="16sp"
-                />
+                android:textSize="16sp" />
         </RelativeLayout>
 
         <View
             android:id="@+id/view_one"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:layout_alignParentBottom="true"
-            />
+            android:layout_alignParentBottom="true" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -67,15 +63,15 @@
             android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:background="@null"
+            android:hint="输入数据"
             android:singleLine="true"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
         <View
             android:id="@+id/view_two"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:layout_alignParentBottom="true"
-            />
+            android:layout_alignParentBottom="true" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -93,14 +89,13 @@
             android:inputType="number"
             android:maxLength="11"
             android:singleLine="true"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
         <View
             android:id="@+id/view_three"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:layout_alignParentBottom="true"
-            />
+            android:layout_alignParentBottom="true" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -115,7 +110,7 @@
             android:layout_height="40dp"
             android:layout_centerInParent="true"
             android:textColor="@color/white"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
     </RelativeLayout>
 
 </RelativeLayout>

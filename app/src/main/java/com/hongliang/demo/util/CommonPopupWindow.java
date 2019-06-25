@@ -51,8 +51,7 @@ public class CommonPopupWindow extends PopupWindow {
         this.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
         // 设置ApplayPopupWindow弹出窗体的高
         this.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-        // 设置ApplayPopupWindow弹出窗体可点击
-        this.setFocusable(true);
+
         // 设置SelectPicPopupWindow弹出窗体动画效果
         this.setAnimationStyle(animationStyle);
 
@@ -60,7 +59,14 @@ public class CommonPopupWindow extends PopupWindow {
         ColorDrawable dw = new ColorDrawable(0x40000000);
         // 设置ApplayPopupWindow弹出窗体的背景
         this.setBackgroundDrawable(dw);
+
+        // setOutsideTouchable设置生效的前提是setTouchable(true)和setFocusable(false)
         this.setOutsideTouchable(true);
+
+        // false时PopupWindow不处理返回键，如果弹出PopupWindow后点击返回后直接退出。并且里面Edittext无法获取焦点
+        this.setFocusable(true);
+        // 设置为true之后，PopupWindow内容区域 才可以响应点击事件,默认为true
+        //  this.setTouchable(true);
         this.update();
 
     }
