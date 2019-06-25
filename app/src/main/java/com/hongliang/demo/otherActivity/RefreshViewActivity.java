@@ -68,7 +68,12 @@ public class RefreshViewActivity extends Activity implements View.OnClickListene
          */
         mTask = new MyTask();
 
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
 
+            }
+        });
     }
 
 
@@ -114,8 +119,8 @@ public class RefreshViewActivity extends Activity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_handler:
-                onHandler();
-                break;
+               onHandler();
+
             case R.id.bt_postView:
                 onPostView();
                 break;
@@ -297,6 +302,11 @@ public class RefreshViewActivity extends Activity implements View.OnClickListene
     protected void onDestroy() {
         super.onDestroy();
         handler.removeCallbacksAndMessages(null);
+        if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING) {
+            //cancel方法只是将对应的AsyncTask标记为cancel状态，并没有真正的取消线程的执行。
+            mTask.cancel(true);
+        }
+
 
     }
 }

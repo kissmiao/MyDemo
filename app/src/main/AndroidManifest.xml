@@ -53,6 +53,9 @@
         <activity android:name=".otherActivity.AidlActivity"></activity>
 
 
+
+        <activity android:name=".otherActivity.HandlerThreadActivity"></activity>
+
         <activity android:name=".otherActivity.RefreshViewActivity"></activity>
         <service
             android:name=".StudentService"
@@ -63,6 +66,10 @@
 
             </intent-filter>
         </service>
+
+        <service android:name=".MyIntentServer"></service>
+
+
 
     </application>
 
