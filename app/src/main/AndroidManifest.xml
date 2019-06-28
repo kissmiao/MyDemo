@@ -53,10 +53,10 @@
         <activity android:name=".otherActivity.AidlActivity"></activity>
 
 
-
         <activity android:name=".otherActivity.HandlerThreadActivity"></activity>
 
         <activity android:name=".otherActivity.RefreshViewActivity"></activity>
+
         <service
             android:name=".StudentService"
             android:process="com.aidl.student.service">
@@ -69,6 +69,18 @@
 
         <service android:name=".MyIntentServer"></service>
 
+
+        <service
+            android:name=".aidl.ServerAidl"
+            android:process="com.aidl.NumberManageImpl">
+            <intent-filter>
+                <action android:name="numberManageImpl" />
+                <category android:name="android.intent.category.DEFAULT"></category>
+
+            </intent-filter>
+        </service>
+
+        <service android:name=".MyIntentServer"></service>
 
 
     </application>

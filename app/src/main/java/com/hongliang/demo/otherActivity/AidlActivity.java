@@ -15,10 +15,16 @@ import android.widget.Toast;
 
 import com.hongliang.demo.R;
 import com.hongliang.demo.StudentAidl;
+import com.hongliang.demo.aidl.INumberManage;
+import com.hongliang.demo.aidl.NumberManageImpl;
 
 public class AidlActivity extends Activity implements View.OnClickListener {
     private ServiceConnectionImpl sci;
     private StudentAidl student;
+
+    private INumberManage numberManage;
+
+    private NumberImpl nip;
     /**
      * 发起通信
      */
@@ -43,7 +49,6 @@ public class AidlActivity extends Activity implements View.OnClickListener {
     }
 
 
-
     public void initView() {
         mBtStart = (Button) findViewById(R.id.bt_start);
         mBtStart.setOnClickListener(this);
@@ -57,15 +62,21 @@ public class AidlActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.bt_start:
-                queryOnClick();
-                break;
             case R.id.bt_bind:
-                onBind();
+                //   onBind();
+                onBindNumberImple();
+                break;
+
+            case R.id.bt_start:
+                //   queryOnClick();
+
+                getNumber();
                 break;
             case R.id.bt_unBind:
-                unbindService();
+                // unbindService();
+
                 break;
+
         }
     }
 
@@ -82,6 +93,15 @@ public class AidlActivity extends Activity implements View.OnClickListener {
 
     }
 
+
+    private void onBindNumberImple() {
+        Intent intent = new Intent("numberManageImpl");//Service所设置的action
+        intent.setPackage("com.hongliang.demo");////Service所在的package名称
+        nip = new NumberImpl();
+        bindService(intent, nip, Service.BIND_AUTO_CREATE);
+    }
+
+
     class ServiceConnectionImpl implements ServiceConnection {
 
         @Override
@@ -97,6 +117,21 @@ public class AidlActivity extends Activity implements View.OnClickListener {
     }
 
 
+    class NumberImpl implements ServiceConnection {
+
+
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            numberManage = NumberManageImpl.adInterface(service);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            numberManage = null;
+        }
+    }
+
+
     /**
      * unbindService() 后执行onUnbind onDestroy
      */
@@ -104,6 +139,13 @@ public class AidlActivity extends Activity implements View.OnClickListener {
         if (sci != null) {
             unbindService(sci);
             sci = null;
+        }
+    }
+
+    private void unbindService2() {
+        if (nip != null) {
+            unbindService(nip);
+            nip = null;
         }
     }
 
@@ -126,10 +168,28 @@ public class AidlActivity extends Activity implements View.OnClickListener {
     }
 
 
+    public void getNumber() {
+
+        int number;
+        try {
+            if (numberManage == null) {
+                return;
+            }
+            number = numberManage.getNumber();
+            Toast.makeText(this, "number" + number, Toast.LENGTH_SHORT).show();
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unbindService();
+        unbindService2();
     }
 
 }
