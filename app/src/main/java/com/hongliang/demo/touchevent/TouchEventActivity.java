@@ -23,15 +23,15 @@ public class TouchEventActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("sunzn", "****************");
+                Log.i("sunzn", "onClick****************");
             }
         });
         button.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Log.i("sunzn", "------------");
+                Log.i("sunzn", "onTouch------------");
 
-                return true;
+                return false;
             }
         });
 
