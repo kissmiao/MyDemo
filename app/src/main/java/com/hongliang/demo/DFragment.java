@@ -13,10 +13,23 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.hongliang.demo.viewActivity.Circular2Activity;
+import com.hongliang.demo.viewActivity.CircularActivity;
+import com.hongliang.demo.viewActivity.CurveActivity;
+import com.hongliang.demo.viewActivity.MyViewActivity;
+import com.hongliang.demo.viewActivity.QQHealthActivity;
+import com.hongliang.demo.viewActivity.SolidViewActivity;
 import com.hongliang.demo.view.ScrollView;
+import com.hongliang.demo.viewActivity.BrokenLineActivity;
 import com.hongliang.demo.viewActivity.CanvasActivity;
+import com.hongliang.demo.viewActivity.ClockActivity;
+import com.hongliang.demo.viewActivity.ColumnActivity;
+import com.hongliang.demo.viewActivity.DrawCircleActivity;
+import com.hongliang.demo.viewActivity.MenuActivity;
 import com.hongliang.demo.viewActivity.PaintActivity;
 import com.hongliang.demo.viewActivity.PathActivity;
+import com.hongliang.demo.viewActivity.SlideActivity;
+import com.hongliang.demo.viewActivity.SpeedActivity;
 
 
 /**
@@ -42,6 +55,58 @@ public class DFragment extends Fragment implements View.OnClickListener {
      * Canvas
      */
     private Button mBtCanvas;
+    /**
+     * curve
+     */
+    private Button mBtCurve;
+    /**
+     * 点赞
+     */
+    private Button mBtnLoadeLoade;
+    /**
+     * clock
+     */
+    private Button mClock;
+    /**
+     * menu
+     */
+    private Button mMenu;
+    /**
+     * 折线
+     */
+    private Button mBrokenLine;
+    /**
+     * 柱状图
+     */
+    private Button mColumn;
+    /**
+     * 刻度滑动
+     */
+    private Button mBtSlide;
+    /**
+     * 进度
+     */
+    private Button mBtSpeed;
+    /**
+     * MyVeiw
+     */
+    private Button mBtView;
+    /**
+     * 光晕
+     */
+    private Button mBtSolid;
+    /**
+     * QQ
+     */
+    private Button mQqHealth;
+    /**
+     * Circular
+     */
+    private Button mBtCircular;
+    /**
+     * Circular2
+     */
+    private Button mBtCircular2;
 
     @Nullable
     @Override
@@ -78,6 +143,32 @@ public class DFragment extends Fragment implements View.OnClickListener {
         mBtPaint.setOnClickListener(this);
         mBtCanvas = (Button) view.findViewById(R.id.bt_canvas);
         mBtCanvas.setOnClickListener(this);
+        mBtCurve = (Button) view.findViewById(R.id.bt_curve);
+        mBtCurve.setOnClickListener(this);
+        mBtnLoadeLoade = (Button) view.findViewById(R.id.btn_loadeLoade);
+        mBtnLoadeLoade.setOnClickListener(this);
+        mClock = (Button) view.findViewById(R.id.clock);
+        mClock.setOnClickListener(this);
+        mMenu = (Button) view.findViewById(R.id.menu);
+        mMenu.setOnClickListener(this);
+        mBrokenLine = (Button) view.findViewById(R.id.broken_line);
+        mBrokenLine.setOnClickListener(this);
+        mColumn = (Button) view.findViewById(R.id.column);
+        mColumn.setOnClickListener(this);
+        mBtSlide = (Button) view.findViewById(R.id.bt_slide);
+        mBtSlide.setOnClickListener(this);
+        mBtSpeed = (Button) view.findViewById(R.id.bt_speed);
+        mBtSpeed.setOnClickListener(this);
+        mBtView = (Button) view.findViewById(R.id.bt_view);
+        mBtView.setOnClickListener(this);
+        mBtSolid = (Button) view.findViewById(R.id.bt_solid);
+        mBtSolid.setOnClickListener(this);
+        mQqHealth = (Button) view.findViewById(R.id.qq_health);
+        mQqHealth.setOnClickListener(this);
+        mBtCircular = (Button) view.findViewById(R.id.bt_circular);
+        mBtCircular.setOnClickListener(this);
+        mBtCircular2 = (Button) view.findViewById(R.id.bt_circular2);
+        mBtCircular2.setOnClickListener(this);
     }
 
 
@@ -94,6 +185,47 @@ public class DFragment extends Fragment implements View.OnClickListener {
             case R.id.bt_canvas:
                 startActivity(new Intent(getActivity(), CanvasActivity.class));
                 break;
+            case R.id.bt_curve:
+                startActivity(new Intent(getActivity(), CurveActivity.class));
+                break;
+            case R.id.btn_loadeLoade:
+                startActivity(new Intent(getActivity(), DrawCircleActivity.class));
+                break;
+            case R.id.clock:
+                startActivity(new Intent(getActivity(), ClockActivity.class));
+                break;
+            case R.id.menu:
+                startActivity(new Intent(getActivity(), MenuActivity.class));
+                break;
+            case R.id.broken_line:
+                startActivity( new Intent(getActivity(), BrokenLineActivity.class));
+                break;
+            case R.id.column:
+                startActivity(new Intent(getActivity(), ColumnActivity.class));
+                break;
+            case R.id.bt_slide:
+                startActivity(new Intent(getActivity(), SlideActivity.class));
+                break;
+            case R.id.bt_speed:
+                startActivity(new Intent(getActivity(), SpeedActivity.class));
+                break;
+            case R.id.bt_view:
+                startActivity(new Intent(getActivity(), MyViewActivity.class));
+                break;
+            case R.id.bt_solid:
+                startActivity( new Intent(getActivity(), SolidViewActivity.class));
+                break;
+            case R.id.qq_health:
+                startActivity(new Intent(getActivity(), QQHealthActivity.class));
+                break;
+            case R.id.bt_circular:
+                startActivity(new Intent(getActivity(), CircularActivity.class));
+                break;
+            case R.id.bt_circular2:
+                startActivity(new Intent(getActivity(), Circular2Activity.class));
+                break;
         }
     }
+
+
 }

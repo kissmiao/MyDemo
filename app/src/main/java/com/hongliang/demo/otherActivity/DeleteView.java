@@ -1,4 +1,4 @@
-package com.hongliang.demo.viewActivity;
+package com.hongliang.demo.otherActivity;
 
 import android.app.Activity;
 import android.os.Bundle;

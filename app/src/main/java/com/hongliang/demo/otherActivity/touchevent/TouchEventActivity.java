@@ -1,4 +1,4 @@
-package com.hongliang.demo.touchevent;
+package com.hongliang.demo.otherActivity.touchevent;
 
 import android.app.Activity;
 import android.os.Bundle;

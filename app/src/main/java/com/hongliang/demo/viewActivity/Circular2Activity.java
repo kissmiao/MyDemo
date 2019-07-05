@@ -1,4 +1,4 @@
-package com.hongliang.demo.otherActivity;
+package com.hongliang.demo.viewActivity;
 
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;

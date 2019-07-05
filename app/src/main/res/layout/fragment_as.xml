@@ -16,11 +16,6 @@
         android:layout_height="wrap_content"
         android:text="two"/>
 
-    <Button
-        android:id="@+id/btn_loadeLoade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="点赞"/>
 
     <Button
         android:id="@+id/view_page"
@@ -34,17 +29,7 @@
         android:layout_height="wrap_content"
         android:text="横向滑动"/>
 
-    <Button
-        android:id="@+id/clock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="clock"/>
 
-    <Button
-        android:id="@+id/menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="menu"/>
 
     <Button
         android:id="@+id/moveview"
@@ -79,17 +64,7 @@
         android:text="scroll"/>
 
 
-    <Button
-        android:id="@+id/broken_line"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="折线"/>
 
-    <Button
-        android:id="@+id/column"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="柱状图"/>
 
     <Button
         android:id="@+id/time"
@@ -124,19 +99,7 @@
         android:text="时间"
         />
 
-    <Button
-        android:id="@+id/bt_slide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="刻度滑动"
-        />
 
-    <Button
-        android:id="@+id/bt_speed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="进度"
-        />
     <Button
         android:id="@+id/bt_refresh"
         android:text="刷新View"

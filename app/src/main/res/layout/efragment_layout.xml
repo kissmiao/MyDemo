@@ -3,23 +3,7 @@
                                           android:layout_width="match_parent"
                                           android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/bt_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MyVeiw"></Button>
 
-    <Button
-        android:id="@+id/bt_solid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="光晕"/>
-
-    <Button
-        android:id="@+id/qq_health"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="QQ"/>
 
     <Button
         android:id="@+id/bt_item"
@@ -27,11 +11,6 @@
         android:layout_height="wrap_content"
         android:text="Item"/>
 
-    <Button
-        android:id="@+id/bt_curve"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="curve"/>
 
     <Button
         android:id="@+id/bt_drawable"
@@ -45,17 +24,7 @@
         android:layout_height="wrap_content"
         android:text="ImageViewGroup"/>
 
-    <Button
-        android:id="@+id/bt_circular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Circular"/>
 
-    <Button
-        android:id="@+id/bt_circular2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Circular2"/>
 
     <Button
         android:id="@+id/bt_listView"
