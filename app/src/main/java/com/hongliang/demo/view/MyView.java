@@ -6,6 +6,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Rect;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -15,7 +17,7 @@ import android.view.animation.LinearInterpolator;
 /**
  * Created by whl on 16/6/30.
  */
-public class Mview extends View {
+public class MyView extends View {
 
     private Paint mPaint;
     private Path mPath;
@@ -23,11 +25,12 @@ public class Mview extends View {
     private int mItemWaveLength = 400;
     private int dx;
 
-    public Mview(Context context) {
+
+    public MyView(Context context) {
         super(context);
     }
 
-    public Mview(Context context, AttributeSet attrs) {
+    public MyView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mPath = new Path();
         mPaint = new Paint();
@@ -35,28 +38,18 @@ public class Mview extends View {
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
     }
 
-    public Mview(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-    }
-
-
-    //rQuadTo这个是以moveTo点的坐标为相对点
-    @Override
-    public void draw(Canvas canvas) {
-        super.draw(canvas);
+    private void initPath() {
         mPath.reset();
-        int originY = 300;
-        int halfWaveLen = mItemWaveLength / 2;
+        int originY = 100;
+
         //起始位置向左移动有个波长
         mPath.moveTo(-mItemWaveLength + dx, originY);
 
+        int halfWaveLen = mItemWaveLength / 2;
         //i<=getWidth()+mItemWaveLength   最后画的波长超过屏幕有个波长
         //Y坐标为—50，就是说以前一个点的Y坐标0为起始点，向上移动50
+
         for (int i = -mItemWaveLength; i <= getWidth() + mItemWaveLength; i += mItemWaveLength) {
             mPath.rQuadTo(halfWaveLen / 2, -50, halfWaveLen, 0);
             mPath.rQuadTo(halfWaveLen / 2, 50, halfWaveLen, 0);
@@ -65,10 +58,21 @@ public class Mview extends View {
         mPath.lineTo(getWidth(), getHeight());
         mPath.lineTo(0, getHeight());
         mPath.close();
-
-        canvas.drawPath(mPath, mPaint);
-
     }
+
+
+    public MyView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
+
+    //rQuadTo这个是以moveTo点的坐标为相对点
+    @Override
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
+        canvas.drawPath(mPath, mPaint);
+    }
+
 
     ValueAnimator animator;
 
@@ -83,7 +87,10 @@ public class Mview extends View {
             public void onAnimationUpdate(ValueAnimator animation) {
 
                 dx = (int) animation.getAnimatedValue();
-                postInvalidate();
+
+                Log.i("LOG", "dx"+dx);
+               initPath();
+               postInvalidate();
             }
         });
         animator.start();
@@ -92,12 +99,12 @@ public class Mview extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.i("TAG", "ev" + this.getTop() + "==" + getBottom() + "===" + getLeft() + getRight());
-        Log.i("TAG", "ev" + event.getX() + "===" + event.getY());
-        Log.i("TAG", "ev" + getTranslationX() + "===" + getTranslationY());
-        Log.i("TAG", "ev" + getScaleX() + "===" + getScaleY());
-
-        return super.onTouchEvent(event);
+      /*  Log.i("TAG", "getTop：" + this.getTop() + "==" + getBottom() + "===" + getLeft() + getRight());
+        Log.i("TAG", "getX：" + event.getX() + "===" + event.getY());
+        Log.i("TAG", "getTranslationX：" + getTranslationX() + "===" + getTranslationY());
+        Log.i("TAG", "getScaleX：" + getScaleX() + "===" + getScaleY());*/
+        Log.i("TAG", "getX：" + event.getX() + "===" + event.getY());
+        return true;
 
 
     }

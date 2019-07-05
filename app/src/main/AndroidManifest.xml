@@ -19,7 +19,7 @@
 
         <activity android:name=".otherActivity.ItemViewGroupActivity"></activity>
         <activity android:name=".otherActivity.MViewGroupActivity"></activity>
-        <activity android:name=".otherActivity.MyView"></activity>
+        <activity android:name=".otherActivity.MyViewActivity"></activity>
         <activity android:name=".otherActivity.MyViewPageActivity"></activity>
         <activity android:name=".otherActivity.PopwActivity"></activity>
         <activity android:name=".otherActivity.QQHealthActivity"></activity>

@@ -17,7 +17,7 @@ import com.hongliang.demo.otherActivity.DrawableActivity;
 import com.hongliang.demo.otherActivity.HandlerActivity;
 import com.hongliang.demo.otherActivity.ImageViewGroupActivity;
 import com.hongliang.demo.otherActivity.ItemViewGroupActivity;
-import com.hongliang.demo.otherActivity.MyView;
+import com.hongliang.demo.otherActivity.MyViewActivity;
 import com.hongliang.demo.otherActivity.PopwActivity;
 import com.hongliang.demo.otherActivity.QQHealthActivity;
 import com.hongliang.demo.otherActivity.SolidViewActivity;
@@ -143,7 +143,7 @@ public class EFragment extends Fragment implements View.OnClickListener {
         Intent intent=null;
         switch (v.getId()) {
             case R.id.bt_view:
-                intent = new Intent(getActivity(), MyView.class);
+                intent = new Intent(getActivity(), MyViewActivity.class);
                 startActivity(intent);
                 break;
             case R.id.bt_solid:

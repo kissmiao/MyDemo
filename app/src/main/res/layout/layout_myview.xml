@@ -4,11 +4,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:orientation="vertical">
 
-    <com.hongliang.demo.view.Mview
-        android:id="@+id/myview"
+        <com.hongliang.demo.view.MyView
+            android:id="@+id/myview"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"></com.hongliang.demo.view.MyView>
+
+
+    </LinearLayout>
+
+
+
+    <com.hongliang.demo.view.MyVeiw2
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></com.hongliang.demo.view.Mview>
-
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
