@@ -35,6 +35,15 @@ public class TouchEventActivity extends Activity {
             }
         });
 
+        findViewById(R.id.childs2).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.i("sunzn", "onTouch------------");
+                return false;
+            }
+        });
+
+
 
     }
 
@@ -51,7 +60,7 @@ public class TouchEventActivity extends Activity {
 
     public boolean onTouchEvent(MotionEvent event) {
         Log.i("sunzn", "===A===  onTouchEvent --> " + TouchEventUtil.getTouchAction(event.getAction()));
-        return false;
+        return super.onTouchEvent(event);
     }
 
 }
