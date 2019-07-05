@@ -38,6 +38,8 @@ public class TouchEventChilds2 extends View {
      * @return
      */
     public boolean onTouchEvent(MotionEvent ev) {
+
+
         Log.i("sunzn", "===C2222=== onTouchEvent --> " + TouchEventUtil.getTouchAction(ev.getAction()));
         return super.onTouchEvent(ev);
     }

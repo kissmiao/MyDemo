@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
@@ -88,7 +90,15 @@ public class Mview extends View {
     }
 
 
-    public void stop() {
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Log.i("TAG", "ev" + this.getTop() + "==" + getBottom() + "===" + getLeft() + getRight());
+        Log.i("TAG", "ev" + event.getX() + "===" + event.getY());
+        Log.i("TAG", "ev" + getTranslationX() + "===" + getTranslationY());
+        Log.i("TAG", "ev" + getScaleX() + "===" + getScaleY());
+
+        return super.onTouchEvent(event);
+
 
     }
 
