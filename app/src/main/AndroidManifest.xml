@@ -44,18 +44,16 @@
         <activity android:name=".viewActivity.ClockActivity"></activity>
         <activity android:name=".viewActivity.BrokenLineActivity"></activity>
         <activity android:name=".viewActivity.AnimationActivity"></activity>
-
         <activity android:name=".touchevent.TouchEventActivity"></activity>
-
         <activity android:name=".viewActivity.SlideActivity"></activity>
         <activity android:name=".viewActivity.SpeedActivity"></activity>
-
         <activity android:name=".otherActivity.AidlActivity"></activity>
-
-
         <activity android:name=".otherActivity.HandlerThreadActivity"></activity>
-
         <activity android:name=".otherActivity.RefreshViewActivity"></activity>
+        <activity android:name=".viewActivity.CanvasActivity"></activity>
+        <activity android:name=".viewActivity.PaintActivity"></activity>
+        <activity android:name=".viewActivity.PathActivity"></activity>
+
 
         <service
             android:name=".StudentService"

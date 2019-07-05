@@ -38,7 +38,7 @@ public class BFragment extends Fragment {
 
         vp_fragment_event = (ViewPager) view.findViewById(R.id.vp_fragment_event);
         List<Fragment> list = new ArrayList<>();
-        list.add(new DFargment());
+        list.add(new DFragment());
         list.add(new EFragment());
         PageAdapter adapter = new PageAdapter(getChildFragmentManager(), list, mTitleList);
         vp_fragment_event.setAdapter(adapter);

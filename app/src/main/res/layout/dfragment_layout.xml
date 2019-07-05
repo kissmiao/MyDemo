@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <com.hongliang.demo.view.ScrollView
@@ -20,13 +20,29 @@
     </com.hongliang.demo.view.ScrollView>
 
 
-    <com.hongliang.demo.view.RunningLightView
+    <com.hongliang.demo.view.MViewGroup
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/palegreen"
-        android:ellipsize="none"
-        android:singleLine="true"
-        android:text="11111111112222222222223333333333344444444455555555555566666666677777777777777777777788888888888888899999999999999999"></com.hongliang.demo.view.RunningLightView>
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/bt_path"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Path" />
+
+        <Button
+            android:id="@+id/bt_paint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paint" />
+
+        <Button
+            android:id="@+id/bt_canvas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Canvas" />
+
+    </com.hongliang.demo.view.MViewGroup>
 
 
 </LinearLayout>

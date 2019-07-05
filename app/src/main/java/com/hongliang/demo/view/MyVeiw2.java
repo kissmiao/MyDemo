@@ -1,6 +1,6 @@
 package com.hongliang.demo.view;
 
-import android.animation.ValueAnimator;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -78,6 +78,7 @@ public class MyVeiw2 extends View {
         path2.lineTo(100, 1100);
         path2.close();
         canvas.drawPath(path2, mPaint);
+
     }
 
 
