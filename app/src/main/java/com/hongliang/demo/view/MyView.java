@@ -10,6 +10,7 @@ import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -85,12 +86,9 @@ public class MyView extends View {
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-
                 dx = (int) animation.getAnimatedValue();
-
-                Log.i("LOG", "dx"+dx);
-               initPath();
-               postInvalidate();
+                initPath();
+                postInvalidate();
             }
         });
         animator.start();
@@ -99,14 +97,29 @@ public class MyView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-      /*  Log.i("TAG", "getTop：" + this.getTop() + "==" + getBottom() + "===" + getLeft() + getRight());
-        Log.i("TAG", "getX：" + event.getX() + "===" + event.getY());
+
+        Log.i("TAG", "event.getRawX()：" + event.getRawX() + "===" + event.getRawY());
+        Log.i("TAG", "event.getX()：" + event.getX() + "===" + event.getY());
+
+        Log.i("TAG", "getX：" + getX() + "===" + getY());
+        Log.i("TAG", "getTop：" + getTop() + "==" + getBottom() + "===" + getLeft()+"===" + getRight());
         Log.i("TAG", "getTranslationX：" + getTranslationX() + "===" + getTranslationY());
-        Log.i("TAG", "getScaleX：" + getScaleX() + "===" + getScaleY());*/
-        Log.i("TAG", "getX：" + event.getX() + "===" + event.getY());
+        Log.i("TAG", "getScaleX：" + getScaleX() + "===" + getScaleY());
+
         return true;
 
 
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        return super.onKeyUp(keyCode, event);
     }
 
     @Override

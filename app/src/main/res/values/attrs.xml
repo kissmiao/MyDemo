@@ -21,7 +21,7 @@
         <attr name="attr_4" format="string" />
     </declare-styleable>
 
-    <attr name="ZTV_def_style" format="reference"/>
+    <attr name="ZTV_def_style_arrt" format="reference"/>
 
 
 

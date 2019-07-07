@@ -19,7 +19,7 @@ public class HLTextView extends TextView {
     }
 
     public HLTextView(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs, R.attr.ZTV_def_style);
+        this(context, attrs, R.attr.ZTV_def_style_arrt);
     }
 
     public HLTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {

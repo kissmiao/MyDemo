@@ -14,7 +14,7 @@
         <item name="attr_3">three_AppTheme</item>
         <item name="attr_4">four_AppTheme</item>
 
-        <item name="ZTV_def_style">@style/ZTV_theme_def_style</item>
+      <!--  <item name="ZTV_def_style_arrt">@style/ZTV_def_style_arrt</item>-->
     </style>
 
 
@@ -117,7 +117,7 @@
     </style>
 
 
-    <style name="ZTV_theme_def_style">
+    <style name="ZTV_def_style_arrt">
         <item name="attr_1">one_def_style_art</item>
         <item name="attr_2">two_def_style_art</item>
         <item name="attr_3">three_def_style_art</item>
