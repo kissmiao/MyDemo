@@ -13,22 +13,23 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hongliang.demo.viewActivity.Circular2Activity;
-import com.hongliang.demo.viewActivity.CircularActivity;
-import com.hongliang.demo.viewActivity.CurveActivity;
-import com.hongliang.demo.viewActivity.MyViewActivity;
-import com.hongliang.demo.viewActivity.QQHealthActivity;
-import com.hongliang.demo.viewActivity.SolidViewActivity;
 import com.hongliang.demo.view.ScrollView;
+import com.hongliang.demo.viewActivity.AttributeSetActivity;
 import com.hongliang.demo.viewActivity.BrokenLineActivity;
 import com.hongliang.demo.viewActivity.CanvasActivity;
+import com.hongliang.demo.viewActivity.Circular2Activity;
+import com.hongliang.demo.viewActivity.CircularActivity;
 import com.hongliang.demo.viewActivity.ClockActivity;
 import com.hongliang.demo.viewActivity.ColumnActivity;
+import com.hongliang.demo.viewActivity.CurveActivity;
 import com.hongliang.demo.viewActivity.DrawCircleActivity;
 import com.hongliang.demo.viewActivity.MenuActivity;
+import com.hongliang.demo.viewActivity.MyViewActivity;
 import com.hongliang.demo.viewActivity.PaintActivity;
 import com.hongliang.demo.viewActivity.PathActivity;
+import com.hongliang.demo.viewActivity.QQHealthActivity;
 import com.hongliang.demo.viewActivity.SlideActivity;
+import com.hongliang.demo.viewActivity.SolidViewActivity;
 import com.hongliang.demo.viewActivity.SpeedActivity;
 
 
@@ -107,6 +108,10 @@ public class DFragment extends Fragment implements View.OnClickListener {
      * Circular2
      */
     private Button mBtCircular2;
+    /**
+     * AttributeSet
+     */
+    private Button mBtAttributeSet;
 
     @Nullable
     @Override
@@ -169,6 +174,8 @@ public class DFragment extends Fragment implements View.OnClickListener {
         mBtCircular.setOnClickListener(this);
         mBtCircular2 = (Button) view.findViewById(R.id.bt_circular2);
         mBtCircular2.setOnClickListener(this);
+        mBtAttributeSet = (Button) view.findViewById(R.id.bt_attributeSet);
+        mBtAttributeSet.setOnClickListener(this);
     }
 
 
@@ -198,7 +205,7 @@ public class DFragment extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity(), MenuActivity.class));
                 break;
             case R.id.broken_line:
-                startActivity( new Intent(getActivity(), BrokenLineActivity.class));
+                startActivity(new Intent(getActivity(), BrokenLineActivity.class));
                 break;
             case R.id.column:
                 startActivity(new Intent(getActivity(), ColumnActivity.class));
@@ -213,7 +220,7 @@ public class DFragment extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity(), MyViewActivity.class));
                 break;
             case R.id.bt_solid:
-                startActivity( new Intent(getActivity(), SolidViewActivity.class));
+                startActivity(new Intent(getActivity(), SolidViewActivity.class));
                 break;
             case R.id.qq_health:
                 startActivity(new Intent(getActivity(), QQHealthActivity.class));
@@ -223,6 +230,10 @@ public class DFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.bt_circular2:
                 startActivity(new Intent(getActivity(), Circular2Activity.class));
+                break;
+
+            case R.id.bt_attributeSet:
+                startActivity(new Intent(getActivity(), AttributeSetActivity.class));
                 break;
         }
     }

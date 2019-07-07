@@ -122,6 +122,11 @@
             android:layout_height="wrap_content"
             android:text="Circular2" />
 
+        <Button
+            android:id="@+id/bt_attributeSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AttributeSet" />
 
     </com.hongliang.demo.view.MViewGroup>
 

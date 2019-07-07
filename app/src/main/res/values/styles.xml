@@ -8,6 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
+        <item name="attr_1">one_AppTheme</item>
+        <item name="attr_2">two_AppTheme</item>
+        <item name="attr_3">three_AppTheme</item>
+        <item name="attr_4">four_AppTheme</item>
+
+        <item name="ZTV_def_style">@style/ZTV_theme_def_style</item>
     </style>
 
 
@@ -104,4 +111,23 @@
         <item name="android:colorBackgroundCacheHint">@null</item><!-- 背景缓存颜色 -->
     </style>
 
+    <style name="ZTV_style">
+        <item name="attr_1">one_style</item>
+        <item name="attr_2">two_style</item>
+    </style>
+
+
+    <style name="ZTV_theme_def_style">
+        <item name="attr_1">one_def_style_art</item>
+        <item name="attr_2">two_def_style_art</item>
+        <item name="attr_3">three_def_style_art</item>
+    </style>
+
+
+    <style name="ZTV_default_style">
+        <item name="attr_1">one_default_style_res</item>
+        <item name="attr_2">two_default_style_res</item>
+        <item name="attr_3">three_default_style_res</item>
+        <item name="attr_4">four_default_style_res</item>
+    </style>
 </resources>

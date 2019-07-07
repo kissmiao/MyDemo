@@ -53,7 +53,7 @@
         <activity android:name=".viewActivity.CanvasActivity"></activity>
         <activity android:name=".viewActivity.PaintActivity"></activity>
         <activity android:name=".viewActivity.PathActivity"></activity>
-
+        <activity android:name=".viewActivity.AttributeSetActivity"></activity>
 
         <service
             android:name=".StudentService"
