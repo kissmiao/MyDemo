@@ -27,10 +27,9 @@
         android:singleLine="true"
         android:text="11111111112222222222223333333333344444444455555555555566666666677777777777777777777788888888888888899999999999999999"></com.hongliang.demo.view.RunningLightView>
 
-
     <com.hongliang.demo.view.MyVeiw2
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>
