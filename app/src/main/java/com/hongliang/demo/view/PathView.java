@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -100,7 +99,8 @@ public class PathView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-       /* mPaint.setColor(Color.BLUE);
+
+        mPaint.setColor(Color.BLUE);
         mPaint.setAlpha(255);
 
 
@@ -145,57 +145,42 @@ public class PathView extends View {
         path2.lineTo(300, 800);
         path2.lineTo(100, 1100);
         path2.close();
-        canvas.drawPath(path2, mPaint);*/
+        canvas.drawPath(path2, mPaint);
 
 
-/*
-        Path path = new Path();
-        path.moveTo(100, 100);
-        path.lineTo(300, 100);
-        path.lineTo(100, 300);
-        canvas.drawPath(path, mPaint1);*/
-        int canvasWidth = canvas.getWidth();
-        int deltaX = canvasWidth / 4;
-        int deltaY = (int)(deltaX * 0.75);
+
 
         Paint mPaint = new Paint();             // 创建画笔
         mPaint.setColor(Color.BLACK);           // 画笔颜色 - 黑色
         mPaint.setStyle(Paint.Style.STROKE);    // 填充模式 - 描边
         mPaint.setStrokeWidth(10);              // 边框宽度 - 10
 
-
-      /*  Path path3 = new Path();
-        RectF arcRecF = new RectF(100, 100, 200, 200);
-        path3.addArc(arcRecF, 0, 270);
+        Path path3 = new Path();
+        path3.moveTo(100, 100);
+        path3.lineTo(100, 200);
         canvas.drawPath(path3, mPaint);
 
+        mPaint.reset();
+        mPaint.setColor(Color.BLACK);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(10);
 
         Path path4 = new Path();
-        RectF arcRecF2 = new RectF(100, 300, 300, 400);
-        path4.addArc(arcRecF2, 0, 270);
-        canvas.drawPath(path4, mPaint);*/
-
-
-
-
-     /*   Path path4 = new Path();
         path4.moveTo(100, 100);
         path4.rLineTo(100, 200);
-        canvas.drawPath(path4, mPaint);*/
+        canvas.drawPath(path4, mPaint);
 
-
-
-
-     /*   mPaint.reset();
+        mPaint.reset();
         mPaint.setColor(Color.BLACK);
         mPaint.setStyle(Paint.Style.FILL);    // 填充模; // 填充模式 - 填充内部
         mPaint.setStrokeWidth(10);
 
         Path path5 = new Path();
-        path5.moveTo(200,100);
-        path5.lineTo(400,100);
-        path5.lineTo(400,300);
+        path5.moveTo(200, 100);
+        path5.lineTo(400, 100);
+        path5.lineTo(400, 300);
         path5.close();
-        canvas.drawPath(path5,mPaint);*/
+        canvas.drawPath(path5, mPaint);
+
     }
 }
