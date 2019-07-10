@@ -196,16 +196,16 @@ public class UIHelper {
 
     //第一个参数是要计算的字符串，第二个参数是字提大小
     public static float getTextWidth(String text, float size) {
-        TextPaint FontPaint = new TextPaint();
-        FontPaint.setTextSize(size);
-        return FontPaint.measureText(text);
+        TextPaint fontPaint = new TextPaint();
+        fontPaint.setTextSize(size);
+        return fontPaint.measureText(text);
     }
 
 
     public static float getTextHeight(String text, float size) {
-        TextPaint FontPaint = new TextPaint();
-        FontPaint.setTextSize(size);
-        return FontPaint.ascent() + FontPaint.descent();
+        TextPaint fontPaint = new TextPaint();
+        fontPaint.setTextSize(size);
+        return fontPaint.ascent() + fontPaint.descent();
     }
 
 
