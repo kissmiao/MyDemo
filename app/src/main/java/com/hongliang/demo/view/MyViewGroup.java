@@ -45,7 +45,10 @@ public class MyViewGroup extends ViewGroup {
         for (int i = 0; i < size; i++) {
             View child = getChildAt(i);
             // 测量每一个child的宽和高
-            measureChild(child, widthMeasureSpec, heightMeasureSpec);
+          //  measureChild(child, widthMeasureSpec, heightMeasureSpec);
+
+            measureChildWithMargins(child,widthMeasureSpec,0,heightMeasureSpec,0);
+          //  measureChildren();
             // 得到child的lp
             MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
 
