@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.hongliang.demo.otherActivity.AidlActivity;
+import com.hongliang.demo.otherActivity.GlideActivity;
 import com.hongliang.demo.otherActivity.HandlerThreadActivity;
 import com.hongliang.demo.otherActivity.RefreshViewActivity;
 import com.hongliang.demo.otherActivity.touchevent.TouchEventActivity;
@@ -153,8 +154,8 @@ public class AFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.btn_two:
+                startActivity(new Intent(getActivity(), GlideActivity.class));
                 break;
-
             case R.id.view_page:
                 intent = new Intent(getActivity(), ViewPagerActivity.class);
                 startActivity(intent);
@@ -188,6 +189,7 @@ public class AFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.bt_recycle:
+
                 break;
             case R.id.event_bus:
                 break;
