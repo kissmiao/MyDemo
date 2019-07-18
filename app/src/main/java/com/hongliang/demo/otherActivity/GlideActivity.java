@@ -1,19 +1,24 @@
 package com.hongliang.demo.otherActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.hongliang.demo.R;
 import com.hongliang.demo.util.GlideApp;
+
+import java.io.File;
 
 public class GlideActivity extends Activity {
 
@@ -25,11 +30,21 @@ public class GlideActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glide);
         initView();
+        String dir = Environment.getExternalStorageDirectory().getAbsolutePath() + "/tencent/MicroMsg/WeiXin/";
 
-        //  Glide.with(this).load(url).into(mIvGlide);
+
+        Log.i("LOG", "=======" + dir);
+
+        Glide.with(this)
+                .load(url)
+                .placeholder(R.drawable.avastar)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .error(R.mipmap.ic_launcher)
+                .into(mIvGlide);
+
         //  GlideApp.with(this).load(url).into(mIvGlide);
 
-        Glide.with(this).load(url).listener(new RequestListener<Drawable>() {
+      /*  Glide.with(this).load(url).listener(new RequestListener<Drawable>() {
             @Override
             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                 Log.i("LOG","===============onLoadFailed");
@@ -42,7 +57,7 @@ public class GlideActivity extends Activity {
                 Log.i("LOG","=================onResourceReady");
                 return false;
             }
-        }).into(mIvGlide);
+        }).into(mIvGlide);*/
 
 
     }
