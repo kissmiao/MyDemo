@@ -4,4 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
+    <Button
+        android:id="@+id/bt_scroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="滑动" />
+
+    <com.hongliang.demo.view.MView3
+        android:background="@color/aqua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ></com.hongliang.demo.view.MView3>
+
 </LinearLayout>

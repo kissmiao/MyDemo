@@ -29,6 +29,7 @@ import com.hongliang.demo.viewActivity.MyViewActivity;
 import com.hongliang.demo.viewActivity.PaintActivity;
 import com.hongliang.demo.viewActivity.PathActivity;
 import com.hongliang.demo.viewActivity.QQHealthActivity;
+import com.hongliang.demo.viewActivity.ScrollActivity;
 import com.hongliang.demo.viewActivity.SlideActivity;
 import com.hongliang.demo.viewActivity.SolidViewActivity;
 import com.hongliang.demo.viewActivity.SpeedActivity;
@@ -243,9 +244,8 @@ public class DFragment extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity(), AttributeSetActivity.class));
                 break;
 
-
             case R.id.bt_scroll:
-                startActivity(new Intent(getActivity(), ListViewScrollActivity.class));
+                startActivity(new Intent(getActivity(), ScrollActivity.class));
                 break;
         }
     }
