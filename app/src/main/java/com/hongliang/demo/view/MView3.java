@@ -119,9 +119,9 @@ public class MView3 extends View {
     public void computeScroll() {
         super.computeScroll();
         if (scroller.computeScrollOffset()) {
-            // ((View) getParent()).scrollTo(scroller.getCurrX(), scroller.getCurrY());
+            ((View) getParent()).scrollTo(scroller.getCurrX(), scroller.getCurrY());
             //   scrollBy(scroller.getCurrX(), scroller.getCurrY());
-              scrollTo(scroller.getCurrX(), scroller.getCurrY());
+            //   scrollTo(scroller.getCurrX(), scroller.getCurrY());
             invalidate();//重绘，在重绘调用draw（）方法中，内部会调用View的computeScroll()方法
         }
     }

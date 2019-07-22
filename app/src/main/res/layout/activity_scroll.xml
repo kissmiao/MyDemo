@@ -5,6 +5,17 @@
     android:background="@color/papayawhip"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/bt_scroll_to"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="滑动to" />
+
+    <Button
+        android:id="@+id/bt_scroll_by"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="滑动by" />
 
     <Button
         android:id="@+id/bt_scroll"
@@ -12,11 +23,16 @@
         android:layout_height="wrap_content"
         android:text="滑动" />
 
-    <com.hongliang.demo.view.MView3
-        android:id="@+id/myview"
-        android:background="@color/aqua"
+
+    <FrameLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        ></com.hongliang.demo.view.MView3>
+        android:layout_height="match_parent">
+
+        <com.hongliang.demo.view.MView3
+            android:id="@+id/myview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/aqua"></com.hongliang.demo.view.MView3>
+    </FrameLayout>
 
 </LinearLayout>
