@@ -9,6 +9,7 @@ import android.graphics.PathMeasure;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Scroller;
 
 
 /**
@@ -19,11 +20,16 @@ import android.view.ViewGroup;
  * 获取贝塞尔曲线上的点
  */
 public class MView3 extends View {
+
+
+    private Context mContext;
+    Scroller scroller;
     // 辅助点
     private Paint mPaint;
     private Path mPath;
 
     public MView3(Context context) {
+
         this(context, null);
     }
 
@@ -33,6 +39,7 @@ public class MView3 extends View {
 
     public MView3(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mContext = context;
         init();
     }
 
@@ -43,9 +50,6 @@ public class MView3 extends View {
         setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec), getHeightSize(getSuggestedMinimumHeight(), heightMeasureSpec));
 
     }
-
-
-
 
 
     public int getHeightSize(int size, int measureSpec) {
@@ -68,6 +72,7 @@ public class MView3 extends View {
     }
 
     private void init() {
+        scroller = new Scroller(mContext);
         mPaint = new Paint();
         mPath = new Path();
         // 抗锯齿
@@ -98,4 +103,26 @@ public class MView3 extends View {
     }
 
 
+    public void smoothScrollTo(int desX, int desY) {
+        int scrollX = getScrollX();
+        int deltaX = desX - scrollX;
+
+        int scrollY = getScrollY();
+        int deltaY = desY - scrollY;
+        scroller.startScroll(scrollX, scrollY, deltaX, deltaY, 5000);
+        invalidate();
+
+
+    }
+
+    @Override
+    public void computeScroll() {
+        super.computeScroll();
+        if (scroller.computeScrollOffset()) {
+            // ((View) getParent()).scrollTo(scroller.getCurrX(), scroller.getCurrY());
+            //   scrollBy(scroller.getCurrX(), scroller.getCurrY());
+              scrollTo(scroller.getCurrX(), scroller.getCurrY());
+            invalidate();//重绘，在重绘调用draw（）方法中，内部会调用View的computeScroll()方法
+        }
+    }
 }

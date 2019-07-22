@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Scroller;
 
 import com.hongliang.demo.R;
+import com.hongliang.demo.view.MView3;
 
 public class ScrollActivity extends Activity implements View.OnClickListener {
 
@@ -15,8 +15,8 @@ public class ScrollActivity extends Activity implements View.OnClickListener {
      * 滑动
      */
     private Button mBtScroll;
+    private MView3 mMyview;
 
-    Scroller scroller;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,22 +31,8 @@ public class ScrollActivity extends Activity implements View.OnClickListener {
         mBtScroll = (Button) findViewById(R.id.bt_scroll);
         mBtScroll.setOnClickListener(this);
 
-        scroller = new Scroller(this);
-    }
 
-
-    public void smoothScrollTo(int desX, int desY) {
-        int scrollX = mBtScroll.getScrollX();
-        int deltaX = desX - scrollX;
-
-        int scrollY = mBtScroll.getScrollY();
-        int deltaY = desY - scrollY;
-
-        scroller.startScroll(scrollX, scrollY, deltaX, deltaY, 5000);
-
-        mBtScroll.invalidate();
-
-
+        mMyview = (MView3) findViewById(R.id.myview);
     }
 
 
@@ -54,7 +40,8 @@ public class ScrollActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_scroll:
-                smoothScrollTo(500, 500);
+                mMyview.smoothScrollTo(0, -800);
+
                 break;
         }
     }
