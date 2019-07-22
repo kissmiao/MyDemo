@@ -41,7 +41,7 @@
         <activity android:name=".otherActivity.ViewPagerActivity"></activity>
         <activity android:name=".otherActivity.TransverseScrollView"></activity>
         <activity android:name=".otherActivity.TimeViewGroupActivity"></activity>
-        <activity android:name=".otherActivity.ScrollActivity"></activity>
+        <activity android:name=".otherActivity.ListViewScrollActivity"></activity>
         <activity android:name=".viewActivity.MenuActivity"></activity>
         <activity android:name=".otherActivity.LayoutInflateActivity"></activity>
         <activity android:name=".viewActivity.DrawCircleActivity"></activity>
@@ -61,6 +61,7 @@
         <activity android:name=".viewActivity.PathActivity"></activity>
         <activity android:name=".viewActivity.AttributeSetActivity"></activity>
         <activity android:name=".otherActivity.GlideActivity"></activity>
+        <activity android:name=".viewActivity.ScrollActivity"></activity>
 
         <service
             android:name=".StudentService"

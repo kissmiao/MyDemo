@@ -16,7 +16,7 @@ import com.hongliang.demo.otherActivity.RefreshViewActivity;
 import com.hongliang.demo.otherActivity.touchevent.TouchEventActivity;
 import com.hongliang.demo.otherActivity.DeleteView;
 import com.hongliang.demo.otherActivity.LayoutInflateActivity;
-import com.hongliang.demo.otherActivity.ScrollActivity;
+import com.hongliang.demo.otherActivity.ListViewScrollActivity;
 import com.hongliang.demo.otherActivity.TimeViewGroupActivity;
 import com.hongliang.demo.otherActivity.TransverseScrollView;
 import com.hongliang.demo.otherActivity.ViewPagerActivity;
@@ -178,7 +178,7 @@ public class AFragment extends Fragment implements View.OnClickListener {
             case R.id.remove_sideslip:
                 break;
             case R.id.scroll:
-                intent = new Intent(getActivity(), ScrollActivity.class);
+                intent = new Intent(getActivity(), ListViewScrollActivity.class);
                 startActivity(intent);
                 break;
 

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.hongliang.demo.otherActivity.ListViewScrollActivity;
 import com.hongliang.demo.view.ScrollView;
 import com.hongliang.demo.viewActivity.AttributeSetActivity;
 import com.hongliang.demo.viewActivity.BrokenLineActivity;
@@ -112,6 +113,10 @@ public class DFragment extends Fragment implements View.OnClickListener {
      * AttributeSet
      */
     private Button mBtAttributeSet;
+    /**
+     * AttributeSet
+     */
+    private Button mBtScroll;
 
     @Nullable
     @Override
@@ -176,6 +181,8 @@ public class DFragment extends Fragment implements View.OnClickListener {
         mBtCircular2.setOnClickListener(this);
         mBtAttributeSet = (Button) view.findViewById(R.id.bt_attributeSet);
         mBtAttributeSet.setOnClickListener(this);
+        mBtScroll = (Button) view.findViewById(R.id.bt_scroll);
+        mBtScroll.setOnClickListener(this);
     }
 
 
@@ -234,6 +241,11 @@ public class DFragment extends Fragment implements View.OnClickListener {
 
             case R.id.bt_attributeSet:
                 startActivity(new Intent(getActivity(), AttributeSetActivity.class));
+                break;
+
+
+            case R.id.bt_scroll:
+                startActivity(new Intent(getActivity(), ListViewScrollActivity.class));
                 break;
         }
     }
