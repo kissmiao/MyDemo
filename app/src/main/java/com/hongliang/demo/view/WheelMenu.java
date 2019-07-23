@@ -176,7 +176,7 @@ public class WheelMenu extends ImageView {
 
 
                 case MotionEvent.ACTION_UP:
-                   /* //get the total angle rotated in 360 degrees
+                    //get the total angle rotated in 360 degrees
                     totalRotation = totalRotation % 360;
 
                     //represent total rotation in positive value
@@ -215,7 +215,7 @@ public class WheelMenu extends ImageView {
 
                     if (wheelChangeListener != null) {
                         wheelChangeListener.onSelectionChange(selectedPosition);
-                    }*/
+                    }
 
                     break;
             }
