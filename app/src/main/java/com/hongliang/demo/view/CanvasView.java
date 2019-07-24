@@ -12,6 +12,9 @@ import android.graphics.Region;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Toast;
+
+import com.hongliang.demo.util.UIHelper;
 
 
 public class CanvasView extends View {
@@ -20,7 +23,12 @@ public class CanvasView extends View {
     private Paint mPaint;
     private int mViewWidth, mViewHeight;// 控件宽高
 
-    private int curValue = 0;
+    private float curValue = 0f;
+
+    private int OFFSET = 100;//偏移量
+
+
+    private Context mContext;
 
     public CanvasView(Context context) {
         this(context, null);
@@ -32,8 +40,10 @@ public class CanvasView extends View {
 
     public CanvasView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mContext = context;
         init();
         initAnimator();
+
     }
 
     @Override
@@ -47,77 +57,61 @@ public class CanvasView extends View {
 
     private void init() {
 
-        mPaint = new Paint();
-        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
         mPaint.setColor(Color.RED);
         mPaint.setStrokeWidth(10);
-
+        mPaint.setStyle(Paint.Style.FILL);
+        float size = UIHelper.dp2px(mContext, 15);
+        mPaint.setTextSize(size);
     }
 
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-/*
-        mPaint.setColor(Color.RED);
-        mPaint.setStyle(Paint.Style.STROKE);
-
-        // 实例化路径
-        Path    mPath = new Path();
-        // 移动起点至[50,50]
-        mPath.moveTo(50, 50);
-        mPath.lineTo(75, 23);
-        mPath.lineTo(150, 100);
-        mPath.lineTo(80, 110);
-        // 闭合路径
-        mPath.close();
-
-        // 在原始画布上绘制蓝色
+        //设置一个BLUE的背景颜色
         canvas.drawColor(Color.BLUE);
-        // 按照路径进行裁剪
-        canvas.clipPath(mPath);
-        // 在裁剪后剩余的画布上绘制红色
-        canvas.drawColor(Color.RED);*/
 
-
-       /* canvas.drawColor(Color.BLUE);
-        canvas.drawRect(new Rect(100, 100, 300, 200), mPaint);
-
-        Path path = new Path();
-        path.moveTo(100, 0);
-        path.lineTo(100, mViewHeight);
-        canvas.clipPath(path);
-        canvas.drawColor(Color.RED);*/
-
-
-
-
-
-        mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.RED);
-        canvas.drawColor(Color.BLUE);
-        canvas.drawRect(new RectF(20, 20, 120, 120), mPaint);
-        canvas.drawCircle(120, 70, 50, mPaint);
-        canvas.clipRect(new RectF(20, 20, 120, 120));
-        Path path = new Path();
-      //  path.addCircle(120, 70, 50, Path.Direction.CCW);
-        path.addRect(new RectF(20, 20, 120, 120),Path.Direction.CCW);
-
-        canvas.clipPath(path, Region.Op.INTERSECT);
+        //创建一个画布，
+        int saveCount = canvas.saveLayer(OFFSET, OFFSET, mViewWidth - OFFSET, mViewHeight - OFFSET, mPaint, Canvas.ALL_SAVE_FLAG);
+        //设置画布的颜色为GREEN
         canvas.drawColor(Color.GREEN);
+
+        //再创建一个画布
+        int saveCount1 = canvas.saveLayer(OFFSET * 2, OFFSET * 2, mViewWidth - OFFSET * 2, mViewHeight - OFFSET * 2, mPaint, Canvas.ALL_SAVE_FLAG);
+        //设置画布的颜色为BLACK
+        canvas.drawColor(Color.BLACK);
+        //在BLACK画布上画一个圆， 注意这个圆不能显示完全，因为画布的大小有限制，左边点的位置还是相对于屏幕坐上角
+        canvas.drawCircle(300, 300, 300, mPaint);
+
+        //创建一个新画笔
+        Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
+        mPaint.setColor(Color.WHITE);
+        mPaint.setStrokeWidth(10);
+        mPaint.setStyle(Paint.Style.FILL);
+        //还是在黑色画布上画一个矩形
+        canvas.drawRect(new Rect(0, 0, 350, 350), mPaint);
+        //切换到黑色画布之前，就是绿色画布
+        canvas.restoreToCount(saveCount1);
+
+        mPaint.setColor(Color.CYAN);
+        //在绿色画布上再画一个矩形
+        canvas.drawRect(new Rect(0, 0, 300, 300), mPaint);
+
+        Toast.makeText(mContext, " canvas.getSaveCount()" + canvas.getSaveCount(), Toast.LENGTH_LONG).show();
 
     }
 
 
     private void initAnimator() {
 
-        ValueAnimator animator = ValueAnimator.ofInt(0, 30);
+        ValueAnimator animator = ValueAnimator.ofFloat(0, 90);
         animator.setDuration(1000);
-        animator.setStartDelay(1000);
+        animator.setStartDelay(2000);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                curValue = (int) animation.getAnimatedValue();
+                curValue = (float) animation.getAnimatedValue();
                 invalidate();
 
             }
