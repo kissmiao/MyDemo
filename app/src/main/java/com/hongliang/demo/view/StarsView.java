@@ -29,7 +29,7 @@ import java.util.Random;
  * http://www.jianshu.com/p/610a46fabd1d
  * http://blog.csdn.net/tianjian4592/article/details/47067161
  */
-public class FllowerAnimation extends View implements ValueAnimator.AnimatorUpdateListener {
+public class StarsView extends View implements ValueAnimator.AnimatorUpdateListener {
 
     /**
      * 动画改变的属性值
@@ -62,24 +62,12 @@ public class FllowerAnimation extends View implements ValueAnimator.AnimatorUpda
         this.startY = startY;
     }
 
-    public FllowerAnimation(Context context, int startX, int startY) {
+    public StarsView(Context context, int startX, int startY) {
         super(context);
         setStartX(startX, startY);
         init(context);
     }
 
-    /*public FllowerAnimation(Context context) {
-        super(context);
-
-    }
-
-    public FllowerAnimation(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public FllowerAnimation(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }*/
 
     public void init(Context context) {
         WindowManager wm = (WindowManager) context
@@ -312,7 +300,6 @@ public class FllowerAnimation extends View implements ValueAnimator.AnimatorUpda
             fllower.setValue(value);
         }
     }
-
 
 
     public float getPhase1() {

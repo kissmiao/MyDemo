@@ -2,21 +2,13 @@ package com.hongliang.demo.viewActivity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Message;
-import android.text.Html;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hongliang.demo.R;
-import com.hongliang.demo.view.DragView;
-import com.hongliang.demo.view.FllowerAnimation;
+import com.hongliang.demo.view.StarsView;
 
 
 /**
@@ -24,7 +16,7 @@ import com.hongliang.demo.view.FllowerAnimation;
  */
 public class DrawCircleActivity extends Activity {
     private ImageView iv_zan;
-    private FllowerAnimation view_xin;
+    private StarsView view_xin;
     private RelativeLayout ll_dianzan;
     private TextView tv_loadimage_text;
 
@@ -67,7 +59,7 @@ public class DrawCircleActivity extends Activity {
                 int width = iv_zan.getWidth() / 2;
                 int left = (int) iv_zan.getX() + width;
                 int top = (int) iv_zan.getY() + height;
-                view_xin = new FllowerAnimation(DrawCircleActivity.this, left, top);
+                view_xin = new StarsView(DrawCircleActivity.this, left, top);
                 ll_dianzan.addView(view_xin);
                 view_xin.startAnimation();
             }
