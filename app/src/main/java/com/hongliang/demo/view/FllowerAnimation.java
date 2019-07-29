@@ -64,10 +64,11 @@ public class FllowerAnimation extends View implements ValueAnimator.AnimatorUpda
 
     public FllowerAnimation(Context context, int startX, int startY) {
         super(context);
-        setStartX(startX,startY);
+        setStartX(startX, startY);
         init(context);
     }
-    public FllowerAnimation(Context context) {
+
+    /*public FllowerAnimation(Context context) {
         super(context);
 
     }
@@ -78,7 +79,7 @@ public class FllowerAnimation extends View implements ValueAnimator.AnimatorUpda
 
     public FllowerAnimation(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-    }
+    }*/
 
     public void init(Context context) {
         WindowManager wm = (WindowManager) context
@@ -139,7 +140,7 @@ public class FllowerAnimation extends View implements ValueAnimator.AnimatorUpda
         Random random = new Random();
         for (int i = 0; i < count; i++) {
             //      int s = random.nextInt(max) % (max - min + 1) + min;//产生随机数控制起始点的X坐标
-            int s=startX;
+            int s = startX;
             Path path = new Path();
             CPoint CPoint = new CPoint(s, 0);//用S确定爱心的其起始位置
             List<CPoint> points = builderPath(CPoint);
@@ -258,7 +259,8 @@ public class FllowerAnimation extends View implements ValueAnimator.AnimatorUpda
         for (Fllower fllower : fllowers) {
             float[] pos = new float[2];
             //这个打开就能看到画出出来的路径
-           //     canvas.drawPath(fllower.getPath(), mPaint);//根据之前的path画路径
+            canvas.drawPath(fllower.getPath(), mPaint);//根据之前的path画路径
+
             pathMeasure.setPath(fllower.getPath(), false);
             pathMeasure.getPosTan(pathMeasure.getLength() * fllower.getValue(), pos, null);
 
@@ -266,10 +268,11 @@ public class FllowerAnimation extends View implements ValueAnimator.AnimatorUpda
             //画圆是让这个点为圆心开始画，画矩形是让这个点作为左上角
             Bitmap bitmap = null;
             bitmap = ((BitmapDrawable) getResources().getDrawable(R.mipmap.click_a_like_on)).getBitmap();
-            int bitheight=  bitmap.getHeight()/2;
-            int bitwidth= bitmap.getWidth()/2;
-            canvas.drawBitmap(bitmap, pos[0]-bitwidth, pos[1]-bitheight, null);
-            //canvas.drawCircle(pos[0], pos[1], 20, mPaint2);//draw圆
+            int bitheight = bitmap.getHeight() / 2;
+            int bitwidth = bitmap.getWidth() / 2;
+            canvas.drawBitmap(bitmap, pos[0] - bitwidth, pos[1] - bitheight, null);
+
+            canvas.drawCircle(pos[0], pos[1], 20, mPaint2);//draw圆
         }
     }
 
@@ -286,6 +289,17 @@ public class FllowerAnimation extends View implements ValueAnimator.AnimatorUpda
 
     }
 
+    /**
+     * 动画改变回调  在这里只改变属性，在onDraw中沿着路径走
+     */
+    @Override
+    public void onAnimationUpdate(ValueAnimator arg0) {
+        //得到一个从0f到1f的一个值
+
+        updateValue(getPhase1(), fllowers1);
+        this.setAlpha((float) arg0.getAnimatedValue());
+        invalidate();
+    }
 
     /**
      * 跟新小球的位置
@@ -299,17 +313,7 @@ public class FllowerAnimation extends View implements ValueAnimator.AnimatorUpda
         }
     }
 
-    /**
-     * 动画改变回调  在这里只改变属性，在onDraw中沿着路径走
-     */
-    @Override
-    public void onAnimationUpdate(ValueAnimator arg0) {
-        //得到一个从0f到1f的一个值
-        updateValue(getPhase1(), fllowers1);
 
-        this.setAlpha((float)arg0.getAnimatedValue());
-        invalidate();
-    }
 
     public float getPhase1() {
         return phase1;

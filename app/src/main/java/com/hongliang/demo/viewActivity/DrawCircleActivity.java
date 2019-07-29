@@ -7,6 +7,7 @@ import android.os.HandlerThread;
 import android.os.Message;
 import android.text.Html;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
@@ -34,15 +35,18 @@ public class DrawCircleActivity extends Activity {
         setContentView(R.layout.loadimage_layout);
         tv_loadimage_text = (TextView) findViewById(R.id.tv_loadimage_text);
 
-        view_xin = new FllowerAnimation(this);
+      //  view_xin = new FllowerAnimation(this);
 
         iv_zan = (ImageView) findViewById(R.id.iv_zan);
         ll_dianzan = (RelativeLayout) findViewById(R.id.rl_dianzan);
 
-        ViewTreeObserver vto2 = iv_zan.getViewTreeObserver();
+
+
+      /*  ViewTreeObserver vto2 = iv_zan.getViewTreeObserver();
         vto2.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
+                Log.i("LOG","====vto2=");
                 iv_zan.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 int height = iv_zan.getHeight() / 2;
                 int width = iv_zan.getWidth() / 2;
@@ -53,12 +57,13 @@ public class DrawCircleActivity extends Activity {
                 view_xin.requestLayout();
             }
         });
+*/
+
 
         iv_zan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int height = iv_zan.getHeight() / 2;
-
                 int width = iv_zan.getWidth() / 2;
                 int left = (int) iv_zan.getX() + width;
                 int top = (int) iv_zan.getY() + height;
@@ -68,15 +73,7 @@ public class DrawCircleActivity extends Activity {
             }
         });
 
-
     }
-
-
-
-
-
-
-
 
 
 }

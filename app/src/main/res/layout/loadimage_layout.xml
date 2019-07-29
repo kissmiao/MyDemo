@@ -2,13 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rl_dianzan"
     android:layout_width="match_parent"
+    android:background="@color/navajowhite"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/ll_load"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:background="@color/lightyellow"
+        android:paddingTop="100dp"
         android:orientation="horizontal">
 
         <TextView
@@ -24,11 +26,7 @@
             android:background="@mipmap/click_a_like_on" />
     </LinearLayout>
 
-    <!--    <com.hongliang.demo.view.FllowerAnimation
-            android:id="@+id/view_xin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-          ></com.hongliang.demo.view.FllowerAnimation>-->
+
 
 
 </RelativeLayout>
