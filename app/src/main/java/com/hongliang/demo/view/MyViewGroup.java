@@ -46,7 +46,6 @@ public class MyViewGroup extends ViewGroup {
             View child = getChildAt(i);
             // 测量每一个child的宽和高
           //  measureChild(child, widthMeasureSpec, heightMeasureSpec);
-
             measureChildWithMargins(child,widthMeasureSpec,0,heightMeasureSpec,0);
           //  measureChildren();
             // 得到child的lp

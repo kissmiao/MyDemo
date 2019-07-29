@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
+import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -22,6 +23,11 @@ import com.hongliang.demo.bean.Fllower;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import static android.content.Context.WINDOW_SERVICE;
+
+
+//不能同时创建多个窗口
 
 /**
  * Created by Administrator on 2016/7/26.
@@ -54,8 +60,12 @@ public class StarsView extends View implements ValueAnimator.AnimatorUpdateListe
     private int delay = 500;
 
 
+    private int bitmapheight;
+    private int bitmapwidth;
+
     public int startX = 100;
     public int startY = 500;
+
 
     public void setStartX(int startX, int startY) {
         this.startX = startX;
@@ -64,14 +74,16 @@ public class StarsView extends View implements ValueAnimator.AnimatorUpdateListe
 
     public StarsView(Context context, int startX, int startY) {
         super(context);
+
         setStartX(startX, startY);
         init(context);
+        initSize();
     }
 
 
     public void init(Context context) {
         WindowManager wm = (WindowManager) context
-                .getSystemService(Context.WINDOW_SERVICE);
+                .getSystemService(WINDOW_SERVICE);
         width = wm.getDefaultDisplay().getWidth();
         //  height = (int) (wm.getDefaultDisplay().getHeight() * 3 / 2f);
         //  height =wm.getDefaultDisplay().getHeight()*4/5;
@@ -93,6 +105,13 @@ public class StarsView extends View implements ValueAnimator.AnimatorUpdateListe
         pathMeasure = new PathMeasure();
 
         builderFollower(fllowerCount, fllowers1);
+    }
+
+
+    private void initSize() {
+        Bitmap bitmap = ((BitmapDrawable) getResources().getDrawable(R.mipmap.click_a_like_on)).getBitmap();
+        bitmapheight = bitmap.getHeight();
+        bitmapwidth = bitmap.getWidth();
     }
 
     /**
@@ -235,7 +254,35 @@ public class StarsView extends View implements ValueAnimator.AnimatorUpdateListe
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        canvas.drawColor(Color.BLUE);
         drawFllower(canvas, fllowers1);
+    }
+
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        setMeasuredDimension(getSize(getSuggestedMinimumHeight(), heightMeasureSpec, bitmapwidth), getSize(getSuggestedMinimumHeight(), heightMeasureSpec, bitmapheight));
+    }
+
+
+    public int getSize(int size, int measureSpec, int bitmapSize) {
+        int result = size;
+        int specMode = MeasureSpec.getMode(measureSpec);
+        int specSize = MeasureSpec.getSize(measureSpec);
+
+        switch (specMode) {
+            case MeasureSpec.UNSPECIFIED:
+                result = size;
+                break;
+            case MeasureSpec.AT_MOST:
+
+                result = bitmapSize;
+                break;
+            case MeasureSpec.EXACTLY:
+                result = specSize;
+                break;
+        }
+        return result;
     }
 
 
@@ -256,6 +303,8 @@ public class StarsView extends View implements ValueAnimator.AnimatorUpdateListe
             //画圆是让这个点为圆心开始画，画矩形是让这个点作为左上角
             Bitmap bitmap = null;
             bitmap = ((BitmapDrawable) getResources().getDrawable(R.mipmap.click_a_like_on)).getBitmap();
+
+
             int bitheight = bitmap.getHeight() / 2;
             int bitwidth = bitmap.getWidth() / 2;
             canvas.drawBitmap(bitmap, pos[0] - bitwidth, pos[1] - bitheight, null);
@@ -285,7 +334,7 @@ public class StarsView extends View implements ValueAnimator.AnimatorUpdateListe
         //得到一个从0f到1f的一个值
 
         updateValue(getPhase1(), fllowers1);
-        this.setAlpha((float) arg0.getAnimatedValue());
+        //       this.setAlpha((float) arg0.getAnimatedValue());
         invalidate();
     }
 

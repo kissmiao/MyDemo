@@ -1,8 +1,11 @@
 package com.hongliang.demo.viewActivity;
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,6 +22,13 @@ public class DrawCircleActivity extends Activity {
     private StarsView view_xin;
     private RelativeLayout ll_dianzan;
     private TextView tv_loadimage_text;
+
+    final WindowManager.LayoutParams params = new WindowManager.LayoutParams(
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.TYPE_PHONE,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+            PixelFormat.TRANSLUCENT);
 
 
     @Override
@@ -60,12 +70,23 @@ public class DrawCircleActivity extends Activity {
                 int left = (int) iv_zan.getX() + width;
                 int top = (int) iv_zan.getY() + height;
                 view_xin = new StarsView(DrawCircleActivity.this, left, top);
-                ll_dianzan.addView(view_xin);
+               // ll_dianzan.addView(view_xin);
+
+                params.x = left;
+                params.y = top;
+                WindowManager   mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+                mWindowManager.addView(view_xin, params);
                 view_xin.startAnimation();
+
             }
         });
 
+
+
     }
+
+
+
 
 
 }
