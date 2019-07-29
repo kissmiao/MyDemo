@@ -22,20 +22,11 @@ import com.hongliang.demo.view.FllowerAnimation;
  * Created by wanghongliang on 16/3/23.
  */
 public class DrawCircleActivity extends Activity {
-    private DragView iv_loadeimage;
     private ImageView iv_zan;
     private FllowerAnimation view_xin;
-    private DisplayMetrics dm;
-    private int mWidth, mHeight;
     private RelativeLayout ll_dianzan;
     private TextView tv_loadimage_text;
 
-    private HandlerThread mCheckMsgThread;
-    private Handler mCheckMsgHandler;
-    private boolean isUpdateInfo;
-    //与UI线程管理的handler
-    private Handler mHandler = new Handler();
-    private static final int MSG_UPDATE_INFO = 0x110;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +35,6 @@ public class DrawCircleActivity extends Activity {
         tv_loadimage_text = (TextView) findViewById(R.id.tv_loadimage_text);
 
         view_xin = new FllowerAnimation(this);
-        dm = getResources().getDisplayMetrics();
-        mWidth = dm.widthPixels;
-        mHeight = dm.heightPixels;
 
         iv_zan = (ImageView) findViewById(R.id.iv_zan);
         ll_dianzan = (RelativeLayout) findViewById(R.id.rl_dianzan);
@@ -80,68 +68,15 @@ public class DrawCircleActivity extends Activity {
             }
         });
 
-        initBackThread();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //开始查询
-        isUpdateInfo = true;
-        mCheckMsgHandler.sendEmptyMessage(MSG_UPDATE_INFO);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        //停止查询
-        isUpdateInfo = false;
-        mCheckMsgHandler.removeMessages(MSG_UPDATE_INFO);
 
     }
 
-    private void initBackThread() {
-        //这一个HandlerThread运行在主线程,会得到一个主线程loop
-        mCheckMsgThread = new HandlerThread("check-message-coming");
-        mCheckMsgThread.start();
-
-        //这里是使用HandlerThread的looper来实现的handler
-        //getMainLooper()来创建一个与主线程绑定的handler
-        mCheckMsgHandler = new Handler(mCheckMsgThread.getLooper()) {
-            @Override
-            public void handleMessage(Message msg) {
-                checkForUpdate();
-                if (isUpdateInfo) {
-                    mCheckMsgHandler.sendEmptyMessageDelayed(MSG_UPDATE_INFO, 1000);
-                }
-            }
-        };
-    }
-
-    private void checkForUpdate() {
-        try {
-            Thread.sleep(1000);
-            mHandler.post(new Runnable() {
-                @Override
-                public void run() {
-                    String result = "实时更新中，当前大盘指数：<font color='red'>%d</font>";
-                    result = String.format(result, (int) (Math.random() * 3000 + 1000));
-                    tv_loadimage_text.setText(Html.fromHtml(result));
-                }
-            });
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //释放资源
-        mCheckMsgThread.quit();
-    }
+
+
+
+
 
 
 }

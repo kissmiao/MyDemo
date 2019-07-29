@@ -23,7 +23,7 @@ public class TouchEventFather extends LinearLayout {
      * super 事件会自动的分发给当前 View 的 onInterceptTouchEvent 方法。
      */
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.i("sunzn", "===F=== dispatchTouchEvent --> " + TouchEventUtil.getTouchAction(ev.getAction()));
+        Log.i("sunzn", "===FatherView=== dispatchTouchEvent --> " + TouchEventUtil.getTouchAction(ev.getAction()));
         return super.dispatchTouchEvent(ev);
        //      return false;
     }
@@ -35,7 +35,7 @@ public class TouchEventFather extends LinearLayout {
      */
     public boolean onInterceptTouchEvent(MotionEvent ev) {
 
-        Log.i("sunzn", "===F=== onInterceptTouchEvent --> " + TouchEventUtil.getTouchAction(ev.getAction()));
+        Log.i("sunzn", "===FatherView=== onInterceptTouchEvent --> " + TouchEventUtil.getTouchAction(ev.getAction()));
        return super.onInterceptTouchEvent(ev);
         //	return true;
     }
@@ -49,7 +49,7 @@ public class TouchEventFather extends LinearLayout {
      * @return
      */
     public boolean onTouchEvent(MotionEvent ev) {
-        Log.i("sunzn", "===F===  onTouchEvent --> " + TouchEventUtil.getTouchAction(ev.getAction()));
+        Log.i("sunzn", "===FatherView===  onTouchEvent --> " + TouchEventUtil.getTouchAction(ev.getAction()));
         return super.onTouchEvent(ev);
     }
 

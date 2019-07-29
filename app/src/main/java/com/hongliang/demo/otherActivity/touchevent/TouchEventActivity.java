@@ -54,14 +54,14 @@ public class TouchEventActivity extends Activity {
      * 即Activity的根视图以及根视图的子视图都没有拦截该事件的话，则调用Activity的onTouchEvent()
      **/
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.i("sunzn", "===A=== dispatchTouchEvent --> " + TouchEventUtil.getTouchAction(ev.getAction()));
+        Log.i("sunzn", "===Activity=== dispatchTouchEvent --> " + TouchEventUtil.getTouchAction(ev.getAction()));
         return super.dispatchTouchEvent(ev);
 
     }
 
 
     public boolean onTouchEvent(MotionEvent event) {
-        Log.i("sunzn", "===A===  onTouchEvent --> " + TouchEventUtil.getTouchAction(event.getAction()));
+        Log.i("sunzn", "===Activity===  onTouchEvent --> " + TouchEventUtil.getTouchAction(event.getAction()));
         return super.onTouchEvent(event);
     }
 

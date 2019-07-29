@@ -2,12 +2,14 @@
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@color/green"
     android:orientation="vertical">
 
     <com.hongliang.demo.otherActivity.touchevent.TouchEventFather
         android:layout_width="fill_parent"
         android:layout_height="400dp"
         android:gravity="center"
+        android:background="@color/aqua"
         android:orientation="vertical">
 
 
@@ -21,7 +23,8 @@
 
         <com.hongliang.demo.otherActivity.touchevent.TouchEventChilds2
             android:id="@+id/childs2"
-            android:layout_width="200dp"
+            android:layout_width="100dp"
+            android:visibility="gone"
             android:layout_height="100dp"
             android:background="@color/green"
             android:layout_gravity="center" />
@@ -30,6 +33,7 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
+            android:visibility="gone"
             android:text="和红色区域一样的子View" />
 
 
