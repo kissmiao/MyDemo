@@ -254,15 +254,15 @@ public class StarsView extends View implements ValueAnimator.AnimatorUpdateListe
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawColor(Color.BLUE);
+    //    canvas.drawColor(Color.BLUE);
         drawFllower(canvas, fllowers1);
     }
 
 
-    @Override
+ /*   @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         setMeasuredDimension(getSize(getSuggestedMinimumHeight(), heightMeasureSpec, bitmapwidth), getSize(getSuggestedMinimumHeight(), heightMeasureSpec, bitmapheight));
-    }
+    }*/
 
 
     public int getSize(int size, int measureSpec, int bitmapSize) {

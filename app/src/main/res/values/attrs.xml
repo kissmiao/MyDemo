@@ -2,16 +2,15 @@
 <resources>
     <declare-styleable name="pickerview">
         <attr name="pickerview_gravity">
-            <enum name="center" value="17"/>
-            <enum name="left" value="3"/>
-            <enum name="right" value="5"/>
+            <enum name="center" value="17" />
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
         </attr>
-        <attr name="pickerview_textSize" format="dimension"/>
-        <attr name="pickerview_textColorOut" format="color"/>
-        <attr name="pickerview_textColorCenter" format="color"/>
-        <attr name="pickerview_dividerColor" format="color"/>
+        <attr name="pickerview_textSize" format="dimension" />
+        <attr name="pickerview_textColorOut" format="color" />
+        <attr name="pickerview_textColorCenter" format="color" />
+        <attr name="pickerview_dividerColor" format="color" />
     </declare-styleable>
-
 
 
     <declare-styleable name="ZTextViewStyle">
@@ -21,8 +20,12 @@
         <attr name="attr_4" format="string" />
     </declare-styleable>
 
-    <attr name="ZTV_def_style_arrt" format="reference"/>
+    <attr name="ZTV_def_style_arrt" format="reference" />
 
+
+    <declare-styleable name="FloatingView">
+        <attr name="float_btn_src" format="reference" />
+    </declare-styleable>
 
 
 </resources>

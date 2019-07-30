@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cmo="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <com.hongliang.demo.view.FloatingView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        cmo:float_btn_src="@mipmap/ic_launcher"></com.hongliang.demo.view.FloatingView>
+</LinearLayout>
