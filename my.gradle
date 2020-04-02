@@ -1,0 +1,20 @@
+
+class TestTask extends  DefaultTask{
+
+    String source
+    @TaskAction
+    void testAction() {
+        println getName()+" ### testAction!"
+    }
+    void testMothod(String para) {
+        println "Source is "+source+ " para = "+para
+    }
+}
+
+task testTask (type: TestTask) {
+    source "MyApplication"
+    testMothod "test"
+    doLast {
+        println 'GoodBye'
+    }
+}

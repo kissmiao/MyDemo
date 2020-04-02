@@ -134,6 +134,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="scroll" />
+
+        <Button
+            android:id="@+id/bt_operaction_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="对View的操作" />
     </com.hongliang.demo.view.MViewGroup>
 
 
