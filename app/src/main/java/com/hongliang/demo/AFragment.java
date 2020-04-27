@@ -1,9 +1,7 @@
 package com.hongliang.demo;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,21 +10,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.hongliang.demo.otherActivity.AidlActivity;
+import com.hongliang.demo.otherActivity.DeleteView;
 import com.hongliang.demo.otherActivity.GlideActivity;
 import com.hongliang.demo.otherActivity.HandlerThreadActivity;
-import com.hongliang.demo.otherActivity.RefreshViewActivity;
-import com.hongliang.demo.otherActivity.touchevent.TouchEventActivity;
-import com.hongliang.demo.otherActivity.DeleteView;
 import com.hongliang.demo.otherActivity.LayoutInflateActivity;
 import com.hongliang.demo.otherActivity.ListViewScrollActivity;
+import com.hongliang.demo.otherActivity.RefreshViewActivity;
 import com.hongliang.demo.otherActivity.TimeViewGroupActivity;
 import com.hongliang.demo.otherActivity.TransverseScrollView;
 import com.hongliang.demo.otherActivity.ViewPagerActivity;
-
-import me.zhouzhuo810.cameracardcrop.CameraConfig;
-import me.zhouzhuo810.cameracardcrop.CropActivity;
-
-import static android.app.Activity.RESULT_OK;
+import com.hongliang.demo.otherActivity.ViewSlideActivity;
+import com.hongliang.demo.otherActivity.touchevent.TouchEventActivity;
 
 
 /**
@@ -104,6 +98,15 @@ public class AFragment extends Fragment implements View.OnClickListener {
      */
     private Button mBtHandlerThread;
 
+    /**
+     * View的滑动
+     */
+    private Button bt_Slide;
+    /**
+     * View滑动
+     */
+    private Button mBtSlide;
+
 
     @Nullable
     @Override
@@ -150,6 +153,10 @@ public class AFragment extends Fragment implements View.OnClickListener {
 
         mBtHandlerThread = (Button) view.findViewById(R.id.bt_handler_thread);
         mBtHandlerThread.setOnClickListener(this);
+
+
+        mBtSlide = (Button) view.findViewById(R.id.bt_Slide);
+        mBtSlide.setOnClickListener(this);
     }
 
     @Override
@@ -211,8 +218,10 @@ public class AFragment extends Fragment implements View.OnClickListener {
             case R.id.bt_handler_thread:
                 intent = new Intent(getActivity(), HandlerThreadActivity.class);
                 startActivity(intent);
-
-
+                break;
+            case R.id.bt_Slide:
+                intent = new Intent(getActivity(), ViewSlideActivity.class);
+                startActivity(intent);
                 break;
         }
     }

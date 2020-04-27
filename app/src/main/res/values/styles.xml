@@ -13,8 +13,9 @@
         <item name="attr_2">two_AppTheme</item>
         <item name="attr_3">three_AppTheme</item>
         <item name="attr_4">four_AppTheme</item>
+        <item name="android:textAllCaps">false</item>
 
-      <!--  <item name="ZTV_def_style_arrt">@style/ZTV_def_style_arrt</item>-->
+        <!--  <item name="ZTV_def_style_arrt">@style/ZTV_def_style_arrt</item>-->
     </style>
 
 
@@ -130,4 +131,5 @@
         <item name="attr_3">three_default_style_res</item>
         <item name="attr_4">four_default_style_res</item>
     </style>
+
 </resources>

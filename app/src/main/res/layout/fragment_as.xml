@@ -8,107 +8,110 @@
         android:id="@+id/btn_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AIDL"/>
+        android:text="AIDL" />
 
     <Button
         android:id="@+id/btn_two"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="two"/>
+        android:text="two" />
 
 
     <Button
         android:id="@+id/view_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="viewPage"/>
+        android:text="viewPage" />
 
     <Button
         android:id="@+id/home_viewpage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="横向滑动"/>
-
+        android:text="横向滑动" />
 
 
     <Button
         android:id="@+id/moveview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="moveview"/>
+        android:text="moveview" />
 
     <Button
         android:id="@+id/loaderimage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="删除Veiw"/>
+        android:text="删除Veiw" />
 
 
     <Button
         android:id="@+id/touch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="touch"/>
+        android:text="touch" />
 
     <Button
         android:id="@+id/remove_sideslip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="removeSideslipActivity"/>
+        android:text="removeSideslipActivity" />
 
 
     <Button
         android:id="@+id/scroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="scroll"/>
-
-
+        android:text="scroll" />
 
 
     <Button
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="时间选择器"/>
+        android:text="时间选择器" />
 
     <Button
         android:id="@+id/bt_LayoutInflate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LayoutInflate"/>
+        android:text="LayoutInflate" />
 
 
     <Button
         android:id="@+id/bt_recycle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="recycle"/>
+        android:text="recycle" />
 
     <Button
         android:id="@+id/event_bus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="eventBus"
-        />
+        android:text="eventBus" />
 
     <Button
         android:id="@+id/bt_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="时间"
-        />
+        android:text="时间" />
 
 
     <Button
         android:id="@+id/bt_refresh"
-        android:text="刷新View"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="刷新View" />
 
     <Button
         android:id="@+id/bt_handler_thread"
-        android:text="HandlerThread"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="HandlerThread" />
+
+
+    <Button
+        android:id="@+id/bt_Slide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View滑动"
+        android:textAllCaps="false" />
 </com.hongliang.demo.view.MViewGroup>
