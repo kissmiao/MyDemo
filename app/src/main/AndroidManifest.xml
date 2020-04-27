@@ -105,6 +105,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
 
+        <activity android:name=".viewActivity.OperationViewActivity"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+
         <activity android:name=".otherActivity.ViewSlideActivity"></activity>
 
     </application>

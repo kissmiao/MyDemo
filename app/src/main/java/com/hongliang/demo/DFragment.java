@@ -26,6 +26,7 @@ import com.hongliang.demo.viewActivity.CurveActivity;
 import com.hongliang.demo.viewActivity.DrawCircleActivity;
 import com.hongliang.demo.viewActivity.MenuActivity;
 import com.hongliang.demo.viewActivity.MyViewActivity;
+import com.hongliang.demo.viewActivity.OperationViewActivity;
 import com.hongliang.demo.viewActivity.PaintActivity;
 import com.hongliang.demo.viewActivity.PathActivity;
 import com.hongliang.demo.viewActivity.QQHealthActivity;
@@ -184,6 +185,8 @@ public class DFragment extends Fragment implements View.OnClickListener {
         mBtAttributeSet.setOnClickListener(this);
         mBtScroll = (Button) view.findViewById(R.id.bt_scroll);
         mBtScroll.setOnClickListener(this);
+
+        view.findViewById(R.id.bt_operaction_view).setOnClickListener(this);
     }
 
 
@@ -246,6 +249,9 @@ public class DFragment extends Fragment implements View.OnClickListener {
 
             case R.id.bt_scroll:
                 startActivity(new Intent(getActivity(), ScrollActivity.class));
+                break;
+            case R.id.bt_operaction_view:
+                startActivity(new Intent(getActivity(), OperationViewActivity.class));
                 break;
         }
     }
