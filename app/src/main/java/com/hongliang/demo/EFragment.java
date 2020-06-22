@@ -14,6 +14,7 @@ import com.hongliang.demo.otherActivity.DrawableActivity;
 import com.hongliang.demo.otherActivity.HandlerActivity;
 import com.hongliang.demo.otherActivity.ImageViewGroupActivity;
 import com.hongliang.demo.otherActivity.ItemViewGroupActivity;
+import com.hongliang.demo.otherActivity.OkHttpActivity;
 import com.hongliang.demo.otherActivity.PopwActivity;
 
 
@@ -102,7 +103,7 @@ public class EFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        Intent intent=null;
+        Intent intent = null;
         switch (v.getId()) {
 
             case R.id.bt_item:
@@ -138,6 +139,8 @@ public class EFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.bt_ok:
+                intent = new Intent(getActivity(), OkHttpActivity.class);
+                startActivity(intent);
                 break;
         }
     }

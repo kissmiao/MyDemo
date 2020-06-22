@@ -3,7 +3,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.hongliang.demo"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -37,6 +37,11 @@ android {
             signingConfig signingConfigs.config
         }
     }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -64,4 +69,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 
     implementation 'me.zhouzhuo810.cameracardcrop:camera-card-crop:1.0.5'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.14.9'
 }
