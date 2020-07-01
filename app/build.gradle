@@ -43,7 +43,6 @@ android {
         targetCompatibility 1.8
     }
 }
-
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
