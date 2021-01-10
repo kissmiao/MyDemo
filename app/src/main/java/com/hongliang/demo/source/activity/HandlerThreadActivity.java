@@ -57,6 +57,10 @@ public class HandlerThreadActivity extends Activity {
 
 
     //线程运行耗时任务，运行完了用handler通知
+
+    /**
+     * 创建一个HandlerThread，然后在loopThread 中每隔2秒发送一个消息，mainHandler接受消息，显示页面
+     */
     private void onCreateHandle() {
 
         //创建一个线程,线程名字：handler-thread

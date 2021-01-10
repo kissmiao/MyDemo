@@ -68,12 +68,7 @@ public class RefreshViewActivity extends Activity implements View.OnClickListene
          */
         mTask = new MyTask();
 
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
 
-            }
-        });
     }
 
 
@@ -119,8 +114,8 @@ public class RefreshViewActivity extends Activity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_handler:
-               onHandler();
-
+                onHandler();
+                break;
             case R.id.bt_postView:
                 onPostView();
                 break;
