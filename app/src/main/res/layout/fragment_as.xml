@@ -34,7 +34,7 @@
         android:id="@+id/moveview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="moveview" />
+        android:text="File创建和读取android路径相关" />
 
     <Button
         android:id="@+id/loaderimage"
