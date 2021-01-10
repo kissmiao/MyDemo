@@ -1,4 +1,4 @@
-package com.hongliang.demo.otherActivity;
+package com.hongliang.demo.source.activity;
 
 import android.app.Activity;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.hongliang.demo.otherActivity;
+package com.hongliang.demo.source.activity;
 
 import android.app.Activity;
 import android.app.Service;
@@ -15,8 +15,8 @@ import android.widget.Toast;
 
 import com.hongliang.demo.R;
 import com.hongliang.demo.StudentAidl;
-import com.hongliang.demo.aidl.INumberManage;
-import com.hongliang.demo.aidl.NumberManageImpl;
+import com.hongliang.demo.source.aidl.INumberManage;
+import com.hongliang.demo.source.aidl.NumberManageImpl;
 
 public class AidlActivity extends Activity implements View.OnClickListener {
     private ServiceConnectionImpl sci;

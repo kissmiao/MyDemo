@@ -53,24 +53,24 @@
         <activity android:name=".otherActivity.TimeViewGroupActivity"></activity>
         <activity android:name=".otherActivity.ListViewScrollActivity"></activity>
         <activity android:name=".viewActivity.MenuActivity"></activity>
-        <activity android:name=".otherActivity.LayoutInflateActivity"></activity>
+        <activity android:name=".source.activity.LayoutInflateActivity"></activity>
         <activity android:name=".viewActivity.DrawCircleActivity"></activity>
         <activity android:name=".otherActivity.DeleteView"></activity>
         <activity android:name=".viewActivity.ColumnActivity"></activity>
         <activity android:name=".viewActivity.ClockActivity"></activity>
         <activity android:name=".viewActivity.BrokenLineActivity"></activity>
         <activity android:name=".viewActivity.AnimationActivity"></activity>
-        <activity android:name=".otherActivity.touchevent.TouchEventActivity"></activity>
+        <activity android:name=".source.activity.TouchEventActivity"></activity>
         <activity android:name=".viewActivity.SlideActivity"></activity>
         <activity android:name=".viewActivity.SpeedActivity"></activity>
-        <activity android:name=".otherActivity.AidlActivity"></activity>
-        <activity android:name=".otherActivity.HandlerThreadActivity"></activity>
-        <activity android:name=".otherActivity.RefreshViewActivity"></activity>
+        <activity android:name=".source.activity.AidlActivity"></activity>
+        <activity android:name=".source.activity.HandlerThreadActivity"></activity>
+        <activity android:name=".source.activity.RefreshViewActivity"></activity>
         <activity android:name=".viewActivity.CanvasActivity"></activity>
         <activity android:name=".viewActivity.PaintActivity"></activity>
         <activity android:name=".viewActivity.PathActivity"></activity>
         <activity android:name=".viewActivity.AttributeSetActivity"></activity>
-        <activity android:name=".otherActivity.GlideActivity"></activity>
+        <activity android:name=".source.activity.GlideActivity"></activity>
         <activity android:name=".viewActivity.ScrollActivity"></activity>
         <activity android:name=".otherActivity.OkHttpActivity"></activity>
 
@@ -88,7 +88,7 @@
 
 
         <service
-            android:name=".aidl.ServerAidl"
+            android:name=".source.aidl.ServerAidl"
             android:process="com.aidl.NumberManageImpl">
             <intent-filter>
                 <action android:name="numberManageImpl" />
@@ -110,7 +110,7 @@
 
         <activity android:name=".otherActivity.ViewSlideActivity"></activity>
 
-        <activity android:name=".otherActivity.FileActivity"></activity>
+        <activity android:name=".source.activity.FileActivity"></activity>
     </application>
 
 </manifest>

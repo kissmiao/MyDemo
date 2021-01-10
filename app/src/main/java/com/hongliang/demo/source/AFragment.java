@@ -1,4 +1,4 @@
-package com.hongliang.demo;
+package com.hongliang.demo.source;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,19 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.hongliang.demo.otherActivity.AidlActivity;
+import com.hongliang.demo.R;
 import com.hongliang.demo.otherActivity.DeleteView;
-import com.hongliang.demo.otherActivity.FileActivity;
-import com.hongliang.demo.otherActivity.GlideActivity;
-import com.hongliang.demo.otherActivity.HandlerThreadActivity;
-import com.hongliang.demo.otherActivity.LayoutInflateActivity;
+import com.hongliang.demo.source.activity.FileActivity;
+import com.hongliang.demo.source.activity.GlideActivity;
+import com.hongliang.demo.source.activity.HandlerThreadActivity;
+import com.hongliang.demo.source.activity.LayoutInflateActivity;
 import com.hongliang.demo.otherActivity.ListViewScrollActivity;
-import com.hongliang.demo.otherActivity.RefreshViewActivity;
+import com.hongliang.demo.source.activity.RefreshViewActivity;
 import com.hongliang.demo.otherActivity.TimeViewGroupActivity;
 import com.hongliang.demo.otherActivity.TransverseScrollView;
 import com.hongliang.demo.otherActivity.ViewPagerActivity;
 import com.hongliang.demo.otherActivity.ViewSlideActivity;
-import com.hongliang.demo.otherActivity.touchevent.TouchEventActivity;
+import com.hongliang.demo.source.activity.TouchEventActivity;
+import com.hongliang.demo.source.activity.AidlActivity;
 
 
 /**
@@ -112,9 +113,7 @@ public class AFragment extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_as, null);
-
         initView(view);
         return view;
     }

@@ -1,4 +1,4 @@
-package com.hongliang.demo.otherActivity.touchevent;
+package com.hongliang.demo.source.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.hongliang.demo.R;
+import com.hongliang.demo.source.touchevent.TouchEventUtil;
 
 
 public class TouchEventActivity extends Activity {

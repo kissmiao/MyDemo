@@ -1,4 +1,4 @@
-package com.hongliang.demo.otherActivity.touchevent;
+package com.hongliang.demo.source.touchevent;
 
 import android.view.MotionEvent;
 

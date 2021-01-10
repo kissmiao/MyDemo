@@ -1,4 +1,4 @@
-package com.hongliang.demo.aidl;
+package com.hongliang.demo.source.aidl;
 
 import android.app.Service;
 import android.content.Intent;

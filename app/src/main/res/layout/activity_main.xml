@@ -28,7 +28,7 @@
                 android:button="@null"
                 android:checked="true"
                 android:gravity="center"
-                android:text="产品"
+                android:text="android相关"
                 android:textColor="@drawable/radiobtn_textcolor_drawable_selector" />
 
             <View
@@ -44,7 +44,7 @@
                 android:background="@drawable/radiobtn_right_drawable_selector"
                 android:button="@null"
                 android:gravity="center"
-                android:text="排行"
+                android:text="View相关"
                 android:textColor="@drawable/radiobtn_textcolor_drawable_selector" />
         </RadioGroup>
     </LinearLayout>
