@@ -110,6 +110,7 @@
 
         <activity android:name=".otherActivity.ViewSlideActivity"></activity>
 
+        <activity android:name=".otherActivity.FileActivity"></activity>
     </application>
 
 </manifest>

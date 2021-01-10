@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.hongliang.demo.otherActivity.AidlActivity;
 import com.hongliang.demo.otherActivity.DeleteView;
+import com.hongliang.demo.otherActivity.FileActivity;
 import com.hongliang.demo.otherActivity.GlideActivity;
 import com.hongliang.demo.otherActivity.HandlerThreadActivity;
 import com.hongliang.demo.otherActivity.LayoutInflateActivity;
@@ -178,8 +179,9 @@ public class AFragment extends Fragment implements View.OnClickListener {
                 intent = new Intent(getActivity(), TransverseScrollView.class);
                 startActivity(intent);
                 break;
-
             case R.id.moveview:
+                intent = new Intent(getActivity(), FileActivity.class);
+                startActivity(intent);
                 break;
             case R.id.loaderimage:
                 intent = new Intent(getActivity(), DeleteView.class);
