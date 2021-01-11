@@ -3,6 +3,7 @@ package com.hongliang.demo.source.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -89,13 +90,15 @@ public class GlideActivity extends Activity {
 //            Log.i("LOG", "========PNG设置1000*500分辨率后内存" + BitmapUtil.getBitmapSize(BitmapUtil.bitmapFactory(dir_PNG, 1000, 500)));// 4439160
 //
 //
-//            BitmapUtil.saveImage(BitmapUtil.bitmapFactory(dir_JPG, 2000, 1000), Bitmap.CompressFormat.JPEG, 100, "j_image", ".JPG");//1920*1080 1M
+            BitmapUtil.saveImage(BitmapUtil.bitmapFactory(dir_JPG, 2000, 1000), Bitmap.CompressFormat.JPEG, 100, "j_image", ".JPG");//1920*1080 1M
 //            BitmapUtil.saveImage(BitmapUtil.bitmapFactory(dir_JPG, 1000, 500), Bitmap.CompressFormat.JPEG, 100, "j2_image", ".JPG");//960*540 253.4kb
 //
 //            BitmapUtil.saveImage(BitmapUtil.bitmapFactory(dir_PNG, 2000, 1000), Bitmap.CompressFormat.JPEG, 100, "p_image", ".PNG");//2508*1771 361.7kb
 //            BitmapUtil.saveImage(BitmapUtil.bitmapFactory(dir_PNG, 1000, 500), Bitmap.CompressFormat.JPEG, 100, "p2_image", ".PNG");//1254*885 131kb
 //            BitmapUtil.getBitmapByPhone(dir_JPG)
             iv_image.setImageBitmap(result);
+            String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/image.jpg";
+            BitmapUtil.saveBitmap(result, path);
         }
 
         // 方法5：onCancelled()

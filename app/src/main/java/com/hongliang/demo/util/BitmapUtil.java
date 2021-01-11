@@ -162,5 +162,23 @@ public class BitmapUtil {
         return sampleSize;
     }
 
+    public static void saveBitmap(Bitmap bitmap, String path) {
+
+        FileUtils.createOrExistsFile(path);
+
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(path);
+
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+            fileOutputStream.flush();
+            fileOutputStream.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
 
 }
