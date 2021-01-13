@@ -8,6 +8,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        flavorDimensions "versionCode"
     }
     signingConfigs {
         config {
@@ -42,6 +43,42 @@ android {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
+
+
+    // 渠道包定义，默认定义的名称就是渠道名称
+    productFlavors {
+
+        dev {} // 测试
+        baidu {}        // 百度手机助手
+        yinyongbao {}   // 应用宝
+        m360 {}         // 360手机助手
+    }
+
+    // 批量渠道包值替换
+    productFlavors.all { flavor ->
+        // 友盟、极光推送渠道包， UMENG_CHANNEL 是根据你AndroidManifest.xml来配置的，请看下面。
+        flavor.manifestPlaceholders = [UMENG_CHANNEL: name, JPUSH_CHANNEL: name]
+    }
+
+    sourceSets {
+        println "true================================="
+        main {
+            java {
+
+//                if (OPPO) {
+//                    println "1========"
+//                    exclude 'src/main/java/com/hongliang/demo/util/StringUtils'
+//                    srcDir 'src/main/myjava/java' // 指定源码目录
+//                } else {
+//                    println "2========"
+//                    srcDir 'src/main/myjava/java' // 指定源码目录
+//                }
+
+            }
+        }
+    }
+
+
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')

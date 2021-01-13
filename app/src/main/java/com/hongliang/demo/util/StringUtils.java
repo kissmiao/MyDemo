@@ -345,7 +345,6 @@ public class StringUtils {
     }
 
 
-
     private static final double EARTH_RADIUS = 6378137.0;
 
     public static double gps2m(double lat_a, double lng_a, double lat_b, double lng_b) {
@@ -434,11 +433,17 @@ public class StringUtils {
 
     /**
      * 判断一个字符串是否是double型
+     *
      * @param str
      * @return
      */
     public static boolean isDouble(String str) {
         Pattern pattern = Pattern.compile("^[-\\+]?[.\\d]*$");
         return pattern.matcher(str).matches();
+    }
+
+
+    public static String getData() {
+        return "oppo";
     }
 }

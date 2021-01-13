@@ -66,6 +66,8 @@ public class FileActivity extends Activity {
         getExternal();
         getOther();
 
+      //  SharedPreferences sharedPreferences=
+      //  getSharedPreferences("");
         // SharedPreferences
         //主线程那就是同步运行
         //开线程就是异步执行

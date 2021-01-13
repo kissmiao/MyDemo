@@ -11,9 +11,11 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.hongliang.demo.R;
 import com.hongliang.demo.util.BitmapUtil;
+import com.hongliang.demo.util.StringUtils;
 
 import me.zhouzhuo810.cameracardcrop.CameraConfig;
 import me.zhouzhuo810.cameracardcrop.CropActivity;
@@ -36,7 +38,12 @@ public class GlideActivity extends Activity {
 
         MyTask mTask = new MyTask();
         mTask.execute();
-
+        findViewById(R.id.bt_touch).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(GlideActivity.this, "===" + StringUtils.getData(), Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 
