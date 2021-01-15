@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hongliang.demo.otherActivity.ListViewScrollActivity;
 import com.hongliang.demo.view.ScrollView;
 import com.hongliang.demo.viewActivity.AttributeSetActivity;
 import com.hongliang.demo.viewActivity.BrokenLineActivity;

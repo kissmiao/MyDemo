@@ -1,12 +1,20 @@
 package com.hongliang.demo;
 
 import android.app.IntentService;
+import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
-public class MyIntentServer extends IntentService {
-
+/**
+ * 使用Message 让service和activity通信
+ */
+public class MyIntentServer extends Service {
+    Messenger mMessenger;
 
     @Override
     public void onCreate() {
@@ -18,15 +26,18 @@ public class MyIntentServer extends IntentService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i("LOG", "===onStartCommand=====");
+        mMessenger = (Messenger) intent.getExtras().get("messages");
+        Message message = Message.obtain();
+        message.arg1 = 1;
+        message.obj = "成功";
+        try {
+            mMessenger.send(message);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
         return super.onStartCommand(intent, flags, startId);
     }
 
-    @Override
-    public void onStart(Intent intent, int startId) {
-        Log.i("LOG", "===onStart=====");
-        super.onStart(intent, startId);
-    }
 
     @Override
     public void onDestroy() {
@@ -34,10 +45,11 @@ public class MyIntentServer extends IntentService {
         super.onDestroy();
     }
 
+
+    @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        Log.i("LOG", "===onBind=====");
-        return super.onBind(intent);
+        return null;
     }
 
     @Override
@@ -50,41 +62,6 @@ public class MyIntentServer extends IntentService {
     public boolean onUnbind(Intent intent) {
         Log.i("LOG", "===onUnbind=====");
         return super.onUnbind(intent);
-    }
-
-    /**
-     * Creates an IntentService.  Invoked by your subclass's constructor.
-     */
-    public MyIntentServer() {
-        super("MyIntentServer");
-    }
-
-    @Override
-    protected void onHandleIntent(Intent intent) {
-        String name = intent.getStringExtra("name");
-        onPrint(name);
-        Log.e("LOG", "onHandleIntent intent = " + intent.getStringExtra("params") + "  thread id = " + Thread.currentThread().getId() + ",name = " + Thread.currentThread().getName());
-
-    }
-
-    private void onPrint(String name) {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                Log.i("LOG", "========" + Thread.currentThread().getName());
-
-            }
-        }, name);
-
-
-        thread.start();
     }
 
 

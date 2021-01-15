@@ -15,7 +15,7 @@ import com.hongliang.demo.source.activity.FileActivity;
 import com.hongliang.demo.source.activity.GlideActivity;
 import com.hongliang.demo.source.activity.HandlerThreadActivity;
 import com.hongliang.demo.source.activity.LayoutInflateActivity;
-import com.hongliang.demo.otherActivity.ListViewScrollActivity;
+import com.hongliang.demo.otherActivity.MessengerActivity;
 import com.hongliang.demo.source.activity.RefreshViewActivity;
 import com.hongliang.demo.otherActivity.TimeViewGroupActivity;
 import com.hongliang.demo.otherActivity.TransverseScrollView;
@@ -193,7 +193,7 @@ public class AFragment extends Fragment implements View.OnClickListener {
             case R.id.remove_sideslip:
                 break;
             case R.id.scroll:
-                intent = new Intent(getActivity(), ListViewScrollActivity.class);
+                intent = new Intent(getActivity(), MessengerActivity.class);
                 startActivity(intent);
                 break;
 
