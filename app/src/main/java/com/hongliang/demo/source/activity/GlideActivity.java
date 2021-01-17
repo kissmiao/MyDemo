@@ -10,11 +10,14 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.hongliang.demo.R;
+import com.hongliang.demo.otherActivity.ViewSlideActivity;
 import com.hongliang.demo.util.BitmapUtil;
+import com.hongliang.demo.util.OnDragTouchListener;
 import com.hongliang.demo.util.StringUtils;
 
 import me.zhouzhuo810.cameracardcrop.CameraConfig;
@@ -38,12 +41,20 @@ public class GlideActivity extends Activity {
 
         MyTask mTask = new MyTask();
         mTask.execute();
-        findViewById(R.id.bt_touch).setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.bt_touch);
+        OnDragTouchListener onDragTouchListener = new OnDragTouchListener(true);
+        onDragTouchListener.setOnDraggableClickListener(new OnDragTouchListener.OnDraggableClickListener() {
+            @Override
+            public void onDragged(View v, int left, int top) {
+
+            }
+
             @Override
             public void onClick(View v) {
                 Toast.makeText(GlideActivity.this, "===" + StringUtils.getData(), Toast.LENGTH_LONG).show();
             }
         });
+        button.setOnTouchListener(onDragTouchListener);
 
     }
 

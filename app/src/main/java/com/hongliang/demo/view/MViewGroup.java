@@ -3,6 +3,7 @@ package com.hongliang.demo.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -38,6 +39,16 @@ public class MViewGroup extends ViewGroup {
 
     }
 
+//    @Override
+//    public boolean onInterceptTouchEvent(MotionEvent ev) {
+//        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+//            return false;
+//        } else {
+//            return true;
+//        }
+//
+//    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -63,8 +74,7 @@ public class MViewGroup extends ViewGroup {
         int cCount = getChildCount();
 
         // 遍历每个子元素
-        for (int i = 0; i < cCount; i++)
-        {
+        for (int i = 0; i < cCount; i++) {
             View child = getChildAt(i);
             // 测量每一个child的宽和高
             measureChild(child, widthMeasureSpec, heightMeasureSpec);
@@ -80,8 +90,7 @@ public class MViewGroup extends ViewGroup {
             /**
              * 如果加入当前child，则超出最大宽度，则的到目前最大宽度给width，类加height 然后开启新行
              */
-            if (lineWidth + childWidth > sizeWidth)
-            {
+            if (lineWidth + childWidth > sizeWidth) {
                 width = Math.max(lineWidth, childWidth);// 取最大的
                 lineWidth = childWidth; // 重新开启新行，开始记录
                 // 叠加当前高度，
@@ -95,8 +104,7 @@ public class MViewGroup extends ViewGroup {
                 lineHeight = Math.max(lineHeight, childHeight);
             }
             // 如果是最后一个，则将当前记录的最大宽度和当前lineWidth做比较
-            if (i == cCount - 1)
-            {
+            if (i == cCount - 1) {
                 width = Math.max(width, lineWidth);
                 height += lineHeight;
             }
@@ -106,6 +114,7 @@ public class MViewGroup extends ViewGroup {
                 : width, (modeHeight == MeasureSpec.EXACTLY) ? sizeHeight
                 : height);
     }
+
     /**
      * 存储所有的View，按行记录
      */
@@ -128,8 +137,7 @@ public class MViewGroup extends ViewGroup {
         List<View> lineViews = new ArrayList<View>();
         int cCount = getChildCount();
         // 遍历所有的孩子
-        for (int i = 0; i < cCount; i++)
-        {
+        for (int i = 0; i < cCount; i++) {
             View child = getChildAt(i);
             MarginLayoutParams lp = (MarginLayoutParams) child
                     .getLayoutParams();
@@ -137,8 +145,7 @@ public class MViewGroup extends ViewGroup {
             int childHeight = child.getMeasuredHeight();
 
             // 如果已经需要换行
-            if (childWidth + lp.leftMargin + lp.rightMargin + lineWidth > width)
-            {
+            if (childWidth + lp.leftMargin + lp.rightMargin + lineWidth > width) {
                 // 记录这一行所有的View以及最大高度
                 mLineHeight.add(lineHeight);
                 // 将当前行的childView保存，然后开启新的ArrayList保存下一行的childView
@@ -162,8 +169,7 @@ public class MViewGroup extends ViewGroup {
         int top = 0;
         // 得到总行数
         int lineNums = mAllViews.size();
-        for (int i = 0; i < lineNums; i++)
-        {
+        for (int i = 0; i < lineNums; i++) {
             // 每一行的所有的views
             lineViews = mAllViews.get(i);
             // 当前行的最大高度
@@ -171,11 +177,9 @@ public class MViewGroup extends ViewGroup {
 
 
             // 遍历当前行所有的View
-            for (int j = 0; j < lineViews.size(); j++)
-            {
+            for (int j = 0; j < lineViews.size(); j++) {
                 View child = lineViews.get(j);
-                if (child.getVisibility() == View.GONE)
-                {
+                if (child.getVisibility() == View.GONE) {
                     continue;
                 }
                 MarginLayoutParams lp = (MarginLayoutParams) child
@@ -184,9 +188,8 @@ public class MViewGroup extends ViewGroup {
                 //计算childView的left,top,right,bottom
                 int lc = left + lp.leftMargin;
                 int tc = top + lp.topMargin;
-                int rc =lc + child.getMeasuredWidth();
+                int rc = lc + child.getMeasuredWidth();
                 int bc = tc + child.getMeasuredHeight();
-
 
 
                 child.layout(lc, tc, rc, bc);
@@ -201,8 +204,7 @@ public class MViewGroup extends ViewGroup {
     }
 
     @Override
-    public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attrs)
-    {
+    public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attrs) {
         return new MarginLayoutParams(getContext(), attrs);
     }
 }

@@ -24,6 +24,7 @@ import com.hongliang.demo.otherActivity.ViewSlideActivity;
 import com.hongliang.demo.source.activity.TouchEventActivity;
 import com.hongliang.demo.source.activity.AidlActivity;
 import com.hongliang.demo.util.OnDragTouchListener;
+import com.hongliang.demo.view.SlideButton;
 
 
 /**
@@ -108,7 +109,7 @@ public class AFragment extends Fragment implements View.OnClickListener {
     /**
      * View滑动
      */
-    private Button mBtSlide;
+    private SlideButton mBtSlide;
 
 
     @Nullable
@@ -156,22 +157,9 @@ public class AFragment extends Fragment implements View.OnClickListener {
         mBtHandlerThread.setOnClickListener(this);
 
 
-        mBtSlide = (Button) view.findViewById(R.id.bt_Slide);
-     //   mBtSlide.setOnClickListener(this);
-        OnDragTouchListener onDragTouchListener=new OnDragTouchListener(true);
-        onDragTouchListener.setOnDraggableClickListener(new OnDragTouchListener.OnDraggableClickListener() {
-            @Override
-            public void onDragged(View v, int left, int top) {
+        mBtSlide = (SlideButton) view.findViewById(R.id.bt_Slide);
+        mBtSlide.setOnClickListener(this);
 
-            }
-
-            @Override
-            public void onClick(View v) {
-                Intent   intent = new Intent(getActivity(), ViewSlideActivity.class);
-                startActivity(intent);
-            }
-        });
-        mBtSlide.setOnTouchListener(onDragTouchListener);
     }
 
     @Override

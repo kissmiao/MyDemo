@@ -108,10 +108,9 @@
         android:text="HandlerThread" />
 
 
-    <Button
+    <com.hongliang.demo.view.SlideButton
         android:id="@+id/bt_Slide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View滑动"
-        android:textAllCaps="false" />
+        android:text="View滑动" />
 </com.hongliang.demo.view.MViewGroup>

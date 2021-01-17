@@ -46,7 +46,7 @@ public class ViewSlideActivity extends Activity implements View.OnClickListener 
         mBtSlide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mBtSlide.scrollerMove(-400, -200, 5000);
+               // mBtSlide.scrollerMove(-400, -200, 5000);
             }
         });
 
