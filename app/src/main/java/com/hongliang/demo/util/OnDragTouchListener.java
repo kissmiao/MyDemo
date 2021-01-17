@@ -59,8 +59,10 @@ public class OnDragTouchListener implements View.OnTouchListener {
                     top = bottom - v.getHeight();
                 }
                 v.layout(left, top, right, bottom);
+                Log.i("LOG", "1111111=======");
                 break;
             case MotionEvent.ACTION_UP:
+                Log.i("LOG", "=============");
                 //在拖动过按钮后，如果其他view刷新导致重绘，会让按钮重回原点，所以需要更改布局参数
                 ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
                 startAutoPull(v, lp);
@@ -98,8 +100,6 @@ public class OnDragTouchListener implements View.OnTouchListener {
     }
 
 
-    boolean left_s = true;
-
     /**
      * 开启自动拖拽
      *
@@ -120,25 +120,19 @@ public class OnDragTouchListener implements View.OnTouchListener {
         float end = 0;
         //true  在右边
         // false 左边
-
+        ValueAnimator animator;
         if ((left + v.getWidth() / 2) >= mScreenWidth / 2) {
             //  end = mScreenWidth - v.getWidth();
-            left_s = false;
-        } else {
-            left_s = true;
-        }
-        ValueAnimator animator;
-        if (left_s) {
-            animator = ValueAnimator.ofFloat(end, left);//left a-0
-        } else {
             int size = mScreenWidth - right;
             animator = ValueAnimator.ofFloat(end, size); // right a-最大
+        } else {
+            animator = ValueAnimator.ofFloat(end, -left);//left a-0
         }
 
         //  ValueAnimator animator = ValueAnimator.ofFloat(left, end);
         //  ValueAnimator animator = ValueAnimator.ofFloat(left, end);
 
-        Log.i("LOG", " v" + v.getLeft() + "=" + v.getRight());//  v234=498
+
         animator.setInterpolator(new DecelerateInterpolator());
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -146,12 +140,8 @@ public class OnDragTouchListener implements View.OnTouchListener {
                 int leftMargin = (int) ((float) animation.getAnimatedValue());
 
                 //    v.layout(leftMargin, top, right, bottom);
-                Log.i("LOG", " v" + leftMargin);
-                if (left_s) {
-                    v.layout(left - leftMargin, top, right - leftMargin, bottom);
-                } else {
-                    v.layout(left + leftMargin, top, right + leftMargin, bottom);
-                }
+
+                v.layout(left + leftMargin, top, right + leftMargin, bottom);
 
                 //  lp.setMargins(leftMargin, top, 0, 0);
                 //  v.setLayoutParams(lp);
