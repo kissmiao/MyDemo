@@ -23,8 +23,6 @@ import com.hongliang.demo.otherActivity.ViewPagerActivity;
 import com.hongliang.demo.otherActivity.ViewSlideActivity;
 import com.hongliang.demo.source.activity.TouchEventActivity;
 import com.hongliang.demo.source.activity.AidlActivity;
-import com.hongliang.demo.util.OnDragTouchListener;
-import com.hongliang.demo.view.SlideButton;
 
 
 /**
@@ -109,7 +107,7 @@ public class AFragment extends Fragment implements View.OnClickListener {
     /**
      * View滑动
      */
-    private SlideButton mBtSlide;
+    private Button mBtSlide;
 
 
     @Nullable
@@ -157,7 +155,7 @@ public class AFragment extends Fragment implements View.OnClickListener {
         mBtHandlerThread.setOnClickListener(this);
 
 
-        mBtSlide = (SlideButton) view.findViewById(R.id.bt_Slide);
+        mBtSlide = view.findViewById(R.id.bt_Slide);
         mBtSlide.setOnClickListener(this);
 
     }

@@ -45,10 +45,12 @@ public class TouchEventActivity extends Activity {
         });
 
 
-
-
-
     }
+
+
+    /**
+     * 当子View 都不拦截方法的时候，那么后续的move he up事件不会传递到子View
+     */
 
     /**
      * 这个方法返回值与是否调用 onTouchEvent有间接关系.当Activity中dispatchTouchEvent()方法中getWindow().superDispatchTouchEvent(ev)返回false，

@@ -18,6 +18,7 @@ public class OnDragTouchListener implements View.OnTouchListener {
     private int left, top, right, bottom;
     private OnDraggableClickListener mListener;
     private boolean hasAutoPullToBorder;//标记是否开启自动拉到边缘功能
+    private int statecHeight;
 
     public OnDragTouchListener() {
     }
@@ -28,17 +29,18 @@ public class OnDragTouchListener implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(final View v, MotionEvent event) {
+        getStaticHeight(v);
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mScreenWidth = v.getResources().getDisplayMetrics().widthPixels;
                 mScreenHeight = v.getResources().getDisplayMetrics().heightPixels;
                 mOriginalX = event.getRawX();
                 mOriginalY = event.getRawY();
-                mDistanceX = event.getRawX() - v.getLeft();
-                mDistanceY = event.getRawY() - v.getTop();
+                mDistanceX = event.getRawX() - v.getLeft();//手指内距离左边边框的距离
+                mDistanceY = event.getRawY() - v.getTop();//手指内距离上边边框的距离
                 break;
             case MotionEvent.ACTION_MOVE:
-                left = (int) (event.getRawX() - mDistanceX);
+                left = (int) (event.getRawX() - mDistanceX);//就是getLift
                 top = (int) (event.getRawY() - mDistanceY);
                 right = left + v.getWidth();
                 bottom = top + v.getHeight();
@@ -65,6 +67,8 @@ public class OnDragTouchListener implements View.OnTouchListener {
                 Log.i("LOG", "=============");
                 //在拖动过按钮后，如果其他view刷新导致重绘，会让按钮重回原点，所以需要更改布局参数
                 ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+
+
                 startAutoPull(v, lp);
                 //如果移动距离过小，则判定为点击
                 if (Math.abs(event.getRawX() - mOriginalX) <
@@ -99,6 +103,7 @@ public class OnDragTouchListener implements View.OnTouchListener {
         this.hasAutoPullToBorder = hasAutoPullToBorder;
     }
 
+    boolean isLift;
 
     /**
      * 开启自动拖拽
@@ -120,18 +125,17 @@ public class OnDragTouchListener implements View.OnTouchListener {
         float end = 0;
         //true  在右边
         // false 左边
+
         ValueAnimator animator;
         if ((left + v.getWidth() / 2) >= mScreenWidth / 2) {
             //  end = mScreenWidth - v.getWidth();
             int size = mScreenWidth - right;
             animator = ValueAnimator.ofFloat(end, size); // right a-最大
+            isLift = false;
         } else {
+            isLift = true;
             animator = ValueAnimator.ofFloat(end, -left);//left a-0
         }
-
-        //  ValueAnimator animator = ValueAnimator.ofFloat(left, end);
-        //  ValueAnimator animator = ValueAnimator.ofFloat(left, end);
-
 
         animator.setInterpolator(new DecelerateInterpolator());
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -139,12 +143,11 @@ public class OnDragTouchListener implements View.OnTouchListener {
             public void onAnimationUpdate(ValueAnimator animation) {
                 int leftMargin = (int) ((float) animation.getAnimatedValue());
 
-                //    v.layout(leftMargin, top, right, bottom);
 
                 v.layout(left + leftMargin, top, right + leftMargin, bottom);
 
                 //  lp.setMargins(leftMargin, top, 0, 0);
-                //  v.setLayoutParams(lp);
+                //    v.setLayoutParams(lp);
             }
         });
         final float finalEnd = end;
@@ -157,6 +160,25 @@ public class OnDragTouchListener implements View.OnTouchListener {
                 }
             }
         });
+
+        //结束后固定下高度
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                //
+                if (isLift) {
+                    int right = mScreenWidth - v.getWidth();
+                    lp.setMargins(0, 0, right, mScreenHeight - bottom - statecHeight);
+                } else {
+                    lp.setMargins(0, 0, 0, mScreenHeight - bottom - statecHeight);
+                }
+
+                v.setLayoutParams(lp);
+            }
+        });
+
+
         animator.setDuration(400);
         animator.start();
     }
@@ -181,5 +203,12 @@ public class OnDragTouchListener implements View.OnTouchListener {
          * @param v 拖拽控件
          */
         void onClick(View v);
+    }
+
+    private void getStaticHeight(View view) {
+        int resourceId = view.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            statecHeight = view.getResources().getDimensionPixelSize(resourceId);
+        }
     }
 }

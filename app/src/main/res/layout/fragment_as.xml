@@ -108,7 +108,7 @@
         android:text="HandlerThread" />
 
 
-    <com.hongliang.demo.view.SlideButton
+    <Button
         android:id="@+id/bt_Slide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

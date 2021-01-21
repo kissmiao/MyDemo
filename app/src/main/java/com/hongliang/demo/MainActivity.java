@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 
 import com.hongliang.demo.otherActivity.ViewSlideActivity;
 import com.hongliang.demo.source.AFragment;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     private int currentItem = 0;
 
     private String TAG = "EventDistribute";
+    private RelativeLayout rl_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +34,10 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         setContentView(R.layout.activity_main);
         initView();
 
-        LinearLayout linearLayout=  findViewById(R.id.ll_scroll);
+        LinearLayout linearLayout = findViewById(R.id.ll_scroll);
 
 
-        OnDragTouchListener onDragTouchListener=new OnDragTouchListener(true);
+        OnDragTouchListener onDragTouchListener = new OnDragTouchListener(true);
         onDragTouchListener.setOnDraggableClickListener(new OnDragTouchListener.OnDraggableClickListener() {
             @Override
             public void onDragged(View v, int left, int top) {
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
             @Override
             public void onClick(View v) {
-                Intent   intent = new Intent(MainActivity.this, ViewSlideActivity.class);
+                Intent intent = new Intent(MainActivity.this, ViewSlideActivity.class);
                 startActivity(intent);
             }
         });
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         PageAdapter adapter = new PageAdapter(getSupportFragmentManager(), fragmentList);
         viewPager.setAdapter(adapter);
         viewPager.setOnPageChangeListener(this);
-
+        rl_main = findViewById(R.id.rl_main);
     }
 
     @Override
@@ -74,11 +76,13 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         switch (checkedId) {
             case R.id.bt_product:
                 if (currentItem != 0) {
+                    rl_main.requestLayout();
                     viewPager.setCurrentItem(0, true);
                 }
                 break;
             case R.id.bt_ranking:
                 if (currentItem != 1) {
+                    rl_main.requestLayout();
                     viewPager.setCurrentItem(1, true);
                 }
                 break;
