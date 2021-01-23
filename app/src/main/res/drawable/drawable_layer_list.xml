@@ -3,18 +3,14 @@
 
     <item android:state_window_focused="false">
         <layer-list>
-            <item
-                android:left="2dp"
-                android:top="4dp">
+            <item android:left="2dp" android:top="4dp">
                 <shape>
-                    <solid android:color="@android:color/darker_gray" />
+                    <solid android:color="#FFD700" />
                     <corners android:radius="10dp" />
                 </shape>
             </item>
             <!-- 白色前景 -->
-            <item
-                android:bottom="4dp"
-                android:right="2dp">
+            <item android:bottom="4dp" android:right="2dp">
                 <shape>
                     <solid android:color="#FFFFFF" />
                     <corners android:radius="10dp" />
@@ -24,12 +20,9 @@
     </item>
 
 
-
     <item android:state_pressed="true">
         <layer-list>
-            <item
-                android:left="2dp"
-                android:top="4dp">
+            <item android:left="2dp" android:top="4dp">
                 <shape>
                     <solid android:color="@android:color/darker_gray" />
                     <corners android:radius="10dp" />
@@ -37,9 +30,7 @@
             </item>
 
             <!-- 白色前景 -->
-            <item
-                android:bottom="4dp"
-                android:right="2dp">
+            <item android:bottom="4dp" android:right="2dp">
                 <shape>
                     <!--只有一个属性color-->
                     <solid android:color="#98FB98" />

@@ -184,7 +184,6 @@ public class DFragment extends Fragment implements View.OnClickListener {
         mBtAttributeSet.setOnClickListener(this);
         mBtScroll = (Button) view.findViewById(R.id.bt_scroll);
         mBtScroll.setOnClickListener(this);
-
         view.findViewById(R.id.bt_operaction_view).setOnClickListener(this);
     }
 

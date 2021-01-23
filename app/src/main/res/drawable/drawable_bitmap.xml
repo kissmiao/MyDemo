@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:antialias="true"
+    android:dither="true"
+    android:filter="true"
+    android:gravity="center"
+    android:src="@drawable/avastar"
+    android:tileMode="clamp">
+
+    <!--    antialias 抗锯齿-->
+    <!--    dither 开启抖动效果-->
+    <!--    filter 开启过滤效果 被拉伸或压缩的时候-->
+    <!--    gravity 设置放置位置-->
+    <!--    tileMode 设置平铺模式-->
+
+
+</bitmap>

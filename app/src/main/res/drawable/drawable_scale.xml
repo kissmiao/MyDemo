@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scale xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/a"
+    android:scaleWidth="80%"
+    android:scaleHeight="80%"
+    android:scaleGravity="center"></scale>
+
+    <!-- XML设置的缩放比例越大，Drawable显示的越小-->

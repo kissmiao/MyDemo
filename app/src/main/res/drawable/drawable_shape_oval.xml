@@ -5,9 +5,7 @@
     <gradient
         android:centerColor="@color/turquoise"
         android:endColor="@color/wheat"
-        android:startColor="@color/red"
-
-        ></gradient>
+        android:startColor="@color/red"></gradient>
     <size
         android:width="40dp"
         android:height="40dp" />

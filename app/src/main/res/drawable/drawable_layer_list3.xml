@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/cadetblue"></solid>
+        </shape>
+    </item>
+
+    <!--    向下10 这个决定了两遍的高度-->
+    <item android:bottom="10dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white"></solid>
+        </shape>
+    </item>
+
+    <!--    left right 决定两边的宽度-->
+    <item
+        android:bottom="1dp"
+        android:left="1dp"
+        android:right="1dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white"></solid>
+        </shape>
+    </item>
+
+
+</layer-list>

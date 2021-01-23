@@ -1,38 +1,88 @@
 package com.hongliang.demo.otherActivity;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import com.hongliang.demo.R;
+import com.hongliang.demo.otherActivity.draeable.BitmapDrawable;
+import com.hongliang.demo.otherActivity.draeable.ClipDrawableFragment;
+import com.hongliang.demo.otherActivity.draeable.InsetDrawableFragment;
+import com.hongliang.demo.otherActivity.draeable.LayerDrawable;
+import com.hongliang.demo.otherActivity.draeable.LevelDrawable;
+import com.hongliang.demo.otherActivity.draeable.ScaleDrawableFragment;
+import com.hongliang.demo.otherActivity.draeable.ShapeDrawable;
+import com.hongliang.demo.otherActivity.draeable.TransitionDrawableFragment;
 
 
 /**
  * Created by Administrator on 2016/8/29.
  */
-public class DrawableActivity extends Activity {
-    private TextView tv;//根据不同选项所要变更的文本控件
+public class DrawableActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_drawable);
-       /* tv = (TextView) this.findViewById(R.id.tvSex);
-        //根据ID找到RadioGroup实例
-        MyRadioGroup group = (MyRadioGroup) this.findViewById(R.id.radioGroup);
-        //绑定一个匿名监听器
-        group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(RadioGroup arg0, int arg1) {
-                // TODO Auto-generated method stub
-                //获取变更后的选中项的ID
-                int radioButtonId = arg0.getCheckedRadioButtonId();
-                //根据ID获取RadioButton的实例
-                RadioButton rb = (RadioButton) DrawableActivity.this.findViewById(radioButtonId);
-                //更新文本内容，以符合选中项
-                tv.setText("您的性别是：" + rb.getText());
-            }
-        });*/
+        findViewById(R.id.bt_bitmap).setOnClickListener(this);
+        findViewById(R.id.bt_shape).setOnClickListener(this);
+        findViewById(R.id.bt_layer).setOnClickListener(this);
+        findViewById(R.id.bt_level).setOnClickListener(this);
+        findViewById(R.id.bt_transition).setOnClickListener(this);
+        findViewById(R.id.bt_inset).setOnClickListener(this);
+        findViewById(R.id.bt_scan).setOnClickListener(this);
+        findViewById(R.id.bt_clip).setOnClickListener(this);
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.bt_bitmap:
+                BitmapDrawable bitmapDrawable = new BitmapDrawable();
+                replaceFragment(bitmapDrawable);
+                break;
+            case R.id.bt_shape:
+                ShapeDrawable shapeDrawable = new ShapeDrawable();
+                replaceFragment(shapeDrawable);
+                break;
+            case R.id.bt_layer:
+                LayerDrawable layerDrawable = new LayerDrawable();
+                replaceFragment(layerDrawable);
+                break;
+            case R.id.bt_level:
+                LevelDrawable levelDrawable = new LevelDrawable();
+                replaceFragment(levelDrawable);
+                break;
+            case R.id.bt_transition:
+                TransitionDrawableFragment transitionDrawableFragment = new TransitionDrawableFragment();
+                replaceFragment(transitionDrawableFragment);
+                break;
+            case R.id.bt_inset:
+                InsetDrawableFragment insetDrawableFragment = new InsetDrawableFragment();
+                replaceFragment(insetDrawableFragment);
+                break;
+            case R.id.bt_scan:
+                ScaleDrawableFragment scaleDrawableFragment = new ScaleDrawableFragment();
+                replaceFragment(scaleDrawableFragment);
+                break;
+            case R.id.bt_clip:
+                ClipDrawableFragment clipDrawableFragment = new ClipDrawableFragment();
+                replaceFragment(clipDrawableFragment);
+                break;
+        }
+    }
+
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();   // 开启一个事务
+        transaction.replace(R.id.fl_drawable, fragment);
+        transaction.commit();
+    }
+
+
 }

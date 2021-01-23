@@ -5,7 +5,11 @@
         android:centerColor="@color/azure"
         android:endColor="@color/beige"
         android:startColor="@color/gold"
-        android:type="sweep"></gradient>
+        android:type="linear"></gradient>
+
+    <!--    android:type="linear"线性渐变-->
+    <!--    android:type="radial" 径向渐变-->
+    <!--    android:type="sweep" 扫描线渐变-->
 
     <solid android:color="@color/yellow"></solid>
 
@@ -14,4 +18,12 @@
     <stroke
         android:width="3dp"
         android:color="@color/brown"></stroke>
+
+    <padding
+        android:bottom="4dp"
+        android:left="14dp"
+        android:right="14dp"
+        android:top="4dp" />
+
+
 </shape>
