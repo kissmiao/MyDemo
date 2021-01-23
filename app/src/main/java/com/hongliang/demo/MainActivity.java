@@ -19,7 +19,7 @@ import com.hongliang.demo.util.OnDragTouchListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
+public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
 
     private ViewPager viewPager;
     private RadioGroup host;
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     private RelativeLayout rl_main;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();

@@ -1,4 +1,4 @@
-package com.hongliang.demo.otherActivity.draeable;
+package com.hongliang.demo;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,86 +10,91 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hongliang.demo.R;
+public class BaseFragment extends Fragment {
 
-public class ShapeDrawable extends Fragment {
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
-        Log.i("LOG", "onAttach");
+        Log.i("LOG", this.getClass().getName() + "：onAttach");
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i("LOG", "onCreate");
+        Log.i("LOG", this.getClass().getName() + "：onCreate");
     }
-
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = getLayoutInflater().inflate(R.layout.layout_fragment_shape_drawable, null);
-        Log.i("LOG", "onCreateView");
-        return view;
+        Log.i("LOG", this.getClass().getName() + "：onCreateView");
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.i("LOG", "onViewCreated");
+        Log.i("LOG", this.getClass().getName() + "：onViewCreated");
     }
 
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.i("LOG", "onActivityCreated");
+        Log.i("LOG", this.getClass().getName() + "：onActivityCreated");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        Log.i("LOG", "onStart");
+        Log.i("LOG", this.getClass().getName() + "：onStart");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.i("LOG", "onResume");
+        Log.i("LOG", this.getClass().getName() + "：onResume");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.i("LOG", "onPause");
+        Log.i("LOG", this.getClass().getName() + "：onPause");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Log.i("LOG", "onStop");
+        Log.i("LOG", this.getClass().getName() + "：onStop");
     }
-
 
     @Override
     public void onDestroyView() {
-        Log.i("LOG", "onDestroyView");
         super.onDestroyView();
+        Log.i("LOG", this.getClass().getName() + "：onDestroyView");
     }
+
 
     @Override
     public void onDetach() {
-        Log.i("LOG", "onDetach");
         super.onDetach();
+        Log.i("LOG", this.getClass().getName() + "：onDetach");
     }
 
     @Override
     public void onDestroy() {
-        Log.i("LOG", "onDestroy");
         super.onDestroy();
+        Log.i("LOG", this.getClass().getName() + "：onDestroy");
     }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.i("LOG", this.getClass().getName() + "：onSaveInstanceState");
+    }
+
+
+
+
 }

@@ -1,7 +1,9 @@
 package com.hongliang.demo.source;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.hongliang.demo.BaseFragment;
 import com.hongliang.demo.R;
 import com.hongliang.demo.otherActivity.DeleteView;
 import com.hongliang.demo.source.activity.FileActivity;
@@ -28,7 +31,7 @@ import com.hongliang.demo.source.activity.AidlActivity;
 /**
  * Created by Administrator on 2016/6/28.
  */
-public class AFragment extends Fragment implements View.OnClickListener {
+public class AFragment extends BaseFragment implements View.OnClickListener {
     private View view;
     /**
      * One
