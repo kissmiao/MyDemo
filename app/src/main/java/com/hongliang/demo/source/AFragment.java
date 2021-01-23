@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.hongliang.demo.BaseFragment;
 import com.hongliang.demo.R;
@@ -26,6 +28,7 @@ import com.hongliang.demo.otherActivity.ViewPagerActivity;
 import com.hongliang.demo.otherActivity.ViewSlideActivity;
 import com.hongliang.demo.source.activity.TouchEventActivity;
 import com.hongliang.demo.source.activity.AidlActivity;
+import com.hongliang.demo.util.BitmapUtil;
 
 
 /**
@@ -161,6 +164,21 @@ public class AFragment extends BaseFragment implements View.OnClickListener {
         mBtSlide = view.findViewById(R.id.bt_Slide);
         mBtSlide.setOnClickListener(this);
 
+        ImageView imageView = view.findViewById(R.id.iv_afragment);
+        BitmapUtil.loadResImage(getActivity(), imageView, R.drawable.a);
+
+        ImageView imageView2 = view.findViewById(R.id.iv_afragment2);
+        BitmapUtil.loadResImage(getActivity(), imageView2, R.drawable.avastar);
+
+        ImageView imageView3 = view.findViewById(R.id.iv_afragment3);
+        BitmapUtil.loadResImage(getActivity(), imageView3, R.drawable.e);
+
+        ImageView imageView4 = view.findViewById(R.id.iv_afragment3);
+        BitmapUtil.loadResImage(getActivity(), imageView4, R.drawable.c);
+
+        ImageView imageView5 = view.findViewById(R.id.iv_afragment3);
+        BitmapUtil.loadResImage(getActivity(), imageView5, R.drawable.d);
+
     }
 
     @Override
@@ -231,5 +249,43 @@ public class AFragment extends BaseFragment implements View.OnClickListener {
         }
     }
 
+
+    /**
+     * 首先AFragment加载5张Bitmap图片到内存，然后从首页跳转到一个Activity，然后直接回到桌面，然后使用应用宝清除内存
+     * 打开app,回到首页，会发现，首页白屏，然后重新加载，
+     * AFragment：onAttach
+     * .AFragment：onCreate
+     * MainActivity：onCreate
+     * AFragment：onViewCreated
+     * AFragment：onActivityCreated
+     * AFragment：onStart
+     * MainActivity：onStart
+     * MainActivity：onRestoreInstanceState
+     * MainActivity：onResume
+     * mBtnOne=====null
+     * AFragment：onResume
+     * 在MainActivity的onResume中打印AFragment的某一个控件是为空
+     *
+     */
+    /**
+     * 说明清除分两种级别，一个是只清除View还有一种是清除整个Fragment
+     * 当有5个Bitmap加载的时候，没有使用应用宝清除内存，正常从activity回来的时候
+     * AFragment：onStart
+     * MainActivity：onStart
+     * MainActivity：onResume
+     * mBtnOne=====null
+     * AFragment：onResume
+     */
+    /**
+     * 当去掉5个Bitmap的加载没有使用应用宝清除内存，正常从activity回来的时候
+     * AFragment：onStart
+     * .MainActivity：onStart
+     * MainActivity：onResume
+     * mBtnOne=====android.support.v7.widget.AppCompatButton
+     * AFragment：onResume
+     */
+    public void changeTest() {
+        Log.i("LOG", "mBtnOne=====" + mBtnOne);
+    }
 
 }

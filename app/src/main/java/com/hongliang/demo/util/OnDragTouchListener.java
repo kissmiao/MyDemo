@@ -3,7 +3,6 @@ package com.hongliang.demo.util;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,10 +60,8 @@ public class OnDragTouchListener implements View.OnTouchListener {
                     top = bottom - v.getHeight();
                 }
                 v.layout(left, top, right, bottom);
-                Log.i("LOG", "1111111=======");
                 break;
             case MotionEvent.ACTION_UP:
-                Log.i("LOG", "=============");
                 //在拖动过按钮后，如果其他view刷新导致重绘，会让按钮重回原点，所以需要更改布局参数
                 ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
 

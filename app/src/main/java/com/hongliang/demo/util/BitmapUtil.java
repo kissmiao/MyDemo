@@ -1,10 +1,15 @@
 package com.hongliang.demo.util;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.Settings;
+import android.util.Log;
+import android.widget.ImageView;
+
+import com.hongliang.demo.R;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -178,6 +183,25 @@ public class BitmapUtil {
         }
 
 
+    }
+
+
+//private  static  void  loadResImage(Context content, ImageView imageView){
+//        BitmapFactory.Options options=new BitmapFactory.Options();
+//        BitmapFactory.decodeResource(c)
+//}
+
+
+    public static void loadResImage(Context content, ImageView imageView, int id) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        Bitmap bitmap = BitmapFactory.decodeResource(content.getResources(), id, options);
+        //Bitmap bitmap = BitmapFactory.decodeFile("mnt/sdcard/weixin.png", options);
+        imageView.setImageBitmap(bitmap);
+
+        Log.i("LOG", "bitmap：ByteCount = " + bitmap.getByteCount() + ":::bitmap：AllocationByteCount = " + bitmap.getAllocationByteCount());
+        Log.i("LOG", "width:" + bitmap.getWidth() + ":::height:" + bitmap.getHeight());
+        Log.i("LOG", "inDensity:" + options.inDensity + ":::inTargetDensity:" + options.inTargetDensity);
+        Log.i("LOG", "imageview.width:" + imageView.getWidth() + ":::imageview.height:" + imageView.getHeight());
     }
 
 

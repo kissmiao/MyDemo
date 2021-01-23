@@ -28,6 +28,10 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     private String TAG = "EventDistribute";
     private RelativeLayout rl_main;
 
+
+    private AFragment aFragment;
+    private BFragment bFragment;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +66,10 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         viewPager = (ViewPager) findViewById(R.id.vp_event);
         viewPager.setOffscreenPageLimit(1);
         List<Fragment> fragmentList = new ArrayList<>();
-        fragmentList.add(new AFragment());
-        fragmentList.add(new BFragment());
+        aFragment = new AFragment();
+        bFragment = new BFragment();
+        fragmentList.add(aFragment);
+        fragmentList.add(bFragment);
 
         PageAdapter adapter = new PageAdapter(getSupportFragmentManager(), fragmentList);
         viewPager.setAdapter(adapter);
@@ -139,6 +145,13 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     // arg0 ==1的时辰默示正在滑动，arg0==2的时辰默示滑动完毕了，arg0==0的时辰默示什么都没做。
     @Override
     public void onPageScrollStateChanged(int state) {
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        aFragment.changeTest();
 
     }
 }
