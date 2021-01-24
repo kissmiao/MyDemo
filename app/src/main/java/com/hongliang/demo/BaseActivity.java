@@ -9,7 +9,7 @@ import android.util.Log;
 
 /**
  * https://www.jianshu.com/p/5c2ec2420a0e
- * https://www.jianshu.com/p/27181e2e32d2
+ *
  */
 public class BaseActivity extends AppCompatActivity {
 

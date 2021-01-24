@@ -68,16 +68,14 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         viewPager.setOffscreenPageLimit(1);
 
         List<Fragment> fragmentList = new ArrayList<>();
-        aFragment = (AFragment) getSupportFragmentManager().findFragmentByTag(AFragment.TAG);
-        Log.i("LOG","aFragment==="+aFragment);
+//        aFragment = (AFragment) getSupportFragmentManager().findFragmentByTag(AFragment.TAG);
+//        Log.i("LOG", "aFragment===" + aFragment);
         if (aFragment == null) {
             aFragment = new AFragment();
         }
-
-        bFragment = (BFragment) getSupportFragmentManager().findFragmentByTag(BFragment.TAG);
-        Log.i("LOG","bFragment==="+bFragment);
+//        bFragment = (BFragment) getSupportFragmentManager().findFragmentByTag(BFragment.TAG);
+//        Log.i("LOG", "bFragment===" + bFragment);
         if (bFragment == null) {
-
             bFragment = new BFragment();
         }
 
@@ -166,5 +164,30 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         super.onResume();
         aFragment.changeTest();
 
+    }
+
+
+    /**
+     *  其实只是分两种：1是恢复同一个Fragment的状态，还有一个是恢复不同Fragment的状态，同一个和不同一个区别是是否使用局部变量保存了Fragment
+     * 这里是使用ViewPage中进行恢复
+     *  https://www.jianshu.com/p/27181e2e32d2
+     * @param savedInstanceState
+     */
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Fragment fragmentFirst = getSupportFragmentManager().findFragmentByTag(makeFragmentName(viewPager.getId(), 0));
+        if (fragmentFirst != null) {
+            aFragment = (AFragment) fragmentFirst;
+        }
+        Fragment fragmentSecond = getSupportFragmentManager().findFragmentByTag(makeFragmentName(viewPager.getId(), 1));
+        if (fragmentSecond != null) {
+            bFragment = (BFragment) fragmentSecond;
+        }
+    }
+
+
+    private static String makeFragmentName(int viewId, long id) {
+        return "android:switcher:" + viewId + ":" + id;
     }
 }

@@ -121,7 +121,7 @@ public class AFragment extends BaseFragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_as, null);
-        Log.i("LOG", this.getClass().getName() + "：onCreateView");
+        Log.e("LOG", this.getClass().getName() + "：onCreateView");
         initView(view);
         return view;
     }
@@ -288,7 +288,7 @@ public class AFragment extends BaseFragment implements View.OnClickListener {
      * AFragment：onResume
      */
     public void changeTest() {
-        Log.i("LOG", "mBtnOne=====" + mBtnOne);
+        Log.e("LOG", "mBtnOne=====" + mBtnOne);
     }
 
 }
