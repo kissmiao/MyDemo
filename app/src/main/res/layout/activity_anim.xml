@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.hongliang.demo.view.MViewGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/bt_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="alpha" />
+
+        <Button
+            android:id="@+id/bt_rotate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="rotate" />
+
+        <Button
+            android:id="@+id/bt_scale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="scale" />
+
+        <Button
+            android:id="@+id/bt_translate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="translate" />
+
+        <Button
+            android:id="@+id/bt_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="set" />
+
+    </com.hongliang.demo.view.MViewGroup>
+
+    <FrameLayout
+        android:id="@+id/f_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

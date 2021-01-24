@@ -20,14 +20,13 @@ import okhttp3.Response;
 
 public class OkHttpActivity extends Activity {
 
-    private final OkHttpClient client = new OkHttpClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ok);
 
-        requestBannerApi();
+        //    requestBannerApi();
     }
 
 
@@ -40,7 +39,7 @@ public class OkHttpActivity extends Activity {
         //1.第一步创建OkHttpClient对象
         final OkHttpClient okHttpClient = new OkHttpClient();
 
-        String url = "https://www.wanandroid.com/banner/json";
+        String url = "http://www.baidu.com/";
 
         //2. 如果需要拼接参数 （一般有参数的都会用Post请求，除非参数不重要）
 //        Map<String, String> params = new HashMap<>();

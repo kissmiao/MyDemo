@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="1000"
+    android:fromDegrees="0"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:toDegrees="360">
+
+    <!--    android:fromDegrees     开始旋转的角度位置，正值代表顺时针方向度数，负值代码逆时针方向度数-->
+    <!--    android:toDegrees         结束时旋转到的角度位置，正值代表顺时针方向度数，负值代码逆时针方向度数-->
+    <!--    android:pivotX               缩放起点X轴坐标，可以是数值、百分数、百分数p 三种样式，比如 50、50%、50%p，具体意义已在scale标签中讲述，这里就不再重讲-->
+    <!--    android:pivotY               缩放起点Y轴坐标，可以是数值、百分数、百分数p 三种样式，比如 50、50%、50%p-->
+
+    <!--    比如 50、50%、50%p，当为数值时，
+表示在当前View的左上角，即原点处加上50px，做为起始缩放点；
+如果是50%，表示在当前控件的左上角加上自己宽度的50%做为起始点；
+如果是50%p，那么就是表示在当前的左上角加上父控件宽度的50%做为起始点x轴坐标-->
+</rotate>

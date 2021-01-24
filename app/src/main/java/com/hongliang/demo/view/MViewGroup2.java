@@ -12,6 +12,8 @@ import android.widget.Scroller;
 
 /**
  * Created by Administrator on 2016/8/2.
+ * <p>
+ * 里面放几个View，可以控制View左右滑动
  */
 public class MViewGroup2 extends ViewGroup {
     private int leftBorder;
@@ -20,15 +22,16 @@ public class MViewGroup2 extends ViewGroup {
     private float mLastXIntercept = 0;
     private float mLastYIntercept = 0;
 
-    private float mLastX=0;
-    private float mLastY=0;
+    private float mLastX = 0;
+    private float mLastY = 0;
 
     private int mTouchSlop;
 
     private Scroller mScroller;
 
     public MViewGroup2(Context context) {
-        super(context);  init(context);
+        super(context);
+        init(context);
         init(context);
     }
 
@@ -43,11 +46,9 @@ public class MViewGroup2 extends ViewGroup {
     }
 
 
-
-
     @Override
     public void computeScroll() {
-        if(mScroller.computeScrollOffset()){
+        if (mScroller.computeScrollOffset()) {
             int currX = mScroller.getCurrX();
             int currY = mScroller.getCurrY();
             scrollTo(currX, currY);
@@ -64,7 +65,7 @@ public class MViewGroup2 extends ViewGroup {
     }
 
 
-    private void init(Context context){
+    private void init(Context context) {
         ViewConfiguration configuration = ViewConfiguration.get(context);
 
         // 获取TouchSlop值
@@ -104,7 +105,7 @@ public class MViewGroup2 extends ViewGroup {
     }
 
 
-   @Override
+    @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         boolean intercept = false;
         float xIntercept = ev.getX();
@@ -117,15 +118,15 @@ public class MViewGroup2 extends ViewGroup {
             case MotionEvent.ACTION_MOVE:
                 float x = xIntercept - mLastXIntercept;
                 float y = yIntercept - mLastYIntercept;
-                if(Math.abs(x)> Math.abs(y)&& Math.abs(x)>mTouchSlop){
+                if (Math.abs(x) > Math.abs(y) && Math.abs(x) > mTouchSlop) {
                     intercept = true;
-                }else {
+                } else {
 
                     intercept = false;
                 }
                 break;
             case MotionEvent.ACTION_UP:
-              intercept = false;
+                intercept = false;
                 break;
             default:
                 break;
@@ -139,6 +140,7 @@ public class MViewGroup2 extends ViewGroup {
 
     /**
      * 滑动过程中getScrollX()是不断累加的
+     *
      * @param event
      * @return
      */
@@ -214,42 +216,40 @@ public class MViewGroup2 extends ViewGroup {
         mLastY = yTouch;
         return super.onTouchEvent(event);
     }*/
-
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
         float xTouch = event.getX();
         float yTouch = event.getY();
 
-        Log.i("LOG","event.getX"+event.getX());
+        Log.i("LOG", "event.getX" + event.getX());
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 if (!mScroller.isFinished())
                     mScroller.abortAnimation();
                 break;
             case MotionEvent.ACTION_MOVE:
-                float deltaX = xTouch-mLastX;
-                float deltaY = yTouch-mLastY;
+                float deltaX = xTouch - mLastX;
+                float deltaY = yTouch - mLastY;
                 float scrollByStart = deltaX;
                 //如果超出边界，则把滑动距离缩小到1/3
-                Log.i("LOG","getScrollX()"+getScrollX());
+                Log.i("LOG", "getScrollX()" + getScrollX());
                 if (getScrollX() - deltaX < leftBorder) {
-                    scrollByStart = deltaX/3;
+                    scrollByStart = deltaX / 3;
                 } else if (getScrollX() + getWidth() - deltaX > rightBorder) {
-                    scrollByStart = deltaX/3;
+                    scrollByStart = deltaX / 3;
                 }
                 scrollBy((int) -scrollByStart, 0);
                 break;
             case MotionEvent.ACTION_UP:
                 // 当手指抬起时，根据当前的滚动值来判定应该滚动到哪个子控件的界面
-                int targetIndex =(getScrollX() + getWidth() / 2) / getWidth();
+                int targetIndex = (getScrollX() + getWidth() / 2) / getWidth();
                 //如果超过右边界，则回弹到最后一个View
-                if (targetIndex>getChildCount()-1){
-                    targetIndex = getChildCount()-1;
+                if (targetIndex > getChildCount() - 1) {
+                    targetIndex = getChildCount() - 1;
                     //如果超过左边界，则回弹到第一个View
-                }else if (targetIndex<0){
-                    targetIndex =0;
+                } else if (targetIndex < 0) {
+                    targetIndex = 0;
                 }
                 int dx = targetIndex * getWidth() - getScrollX();
                 // 第二步，使用startScroll方法，对其进行初始化

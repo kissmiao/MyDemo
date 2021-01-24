@@ -75,8 +75,8 @@ public class TimeViewGroup extends LinearLayout implements View.OnClickListener 
 
     private void onSelectedTimeAnimStart(final TextView todayTime, final TextView selecteTime) {
 
-        ObjectAnimator animator = ObjectAnimator.ofFloat(todayTime, "alpha", 1, 0);
-        ObjectAnimator alpha_animator = ObjectAnimator.ofFloat(selecteTime, "alpha", 1, 0);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(todayTime, "anim_alpha", 1, 0);
+        ObjectAnimator alpha_animator = ObjectAnimator.ofFloat(selecteTime, "anim_alpha", 1, 0);
         ObjectAnimator translationX_animator = ObjectAnimator.ofFloat(selecteTime, "translationX", 0, UIHelper.Dp2Px(mContext, -200));
         AnimatorSet animatorSet = new AnimatorSet();
         //动画一起执行
@@ -109,11 +109,11 @@ public class TimeViewGroup extends LinearLayout implements View.OnClickListener 
 
     private void onSelectedTimeAnimStartEnd(TextView todayTime, TextView selecteTime) {
         //显示——透明——显示
-        ObjectAnimator animator = ObjectAnimator.ofFloat(todayTime, "alpha", 0, 1);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(todayTime, "anim_alpha", 0, 1);
         animator.setDuration(100);
         animator.start();
         //显示—不显示
-        ObjectAnimator alpha_animator = ObjectAnimator.ofFloat(selecteTime, "alpha", 0, 1);
+        ObjectAnimator alpha_animator = ObjectAnimator.ofFloat(selecteTime, "anim_alpha", 0, 1);
         //像左移动
         ObjectAnimator translationX_animator = ObjectAnimator.ofFloat(selecteTime, "translationX", UIHelper.Dp2Px(mContext, -200), 0);
         AnimatorSet animatorSet = new AnimatorSet();

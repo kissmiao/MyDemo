@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.hongliang.demo.otherActivity.AnimActivity;
 import com.hongliang.demo.otherActivity.DialogActivity;
 import com.hongliang.demo.otherActivity.DrawableActivity;
 import com.hongliang.demo.otherActivity.HandlerActivity;
@@ -98,6 +99,7 @@ public class EFragment extends Fragment implements View.OnClickListener {
         mBtDialog.setOnClickListener(this);
         mBtOk = (Button) view.findViewById(R.id.bt_ok);
         mBtOk.setOnClickListener(this);
+        view.findViewById(R.id.bt_anim).setOnClickListener(this);
     }
 
     @Override
@@ -124,8 +126,7 @@ public class EFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.bt_recycle:
                 break;
-            case R.id.bt_viewpage:
-                break;
+
             case R.id.bt_popw:
                 intent = new Intent(getActivity(), PopwActivity.class);
                 startActivity(intent);
@@ -140,6 +141,10 @@ public class EFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.bt_ok:
                 intent = new Intent(getActivity(), OkHttpActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.bt_anim:
+                intent = new Intent(getActivity(), AnimActivity.class);
                 startActivity(intent);
                 break;
         }

@@ -74,6 +74,7 @@
         <activity android:name=".viewActivity.ScrollActivity"></activity>
         <activity android:name=".otherActivity.OkHttpActivity"></activity>
 
+
         <service
             android:name=".StudentService"
             android:process="com.aidl.student.service">
@@ -111,6 +112,7 @@
         <activity android:name=".otherActivity.ViewSlideActivity"></activity>
 
         <activity android:name=".source.activity.FileActivity"></activity>
+        <activity android:name=".otherActivity.AnimActivity" />
 
     </application>
 

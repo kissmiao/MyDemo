@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2016/8/30.
+ * 一行三个，往里面放View
  */
 public class MViewGroup3 extends ViewGroup {
     private DisplayMetrics dm;
