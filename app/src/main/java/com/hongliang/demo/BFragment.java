@@ -19,6 +19,7 @@ import java.util.List;
  * Created by Administrator on 2016/6/28.
  */
 public class BFragment extends Fragment {
+    public static String TAG="BFragment";
     private ViewPager vp_fragment_event;
     private TabLayout tabLayout;
 

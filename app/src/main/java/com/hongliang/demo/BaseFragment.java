@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * https://www.cnblogs.com/mengdd/p/5582244.html
+ */
 public class BaseFragment extends Fragment {
 
 
@@ -95,6 +98,14 @@ public class BaseFragment extends Fragment {
     }
 
 
-
-
+    /**
+     * 它并不是实例状态恢复的方法, 只是一个View状态恢复的回调.
+     * /在onActivityCreated()和onStart()之间调用
+     * @param savedInstanceState
+     */
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        Log.i("LOG", this.getClass().getName() + "：onViewStateRestored");
+    }
 }

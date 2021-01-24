@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
@@ -65,9 +66,21 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
         viewPager = (ViewPager) findViewById(R.id.vp_event);
         viewPager.setOffscreenPageLimit(1);
+
         List<Fragment> fragmentList = new ArrayList<>();
-        aFragment = new AFragment();
-        bFragment = new BFragment();
+        aFragment = (AFragment) getSupportFragmentManager().findFragmentByTag(AFragment.TAG);
+        Log.i("LOG","aFragment==="+aFragment);
+        if (aFragment == null) {
+            aFragment = new AFragment();
+        }
+
+        bFragment = (BFragment) getSupportFragmentManager().findFragmentByTag(BFragment.TAG);
+        Log.i("LOG","bFragment==="+bFragment);
+        if (bFragment == null) {
+
+            bFragment = new BFragment();
+        }
+
         fragmentList.add(aFragment);
         fragmentList.add(bFragment);
 

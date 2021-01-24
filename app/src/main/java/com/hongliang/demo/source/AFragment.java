@@ -35,6 +35,7 @@ import com.hongliang.demo.util.BitmapUtil;
  * Created by Administrator on 2016/6/28.
  */
 public class AFragment extends BaseFragment implements View.OnClickListener {
+    public static String TAG="AFragment";
     private View view;
     /**
      * One
@@ -120,6 +121,7 @@ public class AFragment extends BaseFragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_as, null);
+        Log.i("LOG", this.getClass().getName() + "：onCreateView");
         initView(view);
         return view;
     }
@@ -256,6 +258,7 @@ public class AFragment extends BaseFragment implements View.OnClickListener {
      * AFragment：onAttach
      * .AFragment：onCreate
      * MainActivity：onCreate
+     * AFragment：onCreateView
      * AFragment：onViewCreated
      * AFragment：onActivityCreated
      * AFragment：onStart
