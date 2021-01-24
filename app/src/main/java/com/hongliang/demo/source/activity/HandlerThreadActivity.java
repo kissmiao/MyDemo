@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.hongliang.demo.MyIntentServer;
 import com.hongliang.demo.R;
 import com.hongliang.demo.util.Platform;
 
@@ -41,11 +40,6 @@ public class HandlerThreadActivity extends Activity {
 
         onCreateHandle();
 
-        Intent intent = new Intent(HandlerThreadActivity.this, MyIntentServer.class);
-        intent.putExtra("name", "张===");
-        startService(intent);
-
-
         mainHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
@@ -57,7 +51,6 @@ public class HandlerThreadActivity extends Activity {
 
         MyThread myThread = new MyThread();
         myThread.start();
-
     }
 
 
@@ -123,10 +116,7 @@ public class HandlerThreadActivity extends Activity {
                 e.printStackTrace();
             }
 
-
-          //  change("hhh");
-
-            //handler 可以进行线程间切换，必须是new 一个Runnable 在Runnable的run方法之前切换
+            // todo handler 可以进行线程间切换，必须是new 一个Runnable 在Runnable的run方法之前切换
             Handler handler = new Handler(Looper.getMainLooper());
             handler.post(new MyRunable("cccc"));
         }

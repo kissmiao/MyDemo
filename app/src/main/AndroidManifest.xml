@@ -37,7 +37,7 @@
         <activity android:name=".otherActivity.MViewGroupActivity"></activity>
         <activity android:name=".viewActivity.MyViewActivity"></activity>
         <activity android:name=".otherActivity.MyViewPageActivity"></activity>
-        <activity android:name=".otherActivity.PopwActivity"></activity>
+        <activity android:name=".otherActivity.PopupWindowActivity"></activity>
         <activity android:name=".viewActivity.QQHealthActivity"></activity>
         <activity android:name=".viewActivity.SolidViewActivity"></activity>
         <activity android:name=".viewActivity.Circular2Activity"></activity>

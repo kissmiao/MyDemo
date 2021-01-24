@@ -16,7 +16,7 @@ import com.hongliang.demo.otherActivity.HandlerActivity;
 import com.hongliang.demo.otherActivity.ImageViewGroupActivity;
 import com.hongliang.demo.otherActivity.ItemViewGroupActivity;
 import com.hongliang.demo.otherActivity.OkHttpActivity;
-import com.hongliang.demo.otherActivity.PopwActivity;
+import com.hongliang.demo.otherActivity.PopupWindowActivity;
 
 
 /**
@@ -128,7 +128,7 @@ public class EFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.bt_popw:
-                intent = new Intent(getActivity(), PopwActivity.class);
+                intent = new Intent(getActivity(), PopupWindowActivity.class);
                 startActivity(intent);
                 break;
             case R.id.bt_handler:

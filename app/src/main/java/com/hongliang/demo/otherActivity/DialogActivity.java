@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.hongliang.demo.R;
 import com.hongliang.demo.util.MyDialog;
+import com.hongliang.demo.util.MyDialog2;
 
 
 /**
@@ -15,9 +16,9 @@ public class DialogActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_popw);
+        setContentView(R.layout.activity_dialog);
 
-        findViewById(R.id.bt_popw).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.bt_dialog).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MyDialog dialog = new MyDialog(DialogActivity.this);
@@ -25,6 +26,15 @@ public class DialogActivity extends Activity {
 
             }
         });
+        findViewById(R.id.bt_dialog2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyDialog2 dialog = new MyDialog2(DialogActivity.this);
+                dialog.show();
+
+            }
+        });
+
 
     }
 }

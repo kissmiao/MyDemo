@@ -35,7 +35,7 @@ import com.hongliang.demo.util.BitmapUtil;
  * Created by Administrator on 2016/6/28.
  */
 public class AFragment extends BaseFragment implements View.OnClickListener {
-    public static String TAG="AFragment";
+    public static String TAG = "AFragment";
     private View view;
     /**
      * One
@@ -166,20 +166,20 @@ public class AFragment extends BaseFragment implements View.OnClickListener {
         mBtSlide = view.findViewById(R.id.bt_Slide);
         mBtSlide.setOnClickListener(this);
 
-        ImageView imageView = view.findViewById(R.id.iv_afragment);
-        BitmapUtil.loadResImage(getActivity(), imageView, R.drawable.a);
-
-        ImageView imageView2 = view.findViewById(R.id.iv_afragment2);
-        BitmapUtil.loadResImage(getActivity(), imageView2, R.drawable.avastar);
-
-        ImageView imageView3 = view.findViewById(R.id.iv_afragment3);
-        BitmapUtil.loadResImage(getActivity(), imageView3, R.drawable.e);
-
-        ImageView imageView4 = view.findViewById(R.id.iv_afragment3);
-        BitmapUtil.loadResImage(getActivity(), imageView4, R.drawable.c);
-
-        ImageView imageView5 = view.findViewById(R.id.iv_afragment3);
-        BitmapUtil.loadResImage(getActivity(), imageView5, R.drawable.d);
+//        ImageView imageView = view.findViewById(R.id.iv_afragment);
+//        BitmapUtil.loadResImage(getActivity(), imageView, R.drawable.a);
+//
+//        ImageView imageView2 = view.findViewById(R.id.iv_afragment2);
+//        BitmapUtil.loadResImage(getActivity(), imageView2, R.drawable.avastar);
+//
+//        ImageView imageView3 = view.findViewById(R.id.iv_afragment3);
+//        BitmapUtil.loadResImage(getActivity(), imageView3, R.drawable.e);
+//
+//        ImageView imageView4 = view.findViewById(R.id.iv_afragment3);
+//        BitmapUtil.loadResImage(getActivity(), imageView4, R.drawable.c);
+//
+//        ImageView imageView5 = view.findViewById(R.id.iv_afragment3);
+//        BitmapUtil.loadResImage(getActivity(), imageView5, R.drawable.d);
 
     }
 

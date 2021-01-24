@@ -43,16 +43,17 @@
         android:text="ViewPage" />
 
     <Button
+        android:id="@+id/bt_handler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试Handler" />
+
+    <Button
         android:id="@+id/bt_popw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="popwindow" />
 
-    <Button
-        android:id="@+id/bt_handler"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="测试Handler" />
 
     <Button
         android:id="@+id/bt_dialog"

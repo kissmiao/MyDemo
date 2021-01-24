@@ -11,9 +11,12 @@ import com.hongliang.demo.R;
  */
 public class PopupWindowSignUpData {
 
-
-   private CommonPopupWindow mApplayPopupWindow;
+    private CommonPopupWindow mApplayPopupWindow;
     private Activity mActivity;
+
+    public PopupWindowSignUpData(Activity activity) {
+        this.mActivity = activity;
+    }
 
     public void showPopupWindow() {
 
@@ -25,17 +28,6 @@ public class PopupWindowSignUpData {
         mApplayPopupWindow.showAtLocation(mActivity.findViewById(R.id.ll_popw), Gravity.BOTTOM | Gravity.CENTER, 0,
                 0); // 设置layout在PopupWindow中显示的位置
 
-
-       /* MyTextView people_num = (MyTextView) mApplayPopupWindow.view.findViewById(R.id.people_num);
-        Button mApplay = (Button) mApplayPopupWindow.view.findViewById(R.id.btn_applay);
-        final EditText mEt_name = (EditText) mApplayPopupWindow.view.findViewById(R.id.et_name);
-        final EditText mEt_tel = (EditText) mApplayPopupWindow.view.findViewById(R.id.et_tel);*/
     }
-
-    public PopupWindowSignUpData(Activity activity) {
-        this.mActivity = activity;
-    }
-
-
 
 }

@@ -12,12 +12,12 @@ import com.hongliang.demo.R;
 /**
  * Created by whl on 2017/3/19.
  */
-public class  MyDialog extends Dialog {
+public class MyDialog extends Dialog {
     Context mContext;
 
     public MyDialog(Context context) {
         super(context, R.style.Transparent);
-        this.mContext=context;
+        this.mContext = context;
 
 
     }
@@ -35,9 +35,9 @@ public class  MyDialog extends Dialog {
          * 设置宽度全屏，要设置在show的后面
          */
         WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
-        layoutParams.gravity= Gravity.BOTTOM;
-        layoutParams.width= WindowManager.LayoutParams.MATCH_PARENT;
-        layoutParams.height= WindowManager.LayoutParams.WRAP_CONTENT;
+        layoutParams.gravity = Gravity.BOTTOM;
+        layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+        layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
         getWindow().getDecorView().setPadding(0, 0, 0, 0);
 

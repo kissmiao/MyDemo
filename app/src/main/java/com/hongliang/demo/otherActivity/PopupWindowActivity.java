@@ -11,7 +11,11 @@ import com.hongliang.demo.util.PopupWindowSignUpData;
 /**
  * Created by whl on 16/9/27.
  */
-public class PopwActivity extends Activity {
+public class PopupWindowActivity extends Activity {
+
+
+    private PopupWindowSignUpData mEvent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +29,13 @@ public class PopwActivity extends Activity {
 
 
     }
+
     private void showPopupWin() {
         if (null == mEvent) {
             mEvent = new PopupWindowSignUpData(this);
         }
         mEvent.showPopupWindow();
     }
-    private PopupWindowSignUpData mEvent;
+
 
 }
