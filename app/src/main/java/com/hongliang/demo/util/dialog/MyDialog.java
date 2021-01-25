@@ -1,4 +1,4 @@
-package com.hongliang.demo.util;
+package com.hongliang.demo.util.dialog;
 
 import android.app.Dialog;
 import android.content.Context;

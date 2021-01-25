@@ -4,8 +4,8 @@
     android:fromDegrees="0"
     android:pivotX="50%"
     android:pivotY="50%"
-    android:repeatCount="infinite"
     android:repeatMode="restart"
+    android:drawable="@drawable/d"
     android:toDegrees="360">
 
     <!--    android:fromDegrees     开始旋转的角度位置，正值代表顺时针方向度数，负值代码逆时针方向度数-->

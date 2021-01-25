@@ -1,4 +1,4 @@
-package com.hongliang.demo.util;
+package com.hongliang.demo.util.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.view.WindowManager;
 
 import com.hongliang.demo.R;
+import com.hongliang.demo.util.UIHelper;
 
 public class MyDialog2 extends Dialog {
     private Context mContext;
