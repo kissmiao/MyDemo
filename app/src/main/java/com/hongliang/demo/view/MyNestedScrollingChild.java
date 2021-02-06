@@ -74,6 +74,7 @@ public class MyNestedScrollingChild extends LinearLayout implements NestedScroll
      */
     @Override
     public boolean hasNestedScrollingParent(int type) {
+        Log.e("LOG","child-hasNestedScrollingParent");
         return this.mChildHelper.hasNestedScrollingParent(type);
     }
 
@@ -158,6 +159,7 @@ public class MyNestedScrollingChild extends LinearLayout implements NestedScroll
 
     @Override
     public void scrollTo(int x, int y) {
+        Log.e("LOG","child-scrollTo");
         y = y < 0 ? 0 : y;
         y = y > this.mCanScrollY ? this.mCanScrollY : y;
         super.scrollTo(x, y);

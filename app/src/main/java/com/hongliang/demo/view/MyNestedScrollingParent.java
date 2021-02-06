@@ -53,7 +53,7 @@ public class MyNestedScrollingParent extends LinearLayout implements NestedScrol
     @Override
     public boolean onStartNestedScroll(@NonNull View child, @NonNull View target, int axes, int type) {
      //   return false;
-        Log.e("LOG","2-parent-onNestedScrollAccepted");
+        Log.e("LOG","2-parent-onStartNestedScroll");
         return (ViewCompat.SCROLL_AXIS_VERTICAL & axes) != 0;
     }
 
@@ -80,7 +80,7 @@ public class MyNestedScrollingParent extends LinearLayout implements NestedScrol
      */
     @Override
     public void onStopNestedScroll(@NonNull View target, int type) {
-
+        Log.e("LOG","56-parent-onStopNestedScroll");
     }
 
     /**
@@ -101,18 +101,23 @@ public class MyNestedScrollingParent extends LinearLayout implements NestedScrol
 
 
 
+
     /**
-     * 在 onNestedPreScroll 中，父控件消耗一部分距离之后，剩余的再次给子控件，
-     * 子控件消耗之后，如果还有剩余，则把剩余的再次还给父控件
+     * 在子控件开始滑动之前，会先调用父控件的此方法，由父控件先消耗一部分滑动距离，并且将消耗的距离存在consumed中，传递给子控件
+     * 在嵌套滑动的子View未滑动之前
+     * ，判断父view是否优先与子view处理(也就是父view可以先消耗，然后给子view消耗）
      *
-     * @param target       具体嵌套滑动的那个子类
-     * @param dx   水平方向嵌套滑动的子控件滑动的距离(消耗的距离)
-     * @param dy   垂直方向嵌套滑动的子控件滑动的距离(消耗的距离)
-     * @param consumed 水平方向嵌套滑动的子控件未滑动的距离(未消耗的距离)  垂直方向嵌套滑动的子控件未滑动的距离(未消耗的距离)
+     * @param target   具体嵌套滑动的那个子类
+     * @param dx       水平方向嵌套滑动的子View想要变化的距离
+     * @param dy       垂直方向嵌套滑动的子View想要变化的距离 dy<0向下滑动 dy>0 向上滑动
+     * @param consumed 这个参数要我们在实现这个函数的时候指定，回头告诉子View当前父View消耗的距离
+     *                 consumed[0] 水平消耗的距离，consumed[1] 垂直消耗的距离 好让子view做出相应的调整
      * @param type     滑动类型，ViewCompat.TYPE_NON_TOUCH fling效果,ViewCompat.TYPE_TOUCH 手势滑动
      */
     @Override
     public void onNestedPreScroll(@NonNull View target, int dx, int dy, @NonNull int[] consumed, int type) {
+        Log.e("LOG","parent-onNestedPreScroll");
+
         boolean isFirstChildVisible = (dy > 0 && this.getScrollY() < this.mFirstChildHeight)
                 || (dy < 0 && target.getScrollY() <= 0);
         if (isFirstChildVisible) {
@@ -126,6 +131,7 @@ public class MyNestedScrollingParent extends LinearLayout implements NestedScrol
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+        Log.e("LOG","parent-onFinishInflate");
         final View firstChild = this.getChildAt(0);
         if (firstChild == null)
             throw new IllegalStateException(String.format("%s must own a child view", MyNestedScrollingParent.class.getSimpleName()));
@@ -147,6 +153,7 @@ public class MyNestedScrollingParent extends LinearLayout implements NestedScrol
 
     @Override
     public void scrollTo(int x, int y) {
+        Log.e("LOG","parent-scrollTo");
         y = y < 0 ? 0 : y;
         y = y > this.mFirstChildHeight ? this.mFirstChildHeight : y;
         super.scrollTo(x, y);
