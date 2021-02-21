@@ -1,3 +1,5 @@
+
+
 package com.hongliang.demo.view;
 
 import android.content.Context;
@@ -8,10 +10,17 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 //https://www.jianshu.com/p/f55abc60a879
 public class MyNestedScrollingChild extends LinearLayout implements NestedScrollingChild2 {
+
+    private VelocityTracker mVelocityTracker;
+    private static final int INVALID_POINTER = -1;
+    private int mActivePointerId = INVALID_POINTER;
 
 
     private NestedScrollingChildHelper mChildHelper;
@@ -23,6 +32,8 @@ public class MyNestedScrollingChild extends LinearLayout implements NestedScroll
      */
     private final int[] mScrollOffset = new int[2];
     private final int[] mScrollConsumed = new int[2];
+
+
     public MyNestedScrollingChild(Context context) {
         this(context, null);
     }
@@ -36,7 +47,6 @@ public class MyNestedScrollingChild extends LinearLayout implements NestedScroll
         super(context, attrs, defStyleAttr);
         init();
     }
-
 
 
     private void init() {
@@ -54,7 +64,7 @@ public class MyNestedScrollingChild extends LinearLayout implements NestedScroll
      */
     @Override
     public boolean startNestedScroll(int axes, int type) {
-        Log.e("LOG","1-child-startNestedScroll");
+        Log.e("LOG", "1-child-startNestedScroll");
         return this.mChildHelper.startNestedScroll(axes, type);
     }
 
@@ -65,7 +75,7 @@ public class MyNestedScrollingChild extends LinearLayout implements NestedScroll
      */
     @Override
     public void stopNestedScroll(int type) {
-        Log.e("LOG","7-child-stopNestedScroll");
+        Log.e("LOG", "7-child-stopNestedScroll");
         this.mChildHelper.stopNestedScroll(type);
     }
 
@@ -74,7 +84,7 @@ public class MyNestedScrollingChild extends LinearLayout implements NestedScroll
      */
     @Override
     public boolean hasNestedScrollingParent(int type) {
-        Log.e("LOG","child-hasNestedScrollingParent");
+        Log.e("LOG", "child-hasNestedScrollingParent");
         return this.mChildHelper.hasNestedScrollingParent(type);
     }
 
@@ -95,7 +105,7 @@ public class MyNestedScrollingChild extends LinearLayout implements NestedScroll
      */
     @Override
     public boolean dispatchNestedScroll(int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, @Nullable int[] offsetInWindow, int type) {
-        Log.e("LOG","6-child-dispatchNestedScroll");
+        Log.e("LOG", "6-child-dispatchNestedScroll");
         return this.mChildHelper.dispatchNestedScroll(dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, offsetInWindow, type);
     }
 
@@ -114,34 +124,94 @@ public class MyNestedScrollingChild extends LinearLayout implements NestedScroll
      */
     @Override
     public boolean dispatchNestedPreScroll(int dx, int dy, @Nullable int[] consumed, @Nullable int[] offsetInWindow, int type) {
-        Log.e("LOG","4-child-dispatchNestedPreScroll");
+        Log.e("LOG", "4-child-dispatchNestedPreScroll");
         return this.mChildHelper.dispatchNestedPreScroll(dx, dy, consumed, offsetInWindow, type);
     }
+
+
+    int pianyi = 0;
+
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        switch (event.getAction()) {
+//            case MotionEvent.ACTION_DOWN:
+//                mActivePointerId = event.getPointerId(0);
+//                this.mLastMotionY = (int) event.getY();
+//                this.startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL, ViewCompat.TYPE_TOUCH);
+//                break;
+//            case MotionEvent.ACTION_MOVE:
+//                final int activePointerIndex = event.findPointerIndex(mActivePointerId);
+//                if (activePointerIndex == -1) {
+//                    Log.e("LOG", "Invalid pointerId=" + mActivePointerId + " in onTouchEvent");
+//                    break;
+//                }
+//
+//                //手在滑动，同时相对位置也在滑动
+//                final int y = (int) event.getY(activePointerIndex);
+//
+//
+//                int deltaY = this.mLastMotionY - y;
+//                Log.i("LOG", "deltaY1:" + mLastMotionY + "====" + y + "====" + deltaY);
+//                Log.i("LOG", "deltaY1:" + deltaY);
+////                if (this.dispatchNestedPreScroll(0, deltaY, this.mScrollConsumed,
+////                        this.mScrollOffset, ViewCompat.TYPE_TOUCH)) {
+////                    deltaY -= this.mScrollConsumed[1];
+////                }
+//                Log.i("LOG", "deltaY2:" + deltaY);
+//                this.scrollBy(0, deltaY);
+//
+////                final int range = getScrollRange();
+////                if (overScrollByCompat(0, deltaY, 0, getScrollY(), 0, range, 0,
+////                        0, true) && !hasNestedScrollingParent(ViewCompat.TYPE_TOUCH)) {
+////                    // Break our velocity if we hit a scroll barrier.
+////                    // mVelocityTracker.clear();
+////                }
+//
+//                break;
+//            case MotionEvent.ACTION_UP:
+//                mActivePointerId = INVALID_POINTER;
+//                this.stopNestedScroll(ViewCompat.TYPE_TOUCH);
+//                break;
+//            case MotionEvent.ACTION_CANCEL:
+//                mActivePointerId = INVALID_POINTER;
+//                this.stopNestedScroll(ViewCompat.TYPE_TOUCH);
+//                break;
+//            default:
+//                break;
+//        }
+//        return true;
+//    }
+
+
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                this.mLastMotionY = (int) event.getY();
                 this.startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL, ViewCompat.TYPE_TOUCH);
+                mLastMotionY= (int) event.getY();
                 break;
             case MotionEvent.ACTION_MOVE:
-                final int y = (int) event.getY();
-                int deltaY = this.mLastMotionY - y;
-                if (this.dispatchNestedPreScroll(0, deltaY, this.mScrollConsumed,
+                int y= (int) event.getY();
+                int dy = mLastMotionY - y;
+
+                Log.e("Tag", "dy" + dy);
+                if (this.dispatchNestedPreScroll(0, dy, this.mScrollConsumed,
                         this.mScrollOffset, ViewCompat.TYPE_TOUCH)) {
-                    deltaY -= this.mScrollConsumed[1];
+                    dy -= this.mScrollConsumed[1];
                 }
-                this.scrollBy(0, deltaY);
+                //   int dx = x - mLastX;
+                //加上之前的偏移量
+                scrollTo(0, dy);
+
                 break;
             case MotionEvent.ACTION_UP:
                 this.stopNestedScroll(ViewCompat.TYPE_TOUCH);
                 break;
-            case MotionEvent.ACTION_CANCEL:
-                this.stopNestedScroll(ViewCompat.TYPE_TOUCH);
-                break;
-            default:
-                break;
         }
+
         return true;
     }
 
@@ -159,9 +229,82 @@ public class MyNestedScrollingChild extends LinearLayout implements NestedScroll
 
     @Override
     public void scrollTo(int x, int y) {
-        Log.e("LOG","child-scrollTo");
+        Log.e("LOG", "child-scrollTo");
         y = y < 0 ? 0 : y;
         y = y > this.mCanScrollY ? this.mCanScrollY : y;
         super.scrollTo(x, y);
     }
+
+
+    boolean overScrollByCompat(int deltaX, int deltaY,
+                               int scrollX, int scrollY,
+                               int scrollRangeX, int scrollRangeY,
+                               int maxOverScrollX, int maxOverScrollY,
+                               boolean isTouchEvent) {
+        final int overScrollMode = getOverScrollMode();
+        final boolean canScrollHorizontal =
+                computeHorizontalScrollRange() > computeHorizontalScrollExtent();
+        final boolean canScrollVertical =
+                computeVerticalScrollRange() > computeVerticalScrollExtent();
+        final boolean overScrollHorizontal = overScrollMode == View.OVER_SCROLL_ALWAYS
+                || (overScrollMode == View.OVER_SCROLL_IF_CONTENT_SCROLLS && canScrollHorizontal);
+        final boolean overScrollVertical = overScrollMode == View.OVER_SCROLL_ALWAYS
+                || (overScrollMode == View.OVER_SCROLL_IF_CONTENT_SCROLLS && canScrollVertical);
+
+        int newScrollX = scrollX + deltaX;
+        if (!overScrollHorizontal) {
+            maxOverScrollX = 0;
+        }
+
+        int newScrollY = scrollY + deltaY;
+        if (!overScrollVertical) {
+            maxOverScrollY = 0;
+        }
+
+        // Clamp values if at the limits and record
+        final int left = -maxOverScrollX;
+        final int right = maxOverScrollX + scrollRangeX;
+        final int top = -maxOverScrollY;
+        final int bottom = maxOverScrollY + scrollRangeY;
+
+        boolean clampedX = false;
+        if (newScrollX > right) {
+            newScrollX = right;
+            clampedX = true;
+        } else if (newScrollX < left) {
+            newScrollX = left;
+            clampedX = true;
+        }
+
+        boolean clampedY = false;
+        if (newScrollY > bottom) {
+            newScrollY = bottom;
+            clampedY = true;
+        } else if (newScrollY < top) {
+            newScrollY = top;
+            clampedY = true;
+        }
+
+//        if (clampedY && !hasNestedScrollingParent(ViewCompat.TYPE_NON_TOUCH)) {
+//            mScroller.springBack(newScrollX, newScrollY, 0, 0, 0, getScrollRange());
+//        }
+
+        onOverScrolled(newScrollX, newScrollY, clampedX, clampedY);
+
+        return clampedX || clampedY;
+    }
+
+
+    int getScrollRange() {
+        int scrollRange = 0;
+        if (getChildCount() > 0) {
+            View child = getChildAt(0);
+            LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) child.getLayoutParams();
+            int childSize = child.getHeight() + lp.topMargin + lp.bottomMargin;
+            int parentSpace = getHeight() - getPaddingTop() - getPaddingBottom();
+            scrollRange = Math.max(0, childSize - parentSpace);
+        }
+        return scrollRange;
+    }
+
 }
