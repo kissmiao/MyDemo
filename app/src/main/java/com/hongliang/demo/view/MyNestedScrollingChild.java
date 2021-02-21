@@ -129,61 +129,11 @@ public class MyNestedScrollingChild extends LinearLayout implements NestedScroll
     }
 
 
-    int pianyi = 0;
-
-//    @Override
-//    public boolean onTouchEvent(MotionEvent event) {
-//        switch (event.getAction()) {
-//            case MotionEvent.ACTION_DOWN:
-//                mActivePointerId = event.getPointerId(0);
-//                this.mLastMotionY = (int) event.getY();
-//                this.startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL, ViewCompat.TYPE_TOUCH);
-//                break;
-//            case MotionEvent.ACTION_MOVE:
-//                final int activePointerIndex = event.findPointerIndex(mActivePointerId);
-//                if (activePointerIndex == -1) {
-//                    Log.e("LOG", "Invalid pointerId=" + mActivePointerId + " in onTouchEvent");
-//                    break;
-//                }
-//
-//                //手在滑动，同时相对位置也在滑动
-//                final int y = (int) event.getY(activePointerIndex);
-//
-//
-//                int deltaY = this.mLastMotionY - y;
-//                Log.i("LOG", "deltaY1:" + mLastMotionY + "====" + y + "====" + deltaY);
-//                Log.i("LOG", "deltaY1:" + deltaY);
-////                if (this.dispatchNestedPreScroll(0, deltaY, this.mScrollConsumed,
-////                        this.mScrollOffset, ViewCompat.TYPE_TOUCH)) {
-////                    deltaY -= this.mScrollConsumed[1];
-////                }
-//                Log.i("LOG", "deltaY2:" + deltaY);
-//                this.scrollBy(0, deltaY);
-//
-////                final int range = getScrollRange();
-////                if (overScrollByCompat(0, deltaY, 0, getScrollY(), 0, range, 0,
-////                        0, true) && !hasNestedScrollingParent(ViewCompat.TYPE_TOUCH)) {
-////                    // Break our velocity if we hit a scroll barrier.
-////                    // mVelocityTracker.clear();
-////                }
-//
-//                break;
-//            case MotionEvent.ACTION_UP:
-//                mActivePointerId = INVALID_POINTER;
-//                this.stopNestedScroll(ViewCompat.TYPE_TOUCH);
-//                break;
-//            case MotionEvent.ACTION_CANCEL:
-//                mActivePointerId = INVALID_POINTER;
-//                this.stopNestedScroll(ViewCompat.TYPE_TOUCH);
-//                break;
-//            default:
-//                break;
-//        }
-//        return true;
-//    }
 
 
+    int scrollY;
 
+    int dy;
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
@@ -191,11 +141,11 @@ public class MyNestedScrollingChild extends LinearLayout implements NestedScroll
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 this.startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL, ViewCompat.TYPE_TOUCH);
-                mLastMotionY= (int) event.getY();
+                mLastMotionY = (int) event.getY();
                 break;
             case MotionEvent.ACTION_MOVE:
-                int y= (int) event.getY();
-                int dy = mLastMotionY - y;
+                int y = (int) event.getY();
+                dy = mLastMotionY + scrollY - y;
 
                 Log.e("Tag", "dy" + dy);
                 if (this.dispatchNestedPreScroll(0, dy, this.mScrollConsumed,
@@ -209,6 +159,7 @@ public class MyNestedScrollingChild extends LinearLayout implements NestedScroll
                 break;
             case MotionEvent.ACTION_UP:
                 this.stopNestedScroll(ViewCompat.TYPE_TOUCH);
+                scrollY = dy;
                 break;
         }
 
